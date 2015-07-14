@@ -335,6 +335,7 @@
 		"schema.roster.aCoach":"Asistent trénera",
 		"schema.roster.listOfPlayers":"Zoznam hráčov",
 		"schema.roster.players":"Hráči",
+		"schema.roster.player":"Hráč",
 
 		"schema.ageCategory.title":"Veková kategória",
 		"schema.ageCategory.baseData": "Základné údaje",
@@ -400,6 +401,7 @@
 		"schema.refereeReport.listOfPlayersHome":"Zoznam hráčov - Domáci",
 		"schema.refereeReport.listOfPlayersGuest":"Zoznam hráčov - Hostia",
 		"schema.refereeReport.listOfPlayers.players":"Hráči",
+		"schema.refereeReport.listOfPlayers.player":"Hráč",
 
 		"schema.nomination.title":"Nominácia",
 		"schema.nomination.baseData":"Základné informácie",
@@ -413,6 +415,7 @@
 		"schema.nomination.officer2":"Funkcionár",
 		"schema.nomination.listOfPlayers":"Nominácia hráčov",
 		"schema.nomination.players":"Hráči",
+		"schema.nomination.player":"Hráč",
 		"schema.nomination.state":"Stav",
 
 		"schema.requests.title":"Žiadosť",
@@ -429,6 +432,7 @@
 		"schema.requests.basedata.status.processing":"Spracovávaná",
 		"schema.requests.basedata.status.closed":"Uzavretá",
 		"schema.requests.attachments":"Prílohy",
+		"schema.requests.file":"Súbor",
 		"schema.requests.basedata.responsetext":"Odpoveď",
 		"schema.requests.basedata.modifiedOn":"Čas poslednej zmeny",
 
@@ -881,6 +885,7 @@
 		"schema.roster.aCoach":"Asistent trenéra",
 		"schema.roster.listOfPlayers":"Seznam hráčů",
 		"schema.roster.players":"Hráči",
+		"schema.roster.player":"Hráč",
 
 		"schema.schedule.title":"Termín setkání",
 		"schema.schedule.listFields.competition":"Soutěž",
@@ -930,6 +935,7 @@
 		"schema.refereeReport.listOfPlayersHome":"Seznam hráčů - Domácí",
 		"schema.refereeReport.listOfPlayersGuest":"Seznam hráčů - Hosté",
 		"schema.refereeReport.listOfPlayers.players":"Hráči",
+		"schema.refereeReport.listOfPlayers.player":"Hráč",
 		
 		"schema.nomination.title":"Nominace",
 		"schema.nomination.listFields.match":"Setkání",
@@ -944,6 +950,7 @@
 		"schema.nomination.officer2":"Funkcionář",
 		"schema.nomination.listOfPlayers":"Nominace hráčů",
 		"schema.nomination.players":"Hráči",
+		"schema.nomination.player":"Hráč",
 		"schema.nomination.state":"Stav",
 
 		"schema.requests.title":"Žádost",
@@ -960,6 +967,7 @@
 		"schema.requests.basedata.status.processing":"Zpracovávaná",
 		"schema.requests.basedata.status.closed":"Uzavřená",
 		"schema.requests.attachments":"Přílohy",
+		"schema.requests.file":"Soubor",
 		"schema.requests.basedata.responsetext":"Odpověď",
 		"schema.requests.basedata.modifiedOn":"Čas poslední změny",
 
@@ -1398,6 +1406,7 @@
 		"schema.roster.aCoach":"Coach assistant",
 		"schema.roster.listOfPlayers":"Player list",
 		"schema.roster.players":"Players",
+		"schema.roster.player":"Player",
 
 		"schema.schedule.title":"Match date",
 		"schema.schedule.listFields.competition":"Competition",
@@ -1447,6 +1456,7 @@
 		"schema.refereeReport.listOfPlayersHome":"Player list - Home",
 		"schema.refereeReport.listOfPlayersGuest":"Player list - Away",
 		"schema.refereeReport.listOfPlayers.players":"Players",
+		"schema.refereeReport.listOfPlayers.player":"Player",
 		
 		"schema.nomination.title":"Nomination",
 		"schema.nomination.listFields.match":"Match",
@@ -1461,6 +1471,7 @@
 		"schema.nomination.officer2":"Officer",
 		"schema.nomination.listOfPlayers":"Player list",
 		"schema.nomination.players":"Players",
+		"schema.nomination.player":"Player",
 		"schema.nomination.state":"State",
 
 		"schema.requests.title":"Request",
@@ -1477,6 +1488,7 @@
 		"schema.requests.basedata.status.processing":"Processing",
 		"schema.requests.basedata.status.closed":"Closed",
 		"schema.requests.attachments":"Attachments",
+		"schema.requests.file":"File",
 		"schema.requests.basedata.responsetext":"Response text",
 		"schema.requests.basedata.modifiedOn":"Modified on",
 

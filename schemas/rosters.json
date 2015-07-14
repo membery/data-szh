@@ -180,15 +180,22 @@
 					"transCode": "schema.roster.players",
 					"type": "array",
 					"items": {
-						"objectLink2": {
-							"schema": "uri://registries/people#views/player/view",
-							"fields": {
-								"surName": "baseData.surName",
-								"firstName": "baseData.name",
-								"birthDate": "baseData.birthDate"
-							}
-						},
-						"required": true
+						"player": {
+							"title": "Hráč",
+							"transCode": "schema.roster.player",
+							"render": {
+								"width": "wide"
+							},
+							"objectLink2": {
+								"schema": "uri://registries/people#views/player/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name",
+									"birthDate": "baseData.birthDate"
+								}
+							},
+							"required": true
+						}
 					}
 				}
 			}
