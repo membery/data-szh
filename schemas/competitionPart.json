@@ -26,16 +26,16 @@
 						}
 					}
 				},
-				"numberOfTeams": {
-					"title": "Počet družstiev",
-					"transCode": "schema.competitionPart.numberOfTeams",
-					"type": "number",
-					"required": true
-				},
-				"numberOfMatches": {
-					"title": "Počet vzájomných stretnutí",
-					"transCode": "schema.competitionPart.numberOfMatches",
-					"type": "number",
+				"ageCategory": {
+					"title": "Veková kategória",
+					"transCode":"schema.competitionPart.ageCategory",
+					"type": "object",
+					"objectLink2": {
+						"schema":"uri://registries/ageCategory#views/ageCategory/view",
+						"fields":{
+							"name": "baseData.name"
+						}
+					},
 					"required": true
 				},
 				"typeOfCompetition": {
@@ -51,6 +51,11 @@
 						"component": "psui-selectbox",
 						"searchable": true
 					}
+				},
+				"prefix": {
+					"title": "Prefix",
+					"transCode": "schema.competitionPart.prefix",
+					"type": "string"
 				}
 			}
 		},

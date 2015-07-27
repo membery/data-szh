@@ -294,14 +294,12 @@
 				"isPlayer": {
 					"extends": "uri://registries/commonenums#blocks/boolean",
 					"title": "Je hráč",
-					"transCode": "schema.people.isPlayer",
-					"required": true
+					"transCode": "schema.people.isPlayer"
 				},
 				"clubOfFirstRegistration": {
 					"type": "object",
 					"title": "Materský klub",
 					"transCode": "schema.people.player.clubOfFirstRegistration",
-					"required": true,
 					"objectLink2": {
 						"schema": "uri://registries/organizations#views/club/view",
 						"fields": {
@@ -313,7 +311,6 @@
 					"type": "object",
 					"title": "Klubová príslušnosť",
 					"transCode": "schema.people.player.club",
-					"required": true,
 					"objectLink2": {
 						"schema": "uri://registries/organizations#views/club/view",
 						"fields": {
@@ -324,8 +321,7 @@
 				"stateOfPlayer": {
 					"extends": "uri://registries/commonenums#blocks/active",
 					"title": "Stav hráča",
-					"transCode": "schema.people.player.stateOfPlayer",
-					"required": true
+					"transCode": "schema.people.player.stateOfPlayer"
 				},
 				"expirationOfProffesionalContract": {
 					"title": "Profesionálna zmluva",
@@ -1300,11 +1296,6 @@
 						"transCode": "schema.people.name"
 					},
 					{
-						"field": "baseData.birthDate",
-						"title": "Dátum narodenia",
-						"transCode": "schema.people.birthDate"
-					},
-					{
 						"field": "player.clubOfFirstRegistration",
 						"title": "Materský klub",
 						"transCode": "schema.people.player.clubOfFirstRegistration"
@@ -1313,16 +1304,6 @@
 						"field": "player.club",
 						"title": "Klubová príslušnosť",
 						"transCode": "schema.people.player.club"
-					},
-					{
-						"field": "player.hostingStartDate",
-						"title": "Dátum začiatku hosťovania",
-						"transCode": "schema.people.player.hostingStartDate"
-					},
-					{
-						"field": "player.hostingEndDate",
-						"title": "Dátum konca hosťovania",
-						"transCode": "schema.people.player.hostingEndDate"
 					}
 				]
 			}
