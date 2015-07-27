@@ -257,9 +257,9 @@
 						"searchable": true
 					}
 				},
-				"webNumber": {
-					"title": "Číslo webu",
-					"transCode": "schema.refereeReport.delegatedPerson.webNumber",
+				"matchNumber": {
+					"title": "Číslo zápasu",
+					"transCode": "schema.refereeReport.delegatedPerson.matchNumber",
 					"type": "string"
 				}
 			}
