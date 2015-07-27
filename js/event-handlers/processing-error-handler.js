@@ -13,16 +13,17 @@
         this.ctx=ctx;
 
         this.handleProcessingError=function(event){
-            var template ="Pocas spracovanie udalosti/eventu {{eventType}} \n nastala chyba {{error}}. \n\n Zdrojovy Event: {{eventJson}}.";
+            var template ="Pocas spracovanie udalosti/eventu {{eventType}} \n nastala chyba {{error}}. \n\n Webserver: {{webServer}}\n Zdrojovy Event: {{eventJson}}.";
             var subject = "[WARN]: Chyba spracovania eventu "+ new Date();
             var causeEvent = event.causeEvent;
             var eventJson =JSON.stringify(causeEvent);
 
             var renderService = new renderServiceModule.RenderService();
-            var resolvedBody=renderService.renderInstant(template,{locals:{'eventType':causeEvent.eventType,'error':event.error,'eventJson':eventJson}});
+            var resolvedBody=renderService.renderInstant(template,{locals:{'webServer':this.ctx.config.webserverPublicUrl,
+                'eventType':causeEvent.eventType,'error':event.error,'eventJson':eventJson}});
 
             var mailOptions = {
-                from : 'websupport@unionsoft.sk',
+                from : this.ctx.config.mails.eventProcessingErrorSender,
                 to : this.ctx.config.mails.eventProcessingError,
                 subject :  subject,
                 html : resolvedBody
