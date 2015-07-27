@@ -3,7 +3,7 @@
 	"id": "uri://registries/dataChangeRequests#",
 	"models": {
 		"dataChange-km": {
-			"title": "Zmena údajov",
+			"title": "Žiadosť o zmena údajov",
 			"transCode": "schema.dataChangeRequests.title",
 			"table": "dataChangeRequests",
 			"security": {
@@ -195,10 +195,19 @@
 				"properties": {
 					"requestData": {
 						"properties":{
+							"status": {
+								"readOnly": false
+							},
+							"applicant": {
+								"readOnly": false
+							},
+							"clubApplicant": {
+								"readOnly": false
+							},
 							"assignedTo": {
 								"readOnly": false
 							},
-							"status": {
+							"setupDate": {
 								"readOnly": false
 							}
 						}
