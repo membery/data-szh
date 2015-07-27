@@ -28,7 +28,7 @@
 				},
 				"ageCategory": {
 					"title": "Veková kategória",
-					"transCode":"schema.roster.ageCategory",
+					"transCode":"schema.competition.ageCategory",
 					"type": "object",
 					"objectLink2": {
 						"schema":"uri://registries/ageCategory#views/ageCategory/view",
@@ -61,17 +61,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Security - write"
+						"Registry - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Security - read"
+						"Registry - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Security - write"
+						"Registry - write"
 					]
 				}
 			},

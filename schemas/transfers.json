@@ -20,14 +20,7 @@
 							"name": "baseData.name",
 							"birthDate":"baseData.birthDate"
 						}
-					},
-					"objectLinkForcedCriteria": [
-						{
-							"f": "player.isPlayer",
-							"op": "eq",
-							"v": "TRUE"
-						}
-					]
+					}
 				},
 				"clubFrom": {
 					"title": "Z klubu",
