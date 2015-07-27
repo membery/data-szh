@@ -3,8 +3,8 @@
 	"id": "uri://registries/transferRequests#",
 	"models": {
 		"transfer": {
-			"title": "Zmena kl. príslušnosti",
-			"transCode": "schema.transfer.title",
+			"title": "Žiadosť o zmenu kl. príslušnosti",
+			"transCode": "schema.transferRequests.title",
 			"table": "transferRequests",
 			"security": {
 				"create": {
