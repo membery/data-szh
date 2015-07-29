@@ -2,7 +2,6 @@
 
 	angular.module('x-registries')
 	.config(['$translateProvider', function($translateProvider) {
-		$translateProvider.preferredLanguage('sk');
 		$translateProvider.translations('sk', {
 		"menu.stadium.title": "Športový objekt",
 		"menu.new.competition.lower.level.she":"Nová súťaž",
