@@ -212,7 +212,7 @@
 						"type": "array",
 						"items": {
 							"applySchema": "string",
-							"criteria": {
+							"crits": {
 								"type": "array",
 								"items": {
 									"f": "string",
