@@ -13,7 +13,7 @@
         this.ctx=ctx;
 
         this.handleProcessingError=function(event){
-            var template ="Pocas spracovanie udalosti/eventu {{eventType}} \n nastala chyba {{error}}. \n\n Zdrojovy Event: {{eventJson}}.";
+            var template ="Počas spracovanie udalosti/eventu {{eventType}} \n nastala neočakávaná chyba: {{error}}. \n\n Zdrojový Event: {{eventJson}}.";
             var subject = "[WARN]: Chyba spracovania eventu "+ new Date();
             var causeEvent = event.causeEvent;
             var eventJson =JSON.stringify(causeEvent);

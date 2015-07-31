@@ -192,6 +192,23 @@
 		"dataChangeSolver": {
 			"view": {
 				"extends": "uri://registries/dataChangeRequests#models/dataChange-km",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
 				"properties": {
 					"requestData": {
 						"properties":{
@@ -207,6 +224,23 @@
 			},
 			"search": {
 				"extends": "uri://registries/dataChangeRequests#views/dataChangeApplicant/search",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "schema-redirect-link",

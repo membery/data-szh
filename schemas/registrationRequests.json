@@ -169,6 +169,23 @@
 		"peopleRegistrationSolver": {
 			"view": {
 				"extends": "uri://registries/registrationRequests#models/peopleRegistration",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "action-link",
@@ -192,6 +209,23 @@
 			},
 			"search": {
 				"extends": "uri://registries/registrationRequests#views/peopleRegistrationApplicant/search",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
 				"title": "Registrácia osoby",
 				"clientActions": [
 					{

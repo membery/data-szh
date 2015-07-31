@@ -152,6 +152,23 @@
 		"transferSolver": {
 			"view": {
 				"extends": "uri://registries/transferRequests#models/transfer",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "action-link",
@@ -175,6 +192,23 @@
 			},
 			"search": {
 				"extends": "uri://registries/transferRequests#views/transferApplicant/search",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "schema-redirect-link",

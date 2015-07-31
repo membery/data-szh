@@ -49,11 +49,11 @@
 							} );
 
 						}else {
-							self.ctx.eventRegistry.emitProcesingError('Neplatny casovy rozsah. Transfer nebol vykonany.',event);
+							self.ctx.eventRegistry.emitProcesingError('Neplatný časový rozsah. Transfer nebol vykonaný.',event);
 						}
 
 					}
-					else if (entity.baseData.typeOfTransfer === 'prestup' || entity.baseData.typeOfTransfer === 'zahr. transfér') {
+					else if (entity.baseData.typeOfTransfer === 'prestup' || entity.baseData.typeOfTransfer === 'zahr. transfer') {
 
 						var tsRealization = dateUtils.strToTS(entity.baseData.dateOfRealization);
 						if (tsRealization){
@@ -65,7 +65,7 @@
 								log.debug('new events for transfer scheduled');
 							} );
 						} else {
-							self.ctx.eventRegistry.emitProcesingError('Neplatny datum realizacie . Transfer nebol vykonany.',event);
+							self.ctx.eventRegistry.emitProcesingError('Neplatný dátum realizácie . Transfer nebol vykonaný.',event);
 						}
 					}
 				}
@@ -128,15 +128,15 @@
 				peopleDao.get(transfer.baseData.player.oid,function(err,player){
 					if (err){log.error(err);return;}
 					if (!player.player){
-						self.ctx.eventRegistry.emitProcesingError('Osoba nie je hracom. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Osoba nie je hráčom. Transfer nebol vykonaný.',event);
 						return;
 					}
 					if (!player.player.club || !player.player.club.oid ){
-						self.ctx.eventRegistry.emitProcesingError('Hrac nema definovany matersky klub. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Hráč nemá definovaný materský klub. Transfer nebol vykonaný.',event);
 						return;
 					}
 					if ( player.player.club.oid!=transfer.baseData.clubFrom.oid){
-						self.ctx.eventRegistry.emitProcesingError('Klub FROM sa nezhoduje s aktualnym klubom. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Klub FROM sa nezhoduje s aktuálnym klubom. Transfer nebol vykonany.',event);
 						return;
 					}
 					player.player.club=transfer.baseData.clubTo;
@@ -181,16 +181,16 @@
 					if (err){log.error(err);return;}
 
 					if (!player.player){
-							self.ctx.eventRegistry.emitProcesingError('Osoba nie je hracom. Transfer nebol vykonany.',event);
+							self.ctx.eventRegistry.emitProcesingError('Osoba nie je hráčom. Transfer nebol vykonaný.',event);
 							return;
 					}
 					if (!player.player.club || !player.player.club.oid ){
-							self.ctx.eventRegistry.emitProcesingError('Hrac nema definovany matersky klub. Transfer nebol vykonany.',event);
+							self.ctx.eventRegistry.emitProcesingError('Hráč nemá definovaný materský klub. Transfer nebol vykonaný.',event);
 							return;
 					}
 
 					if (player.player.club.oid!=transfer.baseData.clubTo.oid){
-						self.ctx.eventRegistry.emitProcesingError('Klub TO sa nezhoduje s aktualnym klubom. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Klub TO sa nezhoduje s aktuálnym klubom. Transfer nebol vykonaný.',event);
 						return;
 					}
 
@@ -233,15 +233,15 @@
 					if (err){log.error(err);return;}
 
 					if (!player.player){
-						self.ctx.eventRegistry.emitProcesingError('Osoba nie je hracom. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Osoba nie je hráčom. Transfer nebol vykonaný.',event);
 						return;
 					}
 					if (!player.player.club || !player.player.club.oid ){
-						self.ctx.eventRegistry.emitProcesingError('Hrac nema definovany matersky klub. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Hráč nemá definovaný materský klub. Transfer nebol vykonaný.',event);
 						return;
 					}
 					if (player.player.club.oid!=transfer.baseData.clubFrom.oid){
-						self.ctx.eventRegistry.emitProcesingError('Klub FROM sa nezhoduje s aktualnym klubom. Transfer nebol vykonany.',event);
+						self.ctx.eventRegistry.emitProcesingError('Klub FROM sa nezhoduje s aktuálnym klubom. Transfer nebol vykonaný.',event);
 						return;
 					}
 
