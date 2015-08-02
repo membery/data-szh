@@ -126,6 +126,26 @@
 							"name": "baseData.name"
 						}
 					}
+				},
+				"state": {
+					"title": "Stav",
+					"transCode": "schema.refereeReport.delegatedPerson.state",
+					"type": "string",
+					"required": true,
+					"enum": [
+						"Otvorený",
+						"Schválený",
+						"Zatvorený"
+					],
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
+				},
+				"matchNumber": {
+					"title": "Číslo zápasu",
+					"transCode": "schema.refereeReport.delegatedPerson.matchNumber",
+					"type": "string"
 				}
 			}
 		},
@@ -241,32 +261,67 @@
 					"title": "Supervizor",
 					"transCode": "schema.refereeReport.delegatedPerson.supervisor",
 					"type": "string"
-				},
-				"state": {
-					"title": "Stav",
-					"transCode": "schema.refereeReport.delegatedPerson.state",
-					"type": "string",
-					"required": true,
-					"enum": [
-						"Otvorený",
-						"Schválený",
-						"Zatvorený"
-					],
-					"render": {
-						"component": "psui-selectbox",
-						"searchable": true
-					}
-				},
-				"matchNumber": {
-					"title": "Číslo zápasu",
-					"transCode": "schema.refereeReport.delegatedPerson.matchNumber",
-					"type": "string"
 				}
 			}
 		},
 		"officersHome": {
 			"title": "Funkcionári - Domáci",
 			"transCode": "schema.refereeReport.officersHome",
+			"type": "object",
+			"properties": {
+				"officerA": {
+					"title": "A - ZVD",
+					"transCode": "schema.refereeReport.officers.officerA",
+					"type": "object",
+					"objectLink2": {
+						"schema": "uri://registries/people#views/fullperson/view",
+						"fields": {
+							"surName": "baseData.surName",
+							"firstName": "baseData.name"
+						}
+					}
+				},
+				"officerB": {
+					"title": "B - Tréner",
+					"transCode": "schema.refereeReport.officers.officerB",
+					"type": "object",
+					"objectLink2": {
+						"schema": "uri://registries/people#views/fullperson/view",
+						"fields": {
+							"surName": "baseData.surName",
+							"firstName": "baseData.name"
+						}
+					}
+				},
+				"officerC": {
+					"title": "C - Funkcionár",
+					"transCode": "schema.refereeReport.officers.officerC",
+					"type": "object",
+					"objectLink2": {
+						"schema": "uri://registries/people#views/fullperson/view",
+						"fields": {
+							"surName": "baseData.surName",
+							"firstName": "baseData.name"
+						}
+					}
+				},
+				"officerD": {
+					"title": "D - Funkcionár",
+					"transCode": "schema.refereeReport.officers.officerD",
+					"type": "object",
+					"objectLink2": {
+						"schema": "uri://registries/people#views/fullperson/view",
+						"fields": {
+							"surName": "baseData.surName",
+							"firstName": "baseData.name"
+						}
+					}
+				}
+			}
+		},
+		"officersGuest": {
+			"title": "Funkcionári - Hostia",
+			"transCode": "schema.refereeReport.officersGuest",
 			"type": "object",
 			"properties": {
 				"officerA": {
@@ -348,61 +403,6 @@
 				}
 			}
 		},
-		"officersGuest": {
-			"title": "Funkcionári - Hostia",
-			"transCode": "schema.refereeReport.officersGuest",
-			"type": "object",
-			"properties": {
-				"officerA": {
-					"title": "A - ZVD",
-					"transCode": "schema.refereeReport.officers.officerA",
-					"type": "object",
-					"objectLink2": {
-						"schema": "uri://registries/people#views/fullperson/view",
-						"fields": {
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
-				},
-				"officerB": {
-					"title": "B - Tréner",
-					"transCode": "schema.refereeReport.officers.officerB",
-					"type": "object",
-					"objectLink2": {
-						"schema": "uri://registries/people#views/fullperson/view",
-						"fields": {
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
-				},
-				"officerC": {
-					"title": "C - Funkcionár",
-					"transCode": "schema.refereeReport.officers.officerC",
-					"type": "object",
-					"objectLink2": {
-						"schema": "uri://registries/people#views/fullperson/view",
-						"fields": {
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
-				},
-				"officerD": {
-					"title": "D - Funkcionár",
-					"transCode": "schema.refereeReport.officers.officerD",
-					"type": "object",
-					"objectLink2": {
-						"schema": "uri://registries/people#views/fullperson/view",
-						"fields": {
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
-				}
-			}
-		},
 		"listOfPlayersGuest": {
 			"title": "Zoznam hráčov - Hostia",
 			"transCode": "schema.refereeReport.listOfPlayersGuest",
@@ -428,6 +428,37 @@
 								}
 							}
 						}
+					}
+				}
+			}
+		},
+		"messages":{
+			"title": "Správy k zápasu",
+			"xxtransCode": "schema.refereeReport.listOfPlayersGuest",
+			"type": "object",
+			"properties":{
+				"disciplinaryText": {
+					"title":"Vystavenie hráčov a funkcionarov disciplinárnemu konaniu",
+					"transCode": "schema.refereeReport.disciplinaryText",
+					"type": "string",
+					"render": {
+						"component": "psui-textarea"
+					}
+				},
+				"injuryText": {
+					"title":"Správa o stave zranených hráčov",
+					"transCode": "schema.refereeReport.injuryText",
+					"type": "string",
+					"render": {
+						"component": "psui-textarea"
+					}
+				},
+				"refereeText": {
+					"title":"Správa rozhodcov",
+					"transCode": "schema.refereeReport.refereeText",
+					"type": "string",
+					"render": {
+						"component": "psui-textarea"
 					}
 				}
 			}
@@ -469,14 +500,17 @@
 				"officersHome": {
 					"$ref":"uri://registries/refereeReports#blocks/officersHome"
 				},
-				"listOfPlayersHome":{
-					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersHome"
-				},
 				"officersGuest": {
 					"$ref":"uri://registries/refereeReports#blocks/officersGuest"
 				},
+				"listOfPlayersHome":{
+					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersHome"
+				},
 				"listOfPlayersGuest":{
 					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersGuest"
+				},
+				"messages":{
+					"$ref":"uri://registries/refereeReports#blocks/messages"
 				}
 			}
 		},
@@ -505,20 +539,26 @@
 				"baseData":{
 					"$ref":"uri://registries/refereeReports#blocks/baseData"
 				},
+				"responsiblePeople":{
+					"$ref":"uri://registries/refereeReports#blocks/responsiblePeople"
+				},
 				"delegatedPerson":{
 					"$ref":"uri://registries/refereeReports#blocks/delegatedPerson"
 				},
 				"officersHome": {
 					"$ref":"uri://registries/refereeReports#blocks/officersHome"
 				},
-				"listOfPlayersHome":{
-					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersHome"
-				},
 				"officersGuest": {
 					"$ref":"uri://registries/refereeReports#blocks/officersGuest"
 				},
+				"listOfPlayersHome":{
+					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersHome"
+				},
 				"listOfPlayersGuest":{
 					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersGuest"
+				},
+				"messages":{
+					"$ref":"uri://registries/refereeReports#blocks/messages"
 				}
 			}
 		}
@@ -590,6 +630,9 @@
 							"competitionPart": {
 								"readOnly": true
 							},
+							"ageCategory": {
+								"readOnly": true
+							},
 							"homeClub": {
 								"readOnly": true
 							},
@@ -599,47 +642,11 @@
 							"matchRound": {
 								"readOnly": true
 							},
-							"matchDate": {
-								"readOnly": true
-							},
-							"matchBegin": {
-								"readOnly": true
-							},
-							"fullTimeScoreHome": {
-								"readOnly": true
-							},
-							"fullTimeScoreAway": {
-								"readOnly": true
-							},
-							"halfTimeScoreHome": {
-								"readOnly": true
-							},
-							"halfTimeScoreAway": {
-								"readOnly": true
-							},
-							"attendance": {
-								"readOnly": true
-							},
-							"stadium": {
+							"matchNumber": {
 								"readOnly": true
 							}
 						}
-					},
-					"delegatedPerson": {
-						"properties": {
-							"referee": {
-								"readOnly": true
-							},
-							"aReferee": {
-								"readOnly": true
-							},
-							"delegate": {
-								"readOnly": true
-							},
-							"state": null,
-							"webNumber": null
-						}
-					}	
+					}
 				}
 			},
 			"search": {

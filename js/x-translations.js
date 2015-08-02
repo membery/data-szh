@@ -405,6 +405,9 @@
 		"schema.refereeReport.listOfPlayersGuest":"Zoznam hráčov - Hostia",
 		"schema.refereeReport.listOfPlayers.players":"Hráči",
 		"schema.refereeReport.listOfPlayers.player":"Hráč",
+		"schema.refereeReport.disciplinaryText":"Vystavenie hráčov a funkcionarov disciplinárnemu konaniu",
+		"schema.refereeReport.injuryText":"Správa o stave zranených hráčov",
+		"schema.refereeReport.refereeText":"Správa rozhodcov",
 
 		"schema.nomination.title":"Nominácia",
 		"schema.nomination.baseData":"Základné informácie",
@@ -943,6 +946,9 @@
 		"schema.refereeReport.listOfPlayersGuest":"Seznam hráčů - Hosté",
 		"schema.refereeReport.listOfPlayers.players":"Hráči",
 		"schema.refereeReport.listOfPlayers.player":"Hráč",
+		"schema.refereeReport.disciplinaryText":"Vystavení hráčů a funkcionářů disciplinárnímu řízení",
+		"schema.refereeReport.injuryText":"Zpráva o stavu zraněných hráčů",
+		"schema.refereeReport.refereeText":"Zpráva rozhodčích",
 		
 		"schema.nomination.title":"Nominace",
 		"schema.nomination.listFields.match":"Setkání",
