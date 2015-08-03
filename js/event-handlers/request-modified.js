@@ -15,6 +15,7 @@
 	var DATA_REQ_COLLECTION = 'dataChangeRequests';
 	var TRANS_REQ_COLLECTION = 'transferRequests';
 
+	var KM_PROFILE_NAME = 'Klubový manažér';
 
 	/**
 	*	@module server
@@ -98,6 +99,11 @@
 					log.debug('requests created: event handled');
 				});
 			});
+
+			if(event.eventType === 'event-transfer-request-created'){
+				self.notifyKMs(event);
+			}
+
 		};
 
 		/**
@@ -138,7 +144,65 @@
 						self.sendRequestModified(applicant.systemCredentials.login.email, self.ctx.config.webserverPublicUrl, event.user.baseData.name.v + ' ' + event.user.baseData.surName.v, entity.requestData.subject, self.ctx.config.serviceUrl + '/requests/' + entity.id);
 					});
 			}
-			// }
+
+			if(event.eventType === 'event-transfer-request-updated'){
+				self.notifyKMs(event);
+			}
+		};
+
+		this.notifyKMs = function(event){
+			var securityProfileDao = new universalDaoModule.UniversalDao(
+				this.ctx.mongoDriver,
+				{collectionName: 'securityProfiles'}
+			);
+			var entity = event.entity;
+			var qf = QueryFilter.create();
+
+			//Find KM profile ID
+			qf.addCriterium('baseData.name', 'eq', KM_PROFILE_NAME);
+			qf.addField('id');
+			securityProfileDao.find(qf, function(err, data){
+				if (err) {
+					log.error(err);
+					return;
+				}
+
+				//Find KMs affiliated with the clubs
+				if (data.length === 1) {
+					var kmID = data[0].id;
+					var recipients = [];
+
+					var qf = QueryFilter.create();
+					qf.addField('contactInfo.email');
+					qf.addCriterium('systemCredentials.profiles', 'eq', kmID);
+					qf.addCriterium('officer.club.oid', 'in', [entity.transferData.clubFrom.oid, entity.transferData.clubTo.oid]);
+					qf.addCriterium('contactInfo.email', 'ex');
+					userDao.find(qf, function(err2, data){
+						if (err2){
+							log.error(err2);
+							return;
+						}
+
+						if (data.length > 0){
+							data.forEach(function(user){
+								recipients.push(user.contactInfo.email);
+							});
+
+							var strRecipients = recipients.join(', ');
+
+							if (event.eventType === 'event-transfer-request-created'){
+								self.sendRequestCreated(strRecipients, self.ctx.config.webserverPublicUrl,
+									event.user.baseData.name.v + ' ' + event.user.baseData.surName.v);
+							}else if (event.eventType === 'event-transfer-request-updated'){
+								self.sendRequestModified(strRecipients, self.ctx.config.webserverPublicUrl,
+									event.user.baseData.name.v + ' ' + event.user.baseData.surName.v);
+							}
+						}
+					});
+				}else {
+					log.error('Can\'t find ID of the KM profile');
+				}
+			});
 		};
 
 
