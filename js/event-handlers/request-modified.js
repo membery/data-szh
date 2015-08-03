@@ -154,19 +154,16 @@
 		this.notifyKMs = function(event){
 			var securityProfileDao = new universalDaoModule.UniversalDao(
 				this.ctx.mongoDriver,
-				{collectionName: SEC_PROFILES_COLLECTION}
+
+				{collectionName: 'securityProfiles'}
 			);
+			var entity = event.entity;
+			var qf = QueryFilter.create();
 
-			var transferRequestsDao = new universalDaoModule.UniversalDao(
-				this.ctx.mongoDriver,
-				{collectionName: TRANS_REQ_COLLECTION}
-				);
-
-			transferRequestsDao.get(event.entity.id , function(err, data){
-				if (err) {
-					log.error(err);
-					return;
-				}
+			//Find KM profile ID
+			qf.addCriterium('baseData.name', 'eq', KM_PROFILE_NAME);
+			qf.addField('id');
+			securityProfileDao.find(qf, function(err, data){
 
 				if (data.transferData && data.transferData.clubFrom && data.transferData.clubTo){
 					var clubFromOid = data.transferData.clubFrom.oid;
@@ -223,7 +220,6 @@
 						log.error('Can\'t find ID of the KM profile');
 					}
 				});
-				
 			});
 		};
 
