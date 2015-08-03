@@ -14,7 +14,9 @@
 	var REG_REQ_COLLECTION = 'registrationRequests';
 	var DATA_REQ_COLLECTION = 'dataChangeRequests';
 	var TRANS_REQ_COLLECTION = 'transferRequests';
+	var SEC_PROFILES_COLLECTION = 'securityProfiles';
 
+	var KM_PROFILE_NAME = 'Klubový manažér';
 
 	/**
 	*	@module server
@@ -98,6 +100,11 @@
 					log.debug('requests created: event handled');
 				});
 			});
+
+			if(event.eventType === 'event-transfer-request-created'){
+				self.notifyKMs(event);
+			}
+
 		};
 
 		/**
@@ -138,7 +145,86 @@
 						self.sendRequestModified(applicant.systemCredentials.login.email, self.ctx.config.webserverPublicUrl, event.user.baseData.name.v + ' ' + event.user.baseData.surName.v, entity.requestData.subject, self.ctx.config.serviceUrl + '/requests/' + entity.id);
 					});
 			}
-			// }
+
+			if(event.eventType === 'event-transfer-request-updated'){
+				self.notifyKMs(event);
+			}
+		};
+
+		this.notifyKMs = function(event){
+			var securityProfileDao = new universalDaoModule.UniversalDao(
+				this.ctx.mongoDriver,
+				{collectionName: SEC_PROFILES_COLLECTION}
+			);
+
+			var transferRequestsDao = new universalDaoModule.UniversalDao(
+				this.ctx.mongoDriver,
+				{collectionName: TRANS_REQ_COLLECTION}
+				);
+
+			transferRequestsDao.get(event.entity.id , function(err, data){
+				if (err) {
+					log.error(err);
+					return;
+				}
+
+				if (data.transferData && data.transferData.clubFrom && data.transferData.clubTo){
+					var clubFromOid = data.transferData.clubFrom.oid;
+					var clubToOid = data.transferData.clubTo.oid;
+				}else{
+					log.error('Request doesn\'t contain necessary club info.');
+					return;
+				}
+
+				var qf = QueryFilter.create();
+
+				//Find KM profile ID
+				qf.addCriterium('baseData.name', 'eq', KM_PROFILE_NAME);
+				qf.addField('id');
+				securityProfileDao.find(qf, function(err2, data){
+					if (err2) {
+						log.error(err2);
+						return;
+					}
+
+					//Find KMs affiliated with the clubs
+					if (data.length === 1) {
+						var kmID = data[0].id;
+						var recipients = [];
+
+						var qf = QueryFilter.create();
+						qf.addField('contactInfo.email');
+						qf.addCriterium('systemCredentials.profiles', 'eq', kmID);
+						qf.addCriterium('officer.club.oid', 'in', [clubFromOid, clubToOid]);
+						qf.addCriterium('contactInfo.email', 'ex');
+						userDao.find(qf, function(err3, data){
+							if (err3){
+								log.error(err3);
+								return;
+							}
+
+							if (data.length > 0){
+								data.forEach(function(user){
+									recipients.push(user.contactInfo.email);
+								});
+
+								var strRecipients = recipients.join(', ');
+
+								if (event.eventType === 'event-transfer-request-created'){
+									self.sendRequestCreated(strRecipients, self.ctx.config.webserverPublicUrl,
+										event.user.baseData.name.v + ' ' + event.user.baseData.surName.v);
+								}else if (event.eventType === 'event-transfer-request-updated'){
+									self.sendRequestModified(strRecipients, self.ctx.config.webserverPublicUrl,
+										event.user.baseData.name.v + ' ' + event.user.baseData.surName.v);
+								}
+							}
+						});
+					}else {
+						log.error('Can\'t find ID of the KM profile');
+					}
+				});
+				
+			});
 		};
 
 
