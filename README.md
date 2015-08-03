@@ -1,2 +1,2 @@
-registries-data-svf
+registries-data-szh
 ===================

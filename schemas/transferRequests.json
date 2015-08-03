@@ -63,6 +63,9 @@
 				"attachments": {
 					"$ref": "uri://registries/generalRequests#blocks/attachments"
 				},
+				"attachmentsClubFrom": {
+					"$ref": "uri://registries/generalRequests#blocks/attachments"
+				},
 				"requestData": {
 					"extends": "uri://registries/generalRequests#blocks/requestData",
 					"properties":{
@@ -94,14 +97,21 @@
 			"new": {
 				"extends": "uri://registries/transferRequests#models/transfer",
 				"properties": {
-					"requestData": null
+					"requestData": null,
+					"attachmentsClubFrom": null
 				}
 			},
 			"view": {
-				"$ref": "uri://registries/transferRequests#models/transfer"
+				"extends": "uri://registries/transferRequests#models/transfer",
+				"properties": {
+					"attachmentsClubFrom": null
+				}
 			},
 			"search": {
 				"extends": "uri://registries/transferRequests#models/transfer",
+				"properties": {
+					"attachmentsClubFrom": null
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "schema-redirect-link",
@@ -181,6 +191,54 @@
 						"title": "Zobraziť",
 						"params": {
 							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransferRequests~23views~2FtransferSolver/{{model.id}}"
+						}
+					}
+				]
+			}
+		},
+		"transferSolverClubFrom": {
+			"view": {
+				"extends": "uri://registries/transferRequests#models/transfer",
+				"properties": {
+					"transferData": {
+						"properties":{
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"readOnly": true
+							},
+							"clubTo": {
+								"readOnly": true
+							},
+							"typeOfTransfer":{
+								"readOnly": true
+							},
+							"dateOfRealization": {
+								"readOnly": true
+							},
+							"dateFrom": {
+								"readOnly": true
+							},
+							"dateTo": {
+								"readOnly": true
+							},
+							"stateOfTransfer": {
+								"readOnly": true
+							}
+						}
+					},
+					"attachments": null
+				}
+			},
+			"search": {
+				"extends": "uri://registries/transferRequests#views/transferApplicant/search",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransferRequests~23views~2FtransferSolverClubFrom/{{model.id}}"
 						}
 					}
 				]
