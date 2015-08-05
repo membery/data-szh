@@ -180,6 +180,25 @@ body {
 	color: black;
 }
 
+.menu-login-container{
+	float: right;
+	display: inline-block;
+	position: relative;
+	padding: 5px 20px 6px 0px;
+}
+
+#portal-menu-panel-container a.menu-login,
+#portal-menu-panel-container a.menu-login:VISITED {
+	color: #f8f8f8;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#portal-menu-panel-container a.menu-login:HOVER {
+	text-decoration: none;
+}
+
 #portal-menu-panel .portal-menu-entry .portal-sub-menu DIV A {
 	color: black;
 	padding-left: 0;
@@ -394,7 +413,7 @@ a.portal-menu-bottom-entry-head {
 .portal-side-panel.partneri article {
 	position: absolute;
 	left: 0px;
-	top: 44px;
+	top: 55px;
 	background: white;
 	display: none;
 }
@@ -438,6 +457,7 @@ a.portal-menu-bottom-entry-head {
 	background-color: white;
 	padding: 10px;
 	display: inline-block;
+	margin-bottom: 5px;
 	width: 656px;
 	box-shadow: 0px 3px 6px gray;
 }
@@ -609,12 +629,6 @@ a.portal-menu-bottom-entry-head {
 	margin-right: 10px;
 	width: 164px;
 	float: left;
-}
-
-
-
-.x-portal-widget-category-title {
-	
 }
 
 .x-portal-widget-category-inner {
@@ -818,6 +832,11 @@ a.portal-menu-bottom-entry-head {
 }
 
 @media (max-width: 1020px) {
+
+	#portal-content-container{
+		padding-top: 15px;
+		padding-bottom: 0;
+	}
 	
 	#portal-main-container {
 		min-width: initial;
@@ -844,15 +863,15 @@ a.portal-menu-bottom-entry-head {
 	#portal-main-content {
 		display: block;
 	    width: auto;
-	    margin-right: 325px;
-	    margin-left: 4px;
+	    margin-right: 350px;
+	    margin-left: 5px;
 	    /*min-height: 1830px;*/
 	}
 	
 	#portal-side-content {
 	    position: absolute;
-	    top: 36px;
-	    right: 0px;
+	    top: 15px;
+	    right: 5px;
 	}
 
 	#footer-container {
@@ -874,12 +893,10 @@ a.portal-menu-bottom-entry-head {
 
 	.portal-article {
 		width: 100%;
-		padding-left: 0px;
-		padding-right: 0px;
 	}
 	
 	.x-portal-widget-showcase-view-textblock {
-		width: 100%;
+		width: auto;
 	}
 	
 	.x-portal-widget-showcase-view article {
@@ -910,7 +927,9 @@ a.portal-menu-bottom-entry-head {
 	}
 }
 
-@media (max-width: 510px) {
+/*mobile menu on 600px*/
+
+@media (max-width: 600px){
 	#mobile-menu-toggler {
 		display: block;
 	}
@@ -929,6 +948,7 @@ a.portal-menu-bottom-entry-head {
 
 	#portal-menu-panel-container.mobile-visible {
 		display: block;
+		z-index: 200;
 	}
 
 	#portal-menu-panel {
@@ -962,6 +982,7 @@ a.portal-menu-bottom-entry-head {
 		left: 0px;
 		width: 300px;
 	}
+
 	#portal-menu-panel-container a.menu-login,
 			#portal-menu-panel-container a.menu-login:VISITED {
 		position: relative;
@@ -969,11 +990,15 @@ a.portal-menu-bottom-entry-head {
 		right: 0px;
 		color: #666;
 	}
+
 	#portal-menu-panel-container .menu-login-container {
-		background: white;
-		padding-top: 10px;
-		padding-bottom: 10px;
+		display: block;
+		width: 100%;
+		font-size: 140%;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		text-align: center;
+		padding-right: 0;
 	}
 
 	#portal-menu-panel .portal-menu-entry:last-child {
@@ -988,16 +1013,12 @@ a.portal-menu-bottom-entry-head {
 			#portal-menu-panel .portal-menu-entry .portal-sub-menu DIV:first-child {
 		border-top: none;
 	}
+}
 
+@media (max-width: 510px) {
 	#portal-main-header h1 {
-		position: static;
-		margin-left: 10px;
+		display: none;
 	}
-	
-	#portal-main-header-logo-area {
-		position: static;
-		margin-left: 10px;
-	}	
 
 	.portal-article-title .title {
 		padding-left: 10px;
@@ -1011,7 +1032,7 @@ a.portal-menu-bottom-entry-head {
 
 }
 
-@media (max-width: 510px) {
+@media (max-width: 625px) {
 	#portal-content-container {
 		width: auto;
 		position: static;
@@ -1021,8 +1042,8 @@ a.portal-menu-bottom-entry-head {
 	    position: static;
 		display: block;
 	    width: auto;
-	    margin-right: 10px;
-	    margin-left: 10px;
+	    margin-right: 20px;
+	    margin-left: 0;
 	}
 	
 	#portal-side-content {
@@ -1045,4 +1066,23 @@ a.portal-menu-bottom-entry-head {
 
 .only-riderszone, .only-location, .portal-content-navigation {
 	display: none;
+}
+
+@media (max-width: 420px) {
+	#portal-main-header-logo-area {
+		position: static;
+		margin-left: 10px;
+	}
+
+	#portal-side-content{
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.portal-side-panel, 
+	.portal-side-panel-logos{
+		width: auto;
+	}
 }
