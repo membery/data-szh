@@ -4,7 +4,7 @@
 	"models": {
 		"peopleRegistration": {
 			"extends": "uri://registries/people#models/fullperson-km",
-			"title": "Registrácia osoby",
+			"title": "Žiadosť o registráciu osoby",
 			"transCode": "schema.registrationRequests.title",
 			"table": "registrationRequests",
 			"security": {

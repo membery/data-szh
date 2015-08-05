@@ -36,17 +36,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Security - write"
+						"Registry - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Security - read"
+						"Registry - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Security - write"
+						"Registry - write"
 					]
 				}
 			},

@@ -3,7 +3,7 @@
 		<ul>
 			<li ng-show="hasPermissions(['Registry - write'])"><a href="#/registry/new/{{'uri://registries/people#views/fullperson'|xpsuiuriescape}}"><span>{{'menu.new.person.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Registry - read'])"><a href="#/registry/search/{{'uri://registries/people#views/fullperson/search'|xpsuiuriescape}}"><span>{{'menu.search.person.lower.level' | translate}}</span></a></li>
-			<li ng-show="hasPermissions(['Person - read - KM'])"><a href="#/registry/search/{{'uri://registries/people#views/player-km/search'|xpsuiuriescape}}"><span>{{'menu.search.player.km.lower.level' | translate}}</span></a></li>
+			<li ng-show="hasPermissions(['Person - read - KM'])"><a href="#/registry/search/{{'uri://registries/people#views/player-km/search'|xpsuiuriescape}}"><span>{{'menu.search.player.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Person - read - KM'])"><a href="#/registry/search/{{'uri://registries/people#views/fullperson-km/search'|xpsuiuriescape}}"><span>{{'menu.search.club.member.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Registry - read'])"><a href="#/registry/search/{{'uri://registries/people#views/player/search'|xpsuiuriescape}}"><span>{{'menu.search.player.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Registry - read'])"><a href="#/registry/search/{{'uri://registries/people#views/officer/search'|xpsuiuriescape}}"><span>{{'menu.search.officer.lower.level' | translate}}</span></a></li>
@@ -79,6 +79,7 @@
 			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/search/{{'uri://registries/dataChangeRequests#views/dataChangeApplicant/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.change.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/new/{{'uri://registries/transferRequests#views/transferApplicant'|xpsuiuriescape}}"><span>{{'menu.requests.new.transfer.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/search/{{'uri://registries/transferRequests#views/transferApplicant/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transfer.lower.level' | translate}}</span></a></li>
+			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/search/{{'uri://registries/transferRequests#views/transferSolverClubFrom/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transferFromClub.lower.level' | translate}}</span></a></li>
 		</ul>
 	</li>
 	<li ng-show="hasPermissions(['System User'])"><a href="#" class="x-submenu-toggle"><i class="icon-user fa-2x"></i><span>{{'menu.my.profile.title' | translate}}</span></a>

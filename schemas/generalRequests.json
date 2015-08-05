@@ -33,6 +33,7 @@
 				"assignedTo": {
 					"transCode": "schema.requests.basedata.assignedto",
 					"type": "object",
+					"required": true,
 					"objectLink2": {
 						"schema": "uri://registries/people#views/fullperson/view",
 						"fields": {
@@ -69,6 +70,7 @@
 				"status": {
 					"transCode": "schema.requests.basedata.status",
 					"type": "string",
+					"required": true,
 					"enum": [
 						"created",
 						"processing",
