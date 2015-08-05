@@ -72,12 +72,14 @@
 					"enum": [
 						"created",
 						"processing",
-						"closed"
+						"closed",
+						"storno"
 					],
 					"enumTransCodes": [
 						"schema.requests.basedata.status.created",
 						"schema.requests.basedata.status.processing",
-						"schema.requests.basedata.status.closed"
+						"schema.requests.basedata.status.closed",
+						"schema.requests.basedata.status.storno"
 					],
 					"render": {
 						"component": "psui-selectbox",
