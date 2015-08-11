@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"name": "ranking",
+		"element": "<div></div>",
+		"type": "ranking",
+		"title": "Poradie",
+		"desc": "Výsledky / poradie súťažiacich.",
+		"icon": "img/block-ranking.svg"
+	},
+	"data": {
+		"results": []
+	}
+}

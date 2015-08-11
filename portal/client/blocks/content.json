@@ -1,0 +1,11 @@
+{
+	"meta": {
+		"name": "content",
+		"element": "<section class=\"content\"></section>",
+		"type": "pure-html",
+		"title": "Obsah",
+		"desc": "Obsah článku obsahujúci hlavnú časť textu",
+		"icon": "img/block-content.svg"
+	},
+	"data": "<p>...Obsah článku...</p>"
+}

@@ -1,0 +1,11 @@
+{
+	"meta": {
+		"name": "match-results",
+		"element": "<section class=\"x-portal-competition-matches\"><header>Výsledky</header></section>",
+		"type": "match-results",
+		"title": "Výsledky",
+		"desc": "Časť obsahujúa výsledky súťaží.",
+		"icon": "img/block-content.svg"
+	},
+	"data": "<h1>Výsledky súťaží</h1>"
+}

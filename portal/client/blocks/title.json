@@ -1,0 +1,11 @@
+{
+	"meta": {
+		"name": "title",
+		"element": "<div></div>",
+		"type": "pure-html",
+		"title": "Titulok",
+		"desc": "Nadpis článku, každý článok by mal mať aspoň jeden nadpis. Nadpis článku sa používa ak ako link v zozname článkov",
+		"icon": "img/block-headline.svg"
+	},
+	"data": "<h1>...Titulok článku...</h1>"
+}
