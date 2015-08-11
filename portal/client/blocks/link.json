@@ -1,0 +1,14 @@
+{
+	"meta": {
+		"name": "link",
+		"title": "Linka",
+		"desc": "Linka na inú stránku",
+		"icon": "img/block-link.svg",
+		"type": "link"
+	},
+	"data": {
+		"href": "www.example.com",
+		"newWindow": false,
+		"title": "Example link"
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"name": "file-list",
+		"element": "<div></div>",
+		"type": "file-list",
+		"title": "Súbory",
+		"desc": "Zoznam súborov",
+		"icon": "img/block-filelist.svg"
+	},
+	"data": {
+		"files": []
+	}
+}

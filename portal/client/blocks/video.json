@@ -1,0 +1,15 @@
+{
+	"meta": {
+		"name": "video",
+		"title": "Embedované video",
+		"desc": "Embedované video s titulkom a textom",
+		"icon": "img/block-video.svg",
+		"type": "video"
+	},
+	"data": {
+		"src": "",
+		"title": "Embedované video",
+		"subTitle": "video",
+		"text": "text k videu"
+	}
+}
