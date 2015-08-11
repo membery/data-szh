@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"name": "overview",
+		"element": "<div></div>",
+		"type": "overview",
+		"title": "Prehľad",
+		"desc": "Prehľad článkov pod sebou.",
+		"icon": "img/block-overview.svg"
+	},
+	"data": {
+		"tags": []
+	}
+}
