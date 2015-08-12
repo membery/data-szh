@@ -26,18 +26,6 @@
 						}
 					}
 				},
-				"ageCategory": {
-					"title": "Veková kategória",
-					"transCode":"schema.competitionPart.ageCategory",
-					"type": "object",
-					"objectLink2": {
-						"schema":"uri://registries/ageCategory#views/ageCategory/view",
-						"fields":{
-							"name": "baseData.name"
-						}
-					},
-					"required": true
-				},
 				"typeOfCompetition": {
 					"title": "Spôsob žrebovania",
 					"transCode": "schema.competitionPart.typeOfCompetition",

@@ -19,6 +19,18 @@
 						}
 					}
 				},
+				"season": {
+					"type":"object",
+					"title": "Súťažný ročnik",
+					"transCode":"schema.refereeReport.baseData.season",
+					"required": true,
+					"objectLink2": {
+						"schema":"uri://registries/seasons#views/seasons/view",
+						"fields":{
+							"name": "baseData.name"
+						}
+					}
+				},
 				"competitionPart": {
 					"title": "Časť súťaže",
 					"transCode": "schema.refereeReport.baseData.competitionPart",
@@ -91,16 +103,6 @@
 					"type": "string",
 					"required": true
 				},
-				"fullTimeScoreHome": {
-					"title": "Výsledok domáci",
-					"transCode": "schema.refereeReport.baseData.fullTimeScoreHome",
-					"type": "string"
-				},
-				"fullTimeScoreAway": {
-					"title": "Výsledok hostia",
-					"transCode": "schema.refereeReport.baseData.fullTimeScoreAway",
-					"type": "string"
-				},
 				"halfTimeScoreHome": {
 					"title": "Polčasové skóre domáci",
 					"transCode": "schema.refereeReport.baseData.halfTimeScoreHome",
@@ -109,6 +111,51 @@
 				"halfTimeScoreAway": {
 					"title": "Polčasové skóre hostia",
 					"transCode": "schema.refereeReport.baseData.halfTimeScoreAway",
+					"type": "string"
+				},
+				"scoreHome": {
+					"title": "Výsledok domáci",
+					"transCode": "schema.refereeReport.baseData.scoreHome",
+					"type": "string"
+				},
+				"scoreAway": {
+					"title": "Výsledok hostia",
+					"transCode": "schema.refereeReport.baseData.scoreAway",
+					"type": "string"
+				},
+				"fullTimeScoreHome": {
+					"title": "Celkový výsledok domáci",
+					"transCode": "schema.refereeReport.baseData.fullTimeScoreHome",
+					"type": "string"
+				},
+				"fullTimeScoreAway": {
+					"title": "Celkový výsledok hostia",
+					"transCode": "schema.refereeReport.baseData.fullTimeScoreAway",
+					"type": "string"
+				},
+				"firstOvertimeHome": {
+					"title": "1. Predlženie domáci",
+					"transCode": "schema.refereeReport.baseData.firstOvertimeHome",
+					"type": "string"
+				},
+				"firstOvertimeAway": {
+					"title": "1. Predlženie hostia",
+					"transCode": "schema.refereeReport.baseData.firstOvertimeAway",
+					"type": "string"
+				},
+				"secondOvertimeHome": {
+					"title": "2. Predlženie domáci",
+					"transCode": "schema.refereeReport.baseData.secondOvertimeHome",
+					"type": "string"
+				},
+				"secondOvertimeAway": {
+					"title": "2. Predlženie hostia",
+					"transCode": "schema.refereeReport.baseData.secondOvertimeAway",
+					"type": "string"
+				},
+				"penaltyShootout.": {
+					"title": "7m hod",
+					"transCode": "schema.refereeReport.baseData.penaltyShootout",
 					"type": "string"
 				},
 				"attendance": {
@@ -127,6 +174,7 @@
 						}
 					}
 				},
+
 				"state": {
 					"title": "Stav",
 					"transCode": "schema.refereeReport.delegatedPerson.state",
@@ -155,52 +203,24 @@
 			"type": "object",
 			"properties": {
 				"mainOrganizer": {
-					"title": "Zapisovateľ",
+					"title": "Hl. usporiadateľ",
 					"transCode": "schema.refereeReport.responsiblePeople.mainOrganizer",
-					"type": "object",
-					"objectLink2": {
-						"schema":"uri://registries/people#views/fullperson/view",
-						"fields":{
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
+					"type": "string"
 				},
 				"timekeeper": {
 					"title": "Časomerač",
 					"transCode": "schema.refereeReport.responsiblePeople.timekeeper",
-					"type": "object",
-					"objectLink2": {
-						"schema":"uri://registries/people#views/fullperson/view",
-						"fields":{
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
+					"type": "string"
 				},
 				"medic": {
 					"title": "Zdravotná služba",
 					"transCode": "schema.refereeReport.responsiblePeople.medic",
-					"type": "object",
-					"objectLink2": {
-						"schema":"uri://registries/people#views/fullperson/view",
-						"fields":{
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
+					"type": "string"
 				},
 				"speaker": {
 					"title": "Hlásateľ",
 					"transCode": "schema.refereeReport.responsiblePeople.speaker",
-					"type": "object",
-					"objectLink2": {
-						"schema":"uri://registries/people#views/fullperson/view",
-						"fields":{
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
+					"type": "string"
 				}
 			}
 		},
@@ -226,7 +246,7 @@
 					"transCode": "schema.refereeReport.delegatedPerson.referee",
 					"type": "object",
 					"objectLink2": {
-						"schema":"uri://registries/people#views/referee/view",
+						"schema":"uri://registries/people#views/fullperson/view",
 						"fields":{
 							"surName": "baseData.surName",
 							"firstName": "baseData.name"
@@ -238,7 +258,7 @@
 					"transCode": "schema.refereeReport.delegatedPerson.referee",
 					"type": "object",
 					"objectLink2": {
-						"schema":"uri://registries/people#views/referee/view",
+						"schema":"uri://registries/people#views/fullperson/view",
 						"fields":{
 							"surName": "baseData.surName",
 							"firstName": "baseData.name"
@@ -250,7 +270,7 @@
 					"transCode": "schema.refereeReport.delegatedPerson.delegate",
 					"type": "object",
 					"objectLink2": {
-						"schema":"uri://registries/people#views/referee/view",
+						"schema":"uri://registries/people#views/fullperson/view",
 						"fields":{
 							"surName": "baseData.surName",
 							"firstName": "baseData.name"
@@ -436,6 +456,9 @@
 			"title": "Správy k zápasu",
 			"xxtransCode": "schema.refereeReport.listOfPlayersGuest",
 			"type": "object",
+			"render": {
+				"width": "full"
+			},
 			"properties":{
 				"disciplinaryText": {
 					"title":"Vystavenie hráčov a funkcionarov disciplinárnemu konaniu",
