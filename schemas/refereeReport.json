@@ -55,6 +55,18 @@
 						}
 					}
 				},
+				"homeClubSec": {
+					"title": "Domáci klub",
+					"transCode": "schema.refereeReport.baseData.homeClubSec",
+					"type": "object",
+					"required": true,
+					"objectLink2": {
+						"schema":"uri://registries/organizations#views/club/view",
+						"fields":{
+							"name": "club.name"
+						}
+					}
+				},
 				"homeClub": {
 					"title": "Domáce družstvo",
 					"transCode": "schema.refereeReport.baseData.homeClub",
@@ -64,6 +76,18 @@
 						"schema":"uri://registries/rosters#views/rosters/view",
 						"fields":{
 							"name": "baseData.prName"
+						}
+					}
+				},
+				"awayClubSec": {
+					"title": "Hosťujúci klub",
+					"transCode": "schema.refereeReport.baseData.awayClubSec",
+					"type": "object",
+					"required": true,
+					"objectLink2": {
+						"schema":"uri://registries/organizations#views/club/view",
+						"fields":{
+							"name": "club.name"
 						}
 					}
 				},
@@ -174,7 +198,6 @@
 						}
 					}
 				},
-
 				"state": {
 					"title": "Stav",
 					"transCode": "schema.refereeReport.delegatedPerson.state",
@@ -193,6 +216,68 @@
 				"matchNumber": {
 					"title": "Číslo zápasu",
 					"transCode": "schema.refereeReport.delegatedPerson.matchNumber",
+					"type": "string"
+				},
+				"printTemplate": {
+					"title": "Template",
+					"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
+					"type": "string"
+				}
+			}
+		},
+		"additionalInfo":{
+			"title": "Doplňujúce údaje",
+			"xxtransCode": "schema.refereeReport.baseData",
+			"type": "object",
+			"properties": {
+				"homeTimeOut1": {
+					"title": "Domáci Time-Out 1",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"homeTimeOut2": {
+					"title": "Domáci Time-Out 2",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"homeTimeOut3": {
+					"title": "Domáci Time-Out 3",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"countOfPenaltyShootHome": {
+					"title": "Počet 7m hodov",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"goalOfPenaltyShootHome": {
+					"title": "Góly zo 7m",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"awayTimeOut1": {
+					"title": "Hostia Time-Out 1",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"awayTimeOut2": {
+					"title": "Hostia Time-Out 2",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"awayTimeOut3": {
+					"title": "Hostia Time-Out 3",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"countOfPenaltyShootAway": {
+					"title": "Počet 7m hodov",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"type": "string"
+				},
+				"goalOfPenaltyShootAway": {
+					"title": "Góly zo 7m",
+					"xxtransCode":"schema.refereeReport.baseData.competition",
 					"type": "string"
 				}
 			}
@@ -418,6 +503,11 @@
 									"registrationID": "baseData.registrationID"
 								}
 							}
+						},
+						"dressNumber": {
+							"title": "Číslo dresu",
+							"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
+							"type": "string"
 						}
 					}
 				}
@@ -447,6 +537,11 @@
 									"birthDate": "baseData.registrationID"
 								}
 							}
+						},
+						"dressNumber": {
+							"title": "Číslo dresu",
+							"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
+							"type": "string"
 						}
 					}
 				}
@@ -485,6 +580,40 @@
 					}
 				}
 			}
+		},
+		"technicalData": {
+			"title": "Technické údaje",
+			"xxtransCode": "schema.refereeReport.listOfPlayersGuest",
+			"type": "object",
+			"render": {
+				"width": "full"
+			},
+			"properties": {
+				"players": {
+					"title": "Udalosti",
+					"transCode": "schema.refereeReport.listOfPlayers.players",
+					"type": "array",
+					"items": {
+						"player": {
+							"title": "Hráč",
+							"transCode": "schema.refereeReport.listOfPlayers.player",
+							"objectLink2": {
+								"schema": "uri://registries/people#views/player/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name",
+									"birthDate": "baseData.registrationID"
+								}
+							}
+						},
+						"dressNumber": {
+							"title": "Číslo dresu",
+							"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
+							"type": "string"
+						}
+					}
+				}
+			}
 		}
 	},
 
@@ -513,6 +642,9 @@
 			"properties": {
 				"baseData":{
 					"$ref":"uri://registries/refereeReports#blocks/baseData"
+				},
+				"additionalInfo": {
+					"$ref":"uri://registries/refereeReports#blocks/additionalInfo"
 				},
 				"responsiblePeople":{
 					"$ref":"uri://registries/refereeReports#blocks/responsiblePeople"

@@ -44,6 +44,19 @@
 					"title": "Prefix",
 					"transCode": "schema.competitionPart.prefix",
 					"type": "string"
+				},
+				"printTemplate": {
+					"title": "Template",
+					"xxtransCode": "schema.competitionPart.prefix",
+					"type": "string",
+					"enum": [
+						"refereeReportSZH",
+						"refereeReportWHIL"
+					],
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
 				}
 			}
 		},

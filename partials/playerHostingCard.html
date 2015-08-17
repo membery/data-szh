@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <div>
 	<style type="text/css">
 
@@ -115,13 +121,13 @@
 	</style>
 
 	<div class="page">
-		<div class="name">{{model.baseData.player.refData.name}}</div>
-		<div class="surname">{{model.baseData.player.refData.surName}}</div>
-		<div class="date">{{model.baseData.player.refData.birthDate|dateToString}}</div>
-		<div class="birthNumber">{{model.baseData.player.refData.birthNumber}}</div>
-		<div class="ident">{{model.baseData.player.refData.registrationID}}</div>
-		<div class="section-maternal">{{model.baseData.clubFrom.refData.name}}</div>
-		<div class="section-quest">{{model.baseData.clubTo.refData.name}}</div>
+		<div class="name">{{model.baseData.name}}</div>
+		<div class="surname">{{model.baseData.surName}}</div>
+		<div class="date">{{model.baseData.birthDate|dateToString}}</div>
+		<div class="birthNumber">{{model.baseData.birthNumber}}</div>
+		<div class="ident">{{model.baseData.registrationID}}</div>
+		<div class="section-maternal">{{model.baseData.clubFrom.name}}</div>
+		<div class="section-quest">{{model.baseData.clubTo.name}}</div>
 		<span class="date-from">{{model.baseData.dateFrom|dateToString}}</span>
 		<span class="date-to">{{model.baseData.dateTo|dateToString}}</span>
 

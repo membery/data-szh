@@ -183,7 +183,7 @@
 					{
 						"__DIRECTIVE__": "action-link",
 						"title": "Vytvoriť transfer",
-						"schema": "uri://registries/transferRequests#views/transferApplicant",
+						"schema": "uri://registries/transfers#views/transfers",
 						"template": "createTransfer.html"
 					}
 				],

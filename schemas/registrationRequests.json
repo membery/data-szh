@@ -190,7 +190,7 @@
 					{
 						"__DIRECTIVE__": "action-link",
 						"title": "Vytvoriť člena",
-						"schema": "uri://registries/registrationRequests#views/peopleRegistrationApplicant",
+						"schema": "uri://registries/people#views/fullperson",
 						"template": "createMember.html"
 					}
 				],

@@ -168,7 +168,15 @@
 				"extends":"uri://registries/transfers#models/transfers"
 			},
 			"view":{
-				"extends":"uri://registries/transfers#models/transfers"
+				"extends":"uri://registries/transfers#models/transfers",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "action-link",
+						"title": "Tlač preukazu",
+						"schema": "uri://registries/people#views/fullperson/view",
+						"template": "playerHostingCard.html"
+					}
+				]
 			},
 			"search":{
 				"extends":"uri://registries/transfers#models/transfers",
