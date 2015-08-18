@@ -173,7 +173,84 @@
 					{
 						"__DIRECTIVE__": "action-link",
 						"title": "Tlač preukazu",
-						"schema": "uri://registries/people#views/fullperson/view",
+						"schema": "uri://registries/transfers#views/transfersHostingCard/view",
+						"template": "playerHostingCard.html"
+					}
+				]
+			},
+			"search":{
+				"extends":"uri://registries/transfers#models/transfers",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2Ftransfers~23views~2Ftransfers/{{model.id}}"
+						}
+					}
+				],
+				"listFields": [
+					{
+						"field": "baseData.typeOfTransfer",
+						"title": "Typ zmeny",
+						"transCode": "schema.transfer.listFields.typeOfTransfer"
+					},
+					{
+						"field": "baseData.dateOfRealization",
+						"title": "Dátum realizácie",
+						"transCode": "schema.transfer.listFields.dateOfRealization"
+					},
+					{
+						"field": "baseData.player",
+						"title": "Meno",
+						"transCode": "schema.transfer.listFields.name"
+					},
+					{
+						"field": "baseData.clubFrom",
+						"title": "Z klubu",
+						"transCode": "schema.transfer.listFields.clubFrom"
+					},
+					{
+						"field": "baseData.clubTo",
+						"title": "Do klubu",
+						"transCode": "schema.transfer.listFields.clubTo"
+					}
+				]
+			}
+		},
+		"transfersHostingCard":{
+			"new":{
+				"extends":"uri://registries/transfers#models/transfers"
+			},
+			"view":{
+				"extends":"uri://registries/transfers#models/transfers",
+				"properties": {
+					"baseData": {
+						"properties":{
+							"player": {
+								"title": "Hráč",
+								"transCode":"schema.transfer.player",
+								"type": "object",
+								"required": true,
+								"objectLink2": {
+									"schema":"uri://registries/people#views/player/view",
+									"fields":{
+										"surName": "baseData.surName",
+										"name": "baseData.name",
+										"birthDate":"baseData.birthDate",
+										"registrationID":"baseData.registrationID",
+										"idNo":"baseData.id"
+									}
+								}
+							}
+						}
+					}
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "action-link",
+						"title": "Tlač preukazu",
+						"schema": "uri://registries/transfers#views/transfersHostingCard/view",
 						"template": "playerHostingCard.html"
 					}
 				]
