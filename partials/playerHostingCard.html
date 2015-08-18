@@ -1,7 +1,6 @@
 <div>
 	<style type="text/css">
 
-
 		.page div,
 		.page span{
 			font: 12px Arial, Helvetica, sans-serif;
@@ -16,7 +15,6 @@
 		}
 
 		.page {
-			/*padding-top: 61px;*/
 			width: 93mm;
 			height: 75mm;
 			margin:0px auto;
@@ -31,7 +29,6 @@
 			position: absolute;
 			top: 19mm;
 			left: 60mm;
-
 		}
 		.name{
 			position: absolute;
@@ -95,10 +92,10 @@
 				margin-top: -4mm;
 			}
 			.page DIV {
-				margin-left: 9mm;
+				margin-left: 7mm;
 			}
 			.page .date-from {
-				margin-left: 9mm;
+				margin-left: 7mm;
 			}
 
 			.no-print{
@@ -110,15 +107,40 @@
 			.number{
 				color: #0000ff !important;
 			}
-		}
 
+			.name{
+				top: 10.5mm;
+			}
+			.surname{
+				top: 17mm;
+			}
+			.date{
+				top: 22.5mm;
+			}
+			.birthNumber {
+				top: 28mm;
+			}
+			.ident {
+				top: 34mm;
+			}
+			.section-maternal{
+				top: 39.5mm;
+			}
+			.section-quest{
+				top: 45mm;
+			}
+			.date-to,
+			.date-from{
+				top: 51.5mm;
+			}
+		}
 	</style>
 
 	<div class="page">
 		<div class="name">{{model.baseData.player.refData.name}}</div>
 		<div class="surname">{{model.baseData.player.refData.surName}}</div>
 		<div class="date">{{model.baseData.player.refData.birthDate|dateToString}}</div>
-		<div class="birthNumber">{{model.baseData.player.refData.birthNumber}}</div>
+		<div class="birthNumber">{{model.baseData.player.refData.idNo}}</div>
 		<div class="ident">{{model.baseData.player.refData.registrationID}}</div>
 		<div class="section-maternal">{{model.baseData.clubFrom.refData.name}}</div>
 		<div class="section-quest">{{model.baseData.clubTo.refData.name}}</div>
