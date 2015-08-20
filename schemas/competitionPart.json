@@ -47,7 +47,7 @@
 				},
 				"printTemplate": {
 					"title": "Template",
-					"xxtransCode": "schema.competitionPart.prefix",
+					"transCode": "schema.competitionPart.printTemplate",
 					"type": "string",
 					"enum": [
 						"refereeReportSZH",
