@@ -19,22 +19,27 @@
 
 
 			"Registry People": {
-				"title": "Zobrazenie registru Osoby",
+				"title": "Zobrazenie registru Osoby v menu",
 				"type": "boolean",
 				"default": true
 			},
 			"Registry Club": {
-				"title": "Zobrazenie registru Cluby",
+				"title": "Zobrazenie registru Cluby v menu",
 				"type": "boolean",
 				"default": true
 			},
-			"Registry Requests": {
-				"title": "Zobrazenie registru Žiadosti",
+			"Registry Stadium": {
+				"title": "Zobrazenie registru Štadióny v menu",
 				"type": "boolean",
 				"default": true
 			},
 			"Registry Competitions": {
-				"title": "Zobrazenie registru Súťaže",
+				"title": "Zobrazenie registru Súťaže v menu",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Requests": {
+				"title": "Zobrazenie registru Podanie Žiadosti v menu",
 				"type": "boolean",
 				"default": true
 			},
@@ -46,47 +51,116 @@
 
 
 			"RefereeReport - read - KM": {
-				"title": "Zobrazenie dát Zapisu rozhodcu",
+				"title": "Zobrazenie dát Zapisu rozhodcu pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"RefereeReport - write - KM": {
-				"title": "Modifikácia dát Zapisu rozhodcu",
+				"title": "Modifikácia dát Zapisu rozhodcu pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"Club - read - KM": {
-				"title": "Zobrazenie dát klubu",
+				"title": "Zobrazenie dát klubu pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"Club - write - KM": {
-				"title": "Modifikácia dát klubu",
+				"title": "Modifikácia dát klubu pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"Person - read - KM": {
-				"title": "Zobrazenie dát osob",
+				"title": "Zobrazenie dát osob pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"Person - write - KM": {
-				"title": "Modifikácia dát osob",
+				"title": "Modifikácia dát osob pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"Requests - read - KM": {
-				"title": "Zobrazenie dát žiadosti",
+				"title": "Zobrazenie dát žiadosti pre KM",
 				"type": "boolean",
 				"default": true
 			},
 			"Requests - write - KM": {
-				"title": "Modifikácia dát žiadosti",
+				"title": "Modifikácia dát žiadosti pre KM",
 				"type": "boolean",
 				"default": true
 			},
 
-
+			"Stadium - read": {
+				"title": "Zobrazenie dát súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Stadium - write": {
+				"title": "Modifikácia dát súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Competition - read": {
+				"title": "Zobrazenie dát súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Competition - write": {
+				"title": "Modifikácia dát súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"CompetitionPart - read": {
+				"title": "Zobrazenie dát časť súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"CompetitionPart - write": {
+				"title": "Modifikácia dát časť súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Schedule - read": {
+				"title": "Zobrazenie dát termíny kôl",
+				"type": "boolean",
+				"default": true
+			},
+			"Schedule - write": {
+				"title": "Modifikácia dát termíny kôl",
+				"type": "boolean",
+				"default": true
+			},
+			"RefereeReport - read": {
+				"title": "Zobrazenie dát zápis o stretnutí",
+				"type": "boolean",
+				"default": true
+			},
+			"RefereeReport - write": {
+				"title": "Modifikácia dát zápis o stretnutí",
+				"type": "boolean",
+				"default": true
+			},
+			"Season - read": {
+				"title": "Zobrazenie dát sezóny",
+				"type": "boolean",
+				"default": true
+			},
+			"Season - write": {
+				"title": "Modifikácia dát sezóny",
+				"type": "boolean",
+				"default": true
+			},
+			"AgeCategory - read": {
+				"title": "Zobrazenie dát súťaže veková kategória",
+				"type": "boolean",
+				"default": true
+			},
+			"AgeCategory - write": {
+				"title": "Modifikácia dát veková kategória",
+				"type": "boolean",
+				"default": true
+			},
 			"Registry - read": {
 				"title": "Zobrazenie dát registrov",
 				"type": "boolean",

@@ -69,17 +69,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Registry - write"
+						"AgeCategory - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Registry - read"
+						"AgeCategory - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Registry - write"
+						"AgeCategory - write"
 					]
 				}
 			},

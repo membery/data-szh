@@ -61,17 +61,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Registry - write"
+						"Competition - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Registry - read"
+						"Competition - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Registry - write"
+						"Competition - write"
 					]
 				}
 			},

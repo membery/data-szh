@@ -102,17 +102,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Security - write"
+						"Stadium - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Security - read"
+						"Stadium - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Security - write"
+						"Stadium - write"
 					]
 				}
 			},

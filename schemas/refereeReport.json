@@ -638,17 +638,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Registry - write"
+						"RefereeReport - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Registry - read"
+						"RefereeReport - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Registry - write"
+						"RefereeReport - write"
 					]
 				}
 			},
@@ -663,19 +663,19 @@
 					"$ref":"uri://registries/refereeReports#blocks/responsiblePeople"
 				},
 				"delegatedPerson":{
-					"$ref":"uri://registries/refereeReports#blocks/delegatedPerson"
+					"$ref":"uri://registries/refereeReports#models/refereeReports-km/properties/delegatedPerson"
 				},
 				"officersHome": {
-					"$ref":"uri://registries/refereeReports#blocks/officersHome"
+					"$ref":"uri://registries/refereeReports#models/refereeReports-km/properties/officersHome"
 				},
 				"officersGuest": {
-					"$ref":"uri://registries/refereeReports#blocks/officersGuest"
+					"$ref":"uri://registries/refereeReports#models/refereeReports-km/properties/officersGuest"
 				},
 				"listOfPlayersHome":{
-					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersHome"
+					"$ref":"uri://registries/refereeReports#models/refereeReports-km/properties/listOfPlayersHome"
 				},
 				"listOfPlayersGuest":{
-					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersGuest"
+					"$ref":"uri://registries/refereeReports#models/refereeReports-km/properties/listOfPlayersGuest"
 				},
 				"messages":{
 					"$ref":"uri://registries/refereeReports#blocks/messages"
