@@ -177,9 +177,14 @@
 					"transCode": "schema.refereeReport.baseData.secondOvertimeAway",
 					"type": "string"
 				},
-				"penaltyShootout.": {
-					"title": "7m hod",
-					"transCode": "schema.refereeReport.baseData.penaltyShootout",
+				"penaltyShootHome": {
+					"title": "7m hod domáci",
+					"transCode": "schema.refereeReport.baseData.penaltyShootHome",
+					"type": "string"
+				},
+				"penaltyShootAway": {
+					"title": "7m hod hostia",
+					"transCode": "schema.refereeReport.baseData.penaltyShootAway",
 					"type": "string"
 				},
 				"attendance": {
@@ -220,64 +225,72 @@
 				},
 				"printTemplate": {
 					"title": "Template",
-					"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
-					"type": "string"
+					"transCode": "schema.refereeReport.baseData.printTemplate",
+					"type": "string",
+					"enum": [
+						"refereeReportSZH",
+						"refereeReportWHIL"
+					],
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
 				}
 			}
 		},
 		"additionalInfo":{
 			"title": "Doplňujúce údaje",
-			"xxtransCode": "schema.refereeReport.baseData",
+			"transCode": "schema.refereeReport.additionalInfo",
 			"type": "object",
 			"properties": {
 				"homeTimeOut1": {
 					"title": "Domáci Time-Out 1",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.homeTimeOut1",
 					"type": "string"
 				},
 				"homeTimeOut2": {
 					"title": "Domáci Time-Out 2",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.homeTimeOut2",
 					"type": "string"
 				},
 				"homeTimeOut3": {
 					"title": "Domáci Time-Out 3",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.homeTimeOut3",
 					"type": "string"
 				},
 				"countOfPenaltyShootHome": {
 					"title": "Počet 7m hodov",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.countOfPenaltyShootHome",
 					"type": "string"
 				},
 				"goalOfPenaltyShootHome": {
 					"title": "Góly zo 7m",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.goalOfPenaltyShootHome",
 					"type": "string"
 				},
 				"awayTimeOut1": {
 					"title": "Hostia Time-Out 1",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.awayTimeOut1",
 					"type": "string"
 				},
 				"awayTimeOut2": {
 					"title": "Hostia Time-Out 2",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.awayTimeOut2",
 					"type": "string"
 				},
 				"awayTimeOut3": {
 					"title": "Hostia Time-Out 3",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.awayTimeOut3",
 					"type": "string"
 				},
 				"countOfPenaltyShootAway": {
 					"title": "Počet 7m hodov",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.countOfPenaltyShootAway",
 					"type": "string"
 				},
 				"goalOfPenaltyShootAway": {
 					"title": "Góly zo 7m",
-					"xxtransCode":"schema.refereeReport.baseData.competition",
+					"transCode":"schema.refereeReport.additionalInfo.goalOfPenaltyShootAway",
 					"type": "string"
 				}
 			}
@@ -317,14 +330,7 @@
 				"scorer": {
 					"title": "Zapisovateľ",
 					"transCode": "schema.refereeReport.delegatedPerson.scorer",
-					"type": "object",
-					"objectLink2": {
-						"schema":"uri://registries/people#views/fullperson/view",
-						"fields":{
-							"surName": "baseData.surName",
-							"firstName": "baseData.name"
-						}
-					}
+					"type": "string"
 				},
 				"referee1": {
 					"title": "Rozhodca",
@@ -391,10 +397,12 @@
 					"transCode": "schema.refereeReport.officers.officerB",
 					"type": "object",
 					"objectLink2": {
-						"schema": "uri://registries/people#views/fullperson/view",
+						"schema": "uri://registries/people#views/coach/view",
 						"fields": {
 							"surName": "baseData.surName",
-							"firstName": "baseData.name"
+							"firstName": "baseData.name",
+							"license":"coach.coachLicense",
+							"dateOfExpiration":"coach.dateOfExpiration"
 						}
 					}
 				},
@@ -446,10 +454,12 @@
 					"transCode": "schema.refereeReport.officers.officerB",
 					"type": "object",
 					"objectLink2": {
-						"schema": "uri://registries/people#views/fullperson/view",
+						"schema": "uri://registries/people#views/coach/view",
 						"fields": {
 							"surName": "baseData.surName",
-							"firstName": "baseData.name"
+							"firstName": "baseData.name",
+							"license":"coach.coachLicense",
+							"dateOfExpiration":"coach.dateOfExpiration"
 						}
 					}
 				},
@@ -492,6 +502,11 @@
 					"transCode": "schema.refereeReport.listOfPlayers.players",
 					"type": "array",
 					"items": {
+						"dressNumber": {
+							"title": "Číslo dresu",
+							"transCode": "schema.refereeReport.listOfPlayers.dressNumber",
+							"type": "string"
+						},
 						"player": {
 							"title": "Hráč",
 							"transCode": "schema.refereeReport.listOfPlayers.player",
@@ -503,11 +518,6 @@
 									"registrationID": "baseData.registrationID"
 								}
 							}
-						},
-						"dressNumber": {
-							"title": "Číslo dresu",
-							"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
-							"type": "string"
 						}
 					}
 				}
@@ -526,6 +536,11 @@
 					"transCode": "schema.refereeReport.listOfPlayers.players",
 					"type": "array",
 					"items": {
+						"dressNumber": {
+							"title": "Číslo dresu",
+							"transCode": "schema.refereeReport.listOfPlayers.dressNumber",
+							"type": "string"
+						},
 						"player": {
 							"title": "Hráč",
 							"transCode": "schema.refereeReport.listOfPlayers.player",
@@ -534,14 +549,9 @@
 								"fields": {
 									"surName": "baseData.surName",
 									"firstName": "baseData.name",
-									"birthDate": "baseData.registrationID"
+									"registrationID": "baseData.registrationID"
 								}
 							}
-						},
-						"dressNumber": {
-							"title": "Číslo dresu",
-							"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
-							"type": "string"
 						}
 					}
 				}
@@ -549,7 +559,7 @@
 		},
 		"messages":{
 			"title": "Správy k zápasu",
-			"xxtransCode": "schema.refereeReport.listOfPlayersGuest",
+			"transCode": "schema.refereeReport.messages",
 			"type": "object",
 			"render": {
 				"width": "full"
@@ -583,32 +593,35 @@
 		},
 		"technicalData": {
 			"title": "Technické údaje",
-			"xxtransCode": "schema.refereeReport.listOfPlayersGuest",
+			"transCode": "schema.refereeReport.technicalData",
 			"type": "object",
 			"render": {
 				"width": "full"
 			},
 			"properties": {
-				"players": {
+				"events": {
 					"title": "Udalosti",
-					"transCode": "schema.refereeReport.listOfPlayers.players",
+					"transCode": "schema.refereeReport.technicalData.events",
 					"type": "array",
 					"items": {
-						"player": {
-							"title": "Hráč",
-							"transCode": "schema.refereeReport.listOfPlayers.player",
-							"objectLink2": {
-								"schema": "uri://registries/people#views/player/view",
-								"fields": {
-									"surName": "baseData.surName",
-									"firstName": "baseData.name",
-									"birthDate": "baseData.registrationID"
-								}
-							}
+						"time": {
+							"title": "Čas",
+							"transCode": "schema.refereeReport.technicalData.time",
+							"type": "string"
 						},
-						"dressNumber": {
-							"title": "Číslo dresu",
-							"xxtransCode": "schema.refereeReport.delegatedPerson.matchNumber",
+						"home": {
+							"title": "Domáci",
+							"transCode": "schema.refereeReport.technicalData.home",
+							"type": "string"
+						},
+						"away": {
+							"title": "Hostia",
+							"transCode": "schema.refereeReport.technicalData.away",
+							"type": "string"
+						},
+						"action": {
+							"title": "Akcia",
+							"transCode": "schema.refereeReport.technicalData.action",
 							"type": "string"
 						}
 					}
@@ -666,6 +679,9 @@
 				},
 				"messages":{
 					"$ref":"uri://registries/refereeReports#blocks/messages"
+				},
+				"technicalData":{
+					"$ref":"uri://registries/refereeReports#blocks/technicalData"
 				}
 			}
 		},
@@ -694,26 +710,173 @@
 				"baseData":{
 					"$ref":"uri://registries/refereeReports#blocks/baseData"
 				},
+				"additionalInfo": {
+					"$ref":"uri://registries/refereeReports#blocks/additionalInfo"
+				},
 				"responsiblePeople":{
 					"$ref":"uri://registries/refereeReports#blocks/responsiblePeople"
 				},
-				"delegatedPerson":{
-					"$ref":"uri://registries/refereeReports#blocks/delegatedPerson"
+				"delegatedPerson": {
+					"extends":"uri://registries/refereeReports#blocks/delegatedPerson",
+					"properties": {
+						"referee1": {
+							"objectLink2": {
+								"schema":"uri://registries/people#views/fullperson-km/view",
+								"fields":{
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						},
+						"referee2": {
+							"objectLink2": {
+								"schema":"uri://registries/people#views/fullperson-km/view",
+								"fields":{
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						},
+						"delegate": {
+							"objectLink2": {
+								"schema":"uri://registries/people#views/fullperson-km/view",
+								"fields":{
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						}
+					}
 				},
 				"officersHome": {
-					"$ref":"uri://registries/refereeReports#blocks/officersHome"
+					"extends":"uri://registries/refereeReports#blocks/officersHome",
+					"properties": {
+						"officerA": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/fullperson-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						},
+						"officerB": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/coach-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name",
+									"license":"coach.coachLicense",
+									"dateOfExpiration":"coach.dateOfExpiration"
+								}
+							}
+						},
+						"officerC": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/fullperson-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						},
+						"officerD": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/fullperson-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						}
+					}
 				},
 				"officersGuest": {
-					"$ref":"uri://registries/refereeReports#blocks/officersGuest"
+					"extends":"uri://registries/refereeReports#blocks/officersGuest",
+					"properties": {
+						"officerA": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/fullperson-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						},
+						"officerB": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/coach-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name",
+									"license":"coach.coachLicense",
+									"dateOfExpiration":"coach.dateOfExpiration"
+								}
+							}
+						},
+						"officerC": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/fullperson-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						},
+						"officerD": {
+							"objectLink2": {
+								"schema": "uri://registries/people#views/fullperson-km/view",
+								"fields": {
+									"surName": "baseData.surName",
+									"firstName": "baseData.name"
+								}
+							}
+						}
+					}
 				},
-				"listOfPlayersHome":{
-					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersHome"
+				"listOfPlayersHome": {
+					"extends":"uri://registries/refereeReports#blocks/listOfPlayersHome",
+					"properties": {
+						"players": {
+							"items": {
+								"player": {
+									"objectLink2": {
+										"schema": "uri://registries/people#views/player-km/view",
+										"fields": {
+											"surName": "baseData.surName",
+											"firstName": "baseData.name",
+											"registrationID": "baseData.registrationID"
+										}
+									}
+								}
+							}
+						}
+					}
 				},
-				"listOfPlayersGuest":{
-					"$ref":"uri://registries/refereeReports#blocks/listOfPlayersGuest"
+				"listOfPlayersGuest": {
+					"extends":"uri://registries/refereeReports#blocks/listOfPlayersGuest",
+					"properties": {
+						"players": {
+							"items": {
+								"player": {
+									"objectLink2": {
+										"schema": "uri://registries/people#views/player-km/view",
+										"fields": {
+											"surName": "baseData.surName",
+											"firstName": "baseData.name",
+											"registrationID": "baseData.registrationID"
+										}
+									}
+								}
+							}
+						}
+					}
 				},
 				"messages":{
 					"$ref":"uri://registries/refereeReports#blocks/messages"
+				},
+				"technicalData":{
+					"$ref":"uri://registries/refereeReports#blocks/technicalData"
 				}
 			}
 		}
@@ -782,13 +945,22 @@
 							"competition": {
 								"readOnly": true
 							},
+							"season": {
+								"readOnly": true
+							},
 							"competitionPart": {
 								"readOnly": true
 							},
 							"ageCategory": {
 								"readOnly": true
 							},
+							"homeClubSec": {
+								"readOnly": true
+							},
 							"homeClub": {
+								"readOnly": true
+							},
+							"awayClubSec": {
 								"readOnly": true
 							},
 							"awayClub": {
@@ -799,7 +971,8 @@
 							},
 							"matchNumber": {
 								"readOnly": true
-							}
+							},
+							"printTemplate": null
 						}
 					}
 				}
