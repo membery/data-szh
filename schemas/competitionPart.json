@@ -98,17 +98,17 @@
 			"security": {
 				"create": {
 					"static": [
-						"Registry - write"
+						"CompetitionPart - write"
 					]
 				},
 				"read": {
 					"static": [
-						"Registry - read"
+						"CompetitionPart - read"
 					]
 				},
 				"modify": {
 					"static": [
-						"Registry - write"
+						"CompetitionPart - write"
 					]
 				}
 			},
