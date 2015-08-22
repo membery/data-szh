@@ -461,32 +461,32 @@ body{
 						</div>
 					</div>
 				</div>
-				{% set loopArray = Array(15) %}
+				{% set loopArray = Array(16) %}
 				{% for x in loopArray %}
 				<div class="row">
 					<div class="col width50per minWidth250">
 						<div class="row nowrap">
 							<div class="col width20">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].dressNumber %}
-									{{listOfPlayersHome.players[loop.index].dressNumber}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].dressNumber %}
+									{{listOfPlayersHome.players[loop.index0].dressNumber}}
 								{% endif %}
 							</div>
 							<div class="col left">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].player && 
-								listOfPlayersHome.players[loop.index].player.refData && 
-								listOfPlayersHome.players[loop.index].player.refData.surName && 
-								listOfPlayersHome.players[loop.index].player.refData.firstName %}
-									{{listOfPlayersHome.players[loop.index].player.refData.surName}} {{listOfPlayersHome.players[loop.index].player.refData.firstName}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].player && 
+								listOfPlayersHome.players[loop.index0].player.refData && 
+								listOfPlayersHome.players[loop.index0].player.refData.surName && 
+								listOfPlayersHome.players[loop.index0].player.refData.firstName %}
+									{{listOfPlayersHome.players[loop.index0].player.refData.surName}} {{listOfPlayersHome.players[loop.index0].player.refData.firstName}}
 								{% endif %}
 							</div>
 							<div class="col width50">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].player && 
-								listOfPlayersHome.players[loop.index].player.refData && 
-								listOfPlayersHome.players[loop.index].player.refData.registrationID %}
-									{{listOfPlayersHome.players[loop.index].player.refData.registrationID}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].player && 
+								listOfPlayersHome.players[loop.index0].player.refData && 
+								listOfPlayersHome.players[loop.index0].player.refData.registrationID %}
+									{{listOfPlayersHome.players[loop.index0].player.refData.registrationID}}
 								{% endif %}
 							</div>
 						</div>
@@ -494,27 +494,27 @@ body{
 					<div class="col width50per">
 						<div class="row">
 							<div class="col width20per">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].events1 %}
-									{{listOfPlayersHome.players[loop.index].events1}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].events1 %}
+									{{listOfPlayersHome.players[loop.index0].events1}}
 								{% endif %}
 							</div>
 							<div class="col width20per">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].events2 %}
-									{{listOfPlayersHome.players[loop.index].events2}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].events2 %}
+									{{listOfPlayersHome.players[loop.index0].events2}}
 								{% endif %}
 							</div>
 							<div class="col width20">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].points %}
-									{{listOfPlayersHome.players[loop.index].points}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].points %}
+									{{listOfPlayersHome.players[loop.index0].points}}
 								{% endif %}
 							</div>
 							<div class="col width50">
-								{% if listOfPlayersHome.players[loop.index] && 
-								listOfPlayersHome.players[loop.index].punish %}
-									{{listOfPlayersHome.players[loop.index].punish}}
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].punish %}
+									{{listOfPlayersHome.players[loop.index0].punish}}
 								{% endif %}
 							</div>
 						</div>
@@ -731,32 +731,32 @@ body{
 						</div>
 					</div>
 				</div>
-				{% set loopArray = Array(15) %}
+				{% set loopArray = Array(16) %}
 				{% for x in loopArray %}
 				<div class="row">
 					<div class="col width50per minWidth250">
 						<div class="row nowrap">
 							<div class="col width20">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].dressNumber %}
-									{{listOfPlayersGuest.players[loop.index].dressNumber}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].dressNumber %}
+									{{listOfPlayersGuest.players[loop.index0].dressNumber}}
 								{% endif %}
 							</div>
 							<div class="col left">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].player && 
-								listOfPlayersGuest.players[loop.index].player.refData && 
-								listOfPlayersGuest.players[loop.index].player.refData.surName && 
-								listOfPlayersGuest.players[loop.index].player.refData.firstName %}
-									{{listOfPlayersGuest.players[loop.index].player.refData.surName}} {{listOfPlayersGuest.players[loop.index].player.refData.firstName}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].player && 
+								listOfPlayersGuest.players[loop.index0].player.refData && 
+								listOfPlayersGuest.players[loop.index0].player.refData.surName && 
+								listOfPlayersGuest.players[loop.index0].player.refData.firstName %}
+								{{listOfPlayersGuest.players[loop.index0].player.refData.surName}} {{listOfPlayersGuest.players[loop.index0].player.refData.firstName}}
 								{% endif %}
 							</div>
 							<div class="col width50">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].player && 
-								listOfPlayersGuest.players[loop.index].player.refData && 
-								listOfPlayersGuest.players[loop.index].player.refData.registrationID %}
-									{{listOfPlayersGuest.players[loop.index].player.refData.registrationID}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].player && 
+								listOfPlayersGuest.players[loop.index0].player.refData && 
+								listOfPlayersGuest.players[loop.index0].player.refData.registrationID %}
+									{{listOfPlayersGuest.players[loop.index0].player.refData.registrationID}}
 								{% endif %}
 							</div>
 						</div>
@@ -764,27 +764,27 @@ body{
 					<div class="col width50per">
 						<div class="row">
 							<div class="col width20per">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].events1 %}
-									{{listOfPlayersGuest.players[loop.index].events1}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].events1 %}
+									{{listOfPlayersGuest.players[loop.index0].events1}}
 								{% endif %}
 							</div>
 							<div class="col width20per">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].events2 %}
-									{{listOfPlayersGuest.players[loop.index].events2}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].events2 %}
+									{{listOfPlayersGuest.players[loop.index0].events2}}
 								{% endif %}
 							</div>
 							<div class="col width20">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].points %}
-									{{listOfPlayersGuest.players[loop.index].points}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].points %}
+									{{listOfPlayersGuest.players[loop.index0].points}}
 								{% endif %}
 							</div>
 							<div class="col width50">
-								{% if listOfPlayersGuest.players[loop.index] && 
-								listOfPlayersGuest.players[loop.index].punish %}
-									{{listOfPlayersGuest.players[loop.index].punish}}
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].punish %}
+									{{listOfPlayersGuest.players[loop.index0].punish}}
 								{% endif %}
 							</div>
 						</div>
