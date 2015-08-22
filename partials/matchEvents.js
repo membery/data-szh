@@ -207,11 +207,8 @@
 			}
 
 			$scope.data.playersHome.sort(function(a, b) {return parseInt(a.jersey) - parseInt(b.jersey); });
-			if ($scope.data.playersHome.length < 16) {
-				$scope.data.playersHomeLimit = $scope.data.playersHome.length - 8;
-			} else {
-				$scope.data.playersHomeLimit = 8;
-			}
+
+			$scope.data.playersHomeLimit = Math.max($scope.data.playersHome.length - 8, 0);
 
 			if ($scope.obj && $scope.obj.listOfPlayersGuest && $scope.obj.listOfPlayersGuest.players) {
 				for (k in $scope.obj.listOfPlayersGuest.players) {
@@ -228,11 +225,8 @@
 			}
 
 			$scope.data.playersGuest.sort(function(a, b) {return parseInt(a.jersey) - parseInt(b.jersey); });
-			if ($scope.data.playersGuest.length < 16) {
-				$scope.data.playersGuestLimit = $scope.data.playersGuest.length - 8;
-			} else {
-				$scope.data.playersGuestLimit = 8;
-			}
+
+			$scope.data.playersGuestLimit = Math.max($scope.data.playersGuest.length - 8, 0);
 
 			$scope.data.events = [];
 
