@@ -888,7 +888,22 @@
 				"extends":"uri://registries/refereeReports#models/refereeReports"
 			},
 			"view": {
-				"extends":"uri://registries/refereeReports#models/refereeReports"
+				"extends":"uri://registries/refereeReports#models/refereeReports",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "url-link",
+						"title": "Online zápis",
+						"path": "/dataset/get/partials/matchEvents.html",
+						"target": "_blank"
+					},
+					{
+						"__DIRECTIVE__": "url-link",
+						"title": "Protokol",
+						"path": "http://novy.slovakhandball.sk/competition/refereeReport",
+
+						"target": "_blank"
+					}
+				]
 			},
 			"search": {
 				"extends":"uri://registries/refereeReports#models/refereeReports",
