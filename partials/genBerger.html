@@ -12,29 +12,28 @@
 									<th colspan="4" style="text-align: center; background-color: black;" >Kolo {{round.round}} -  {{round.term.baseData.date|dateToString}} </th>
 								</tr>
 								<tr>
-									<th colspan="2" style="text-align: right; ">Domáci</th>
+									<th colspan="2" style="text-align: right;">Domáci</th>
 									<th colspan="2">Hostia</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr  ng-repeat="match in round.matches" >
-										<td width="50%" style=" vertical-align: middle; text-align: right; ">
-											{{match.home.refData.name}}
-										</td>
-										<td width="80px">
-											<img src="{{match.home.photo}}" width="80px" height="80px" />
-										</td>
-										<td width="80px">
-											<img src="{{match.visitors.photo}}" width="80px" height="80px" />
-										</td>
-										<td width="50%" style=" vertical-align: middle; ">
-											{{match.visitors.refData.name}}
-										</td>
+								<tr ng-repeat="match in round.matches" >
+									<td width="50%" style=" vertical-align: middle; text-align: right; ">
+										{{match.home.refData.name}}
+									</td>
+									<td width="80px">
+										<img src="{{match.home.photo}}" width="80px" height="80px" />
+									</td>
+									<td width="80px">
+										<img src="{{match.visitors.photo}}" width="80px" height="80px" />
+									</td>
+									<td width="50%" style=" vertical-align: middle; ">
+										{{match.visitors.refData.name}}
+									</td>
 								</tr>
-
-								<tr  ng-show="round.notPlaying" style="background-color: #D6D6D6;" >
-										<td style="text-align: right;" width="50%;">Nehrajúci tím:</td>
-										<td>{{round.notPlaying.refData.name}}</td>
+								<tr ng-show="round.notPlaying" style="background-color: #D6D6D6;" >
+									<td style="text-align: right;" width="50%;">Nehrajúci tím:</td>
+									<td>{{round.notPlaying.team.refData.name}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -57,5 +56,4 @@
 			</div>
 		</div>
 	</div>
-
 </div>
