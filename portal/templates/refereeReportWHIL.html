@@ -1,0 +1,3566 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- v IE zaruci podporu najnovsieho dostupneho jadra IE -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<style>
+		@media print{
+	body{
+		margin: 0;
+		padding: 0;
+		width: 21cm;
+		min-height: 29.7cm;
+		font-family: Arial;
+		font-size: 8px;
+		-webkit-font-smoothing:antialiased;
+		line-height: 1;
+	}
+	.page-break{ 
+		page-break-before: always;
+		page-break-inside: avoid;
+	}
+	.widthMAX{
+		width: 60%
+	}
+	.width319{
+		max-width: 30%;
+	}
+	.minWidth250{
+		min-width: 0px !important;
+	}
+	.width50per{
+		width: 0;
+	}
+	.width20per{
+		width: 0;
+	}
+}
+
+@media all {
+	.page-break	{ display: none; }
+}
+
+body{
+	font-family: Arial;
+	font-size: 12px;
+	-webkit-font-smoothing:antialiased;
+	line-height: 1;
+}
+
+/*basic*/
+.header{
+	font-weight: bold;
+	line-height: normal;
+}
+.bold{
+	font-weight: bold;
+	line-height: normal;
+}
+.left{
+	text-align: left;
+	height: 17px;
+}
+.fs6{
+	font-size: 9px;
+}
+.fs11{
+	font-size: 11px;
+}
+.fs16{
+	font-size: 16px;
+}
+.fs18{
+	font-size: 18px;
+}
+.fs100{
+	font-size: 100%;
+}
+
+/*flex design*/
+.row  {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	-webkit-flex-direction: row;
+	-webkit-flex: 1 1 auto;	/* Three values: flex-grow | flex-shrink | flex-basis */
+	text-align: center;
+	border-bottom: 1px solid black;
+	-webkit-justify-content: center;
+		-ms-flex-pack: center;
+			justify-content: center;
+}
+.col {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-webkit-flex: 1 1 auto;	/* Three values: flex-grow | flex-shrink | flex-basis */
+	border-right: 1px solid black;
+	-webkit-justify-content: center;
+		-ms-flex-pack: center;
+			justify-content: center;
+}
+.nowrap{
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+}
+.flexLeft{
+	-webkit-justify-content: flex-start !important;
+		-ms-flex-pack: flex-start !important;
+			justify-content: flex-start !important;
+	text-align: left;
+}
+
+
+.width50per{
+	width: 49%;
+}
+.width20per{
+	width: 20%;
+}
+.minWidth250{
+	min-width: 240px;
+}
+.width319{
+	max-width: 313px;
+	min-width: 313px
+}
+.width100{
+	max-width: 100px;
+	min-width: 100px;
+}
+.width80{
+	max-width: 80px;
+	min-width: 80px;
+}
+.width20{
+	max-width: 20px;
+	min-width: 20px;
+	min-height: 12px;
+}
+.width50{
+	max-width: 50px;
+	min-width: 50px;
+}
+.width35{
+	max-width: 35px;
+}
+.width58{
+	max-width: 58px;
+	min-width: 58px;
+}
+.width56{
+	max-width: 56px;
+}
+.height50{
+	height: 50px;
+}
+.padding{
+	padding: 5px 10px;
+	text-align: justify;
+}
+
+/*borders*/
+.noborder{
+	border: none;
+}
+.topB{
+	border-top: 1px solid black;
+}
+.bottomB{
+	border-bottom: 1px solid black;
+}
+.noBottomB{
+	border-bottom: none;
+}
+.leftB{
+	border-left: 1px solid black;
+}
+.noLeftB{
+	border-left: none;
+}
+.rightB{
+	border-right: 1px solid black;
+}
+.noRightB{
+	border-right: none;
+}
+
+/*others*/
+.bgYellow{
+	background: #ffff99;
+}
+.home{
+	background: #ccffff;
+}
+.away{
+	background: #ccffcc;
+}
+
+@media (max-width: 829px) {
+	.width319{
+		max-width: 100%;
+	}
+	.row > div:nth-child(4).width56{
+		border-right: none;
+	}
+	.width20 {
+		max-width: 30px;
+		min-width: 30px;
+	}
+}
+@media (max-width: 512px) {
+	.width100 {
+		border-right: none;
+	}
+}
+		</style>
+	</head>
+	<body class="leftB topB">
+		<div class="row ">
+		<!-- hlavicka -->
+			<div class="col">
+				<div class="row">
+					<div class="col width100">
+						<img src="data:image/jpg;base64,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" alt="SZH" width="100" height="50">
+					</div>
+					<div class="col">
+						<div class="row bgYellow topB">
+							<div class="col header noRightB fs16">
+								Woman Handball International League
+							</div>
+							<div class="col header fs18">
+								ZÁPIS O STRETNUTÍ
+							</div>
+						</div>
+						<div class="row noborder">
+							<div class="col noborder">
+								<div class="row noborder">
+									<div class="col noborder">
+										<div class="col bgYellow">Miesto stretnutia</div>
+										<div class="col">{{baseData.stadium.refData.name}}</div>
+									</div>
+									<div class="col noborder">
+										<div class="col bgYellow">Dátum</div>
+										<div class="col">{{baseData.matchDate|date(baseData.matchDate,'d-m-Y')}}</div>
+									</div>
+									<div class="col noborder">
+										<div class="col bgYellow">Čas stretnutia</div>
+										<div class="col">{{baseData.matchBegin}}</div>
+									</div>
+									<div class="col noborder">
+										<div class="col bgYellow">Číslo</div>
+										<div class="col">{{baseData.matchNumber}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row ">
+		<!-- A druzstvo B druzstvo -->
+			<div class="col">
+				<div class="row home noBottomB">
+					<div class="col width20 noborder bold">A</div>
+					<div class="col">Domáci</div>
+				</div>
+				<div class="col">
+					{{baseData.homeClub.refData.name}}
+				</div>
+			</div>
+			<div class="col topB">
+				<div class="row away noBottomB">
+					<div class="col width20 noborder bold">B</div>
+					<div class="col">Hostia</div>
+				</div>
+				<div class="col">
+					{{baseData.awayClub.refData.name}}
+				</div>
+			</div>
+			<div class="col topB">
+				<div class="row">
+					<div class="col bgYellow">
+						Konečný<br>výsledok
+					</div>
+					<div class="col bold fs16">
+						{{baseData.fullTimeScoreHome}}
+					</div>
+					<div class="col bold fs16">
+						{{baseData.fullTimeScoreAway}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row ">
+		<!-- vysledky -->
+			<div class="col">
+				<div class="row">
+					<div class="col bgYellow fs11">
+						Polčas<br>(30')
+					</div>
+					<div class="col bold fs16">
+						{{baseData.halfTimeScoreHome}}
+					</div>
+					<div class="col bold fs16">
+						{{baseData.halfTimeScoreAway}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col bgYellow fs11">
+						Výsledok<br>(60')
+					</div>
+					<div class="col bold fs16">
+						{{baseData.scoreHome}}
+					</div>
+					<div class="col bold fs16">
+						{{baseData.scoreAway}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col bgYellow fs11">
+						1. Predĺženie
+					</div>
+					<div class="col bold fs16">
+						{{baseData.firstOvertimeHome}}
+					</div>
+					<div class="col bold fs16">
+						{{baseData.firstOvertimeAway}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col bgYellow fs11">
+						2. Predĺženie
+					</div>
+					<div class="col bold fs16">
+						{{baseData.secondOvertimeHome}}
+					</div>
+					<div class="col bold fs16">
+						{{baseData.secondOvertimeAway}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col bgYellow fs11">
+						Po 7m<br>hodoch
+					</div>
+					<div class="col bold fs16">
+						{{baseData.penaltyShootHome}}
+					</div>
+					<div class="col bold fs16">
+						{{baseData.penaltyShootAway}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col bgYellow fs11">
+						Diváci
+					</div>
+					<div class="col bold fs16">
+						{{baseData.attendance}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row ">
+		<!-- blok supisiek a udalosti -->
+			<div class="col widthMax">
+			<!-- blok supisiek-->
+				<div class="row home">
+				<!-- blok supiska A -->
+					<div class="col width50per minWidth250">
+						<div class="row">
+							<div class="col width20 bold">
+								A
+							</div>
+							<div class="col bold">
+								Družstvo A
+							</div>
+						</div>
+						<div class="row nowrap">
+							<div class="col width20">
+								Č.
+							</div>
+							<div class="col">
+								Priezvisko, Meno
+							</div>
+							<div class="col width50">
+								Číslo RP
+							</div>
+						</div>
+					</div>
+					<div class="col width50per minWidth250">
+						<div class="row">
+							<div class="col">
+								<div class="row bold">
+									Góly
+								</div>
+								<div class="row noborder">
+									<div class="col">
+										1.polčas
+									</div>
+									<div class="col">
+										2.polčas
+									</div>
+									<div class="col noborder width20">
+										∑
+									</div>
+								</div>
+							</div>
+							<div class="col bold width50">
+								Tresty
+							</div>
+						</div>
+					</div>
+				</div>
+				{% set loopArray = Array(16) %}
+				{% for x in loopArray %}
+				<div class="row">
+					<div class="col width50per minWidth250">
+						<div class="row nowrap">
+							<div class="col width20">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].dressNumber %}
+									{{listOfPlayersHome.players[loop.index0].dressNumber}}
+								{% endif %}
+							</div>
+							<div class="col left">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].player && 
+								listOfPlayersHome.players[loop.index0].player.refData && 
+								listOfPlayersHome.players[loop.index0].player.refData.surName && 
+								listOfPlayersHome.players[loop.index0].player.refData.firstName %}
+									{{listOfPlayersHome.players[loop.index0].player.refData.surName}} {{listOfPlayersHome.players[loop.index0].player.refData.firstName}}
+								{% endif %}
+							</div>
+							<div class="col width50">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].player && 
+								listOfPlayersHome.players[loop.index0].player.refData && 
+								listOfPlayersHome.players[loop.index0].player.refData.registrationID %}
+									{{listOfPlayersHome.players[loop.index0].player.refData.registrationID}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col width20per">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].events1 %}
+									{{listOfPlayersHome.players[loop.index0].events1}}
+								{% endif %}
+							</div>
+							<div class="col width20per">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].events2 %}
+									{{listOfPlayersHome.players[loop.index0].events2}}
+								{% endif %}
+							</div>
+							<div class="col width20">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].points %}
+									{{listOfPlayersHome.players[loop.index0].points}}
+								{% endif %}
+							</div>
+							<div class="col width50">
+								{% if listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].punish %}
+									{{listOfPlayersHome.players[loop.index0].punish}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- funkcionar A -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								A
+							</div>
+							<div class="col left noborder width80">
+								ZVD:
+							</div>
+							<div class="col left">
+								{{officersHome.officerA.refData.surName}} {{officersHome.officerA.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width50">
+								Podpis:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- funkcionar B -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								B
+							</div>
+							<div class="col left noborder width80">
+								Tréner:
+							</div>
+							<div class="col left">
+								 {{officersHome.officerB.refData.surName}} {{officersHome.officerB.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width50">
+								Licencia:
+							</div>
+							<div class="col">
+								{{officersHome.officerB.refData.license}}
+							</div>
+							<div class="col left noborder">
+								Platnosť do:
+							</div>
+							<div class="col">
+								{{officersHome.officerB.refData.dateOfExpiration}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- funkcionar C -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								C
+							</div>
+							<div class="col left noborder width80">
+								Funkcionári:
+							</div>
+							<div class="col left">
+								{{officersHome.officerC.refData.surName}} {{officersHome.officerC.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width50">
+								Funkcia:
+							</div>
+							<div class="col left">
+								 
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- funkcionar D -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								D
+							</div>
+							<div class="col left noborder width80">
+								Funkcionári:
+							</div>
+							<div class="col left">
+								{{officersHome.officerD.refData.surName}} {{officersHome.officerD.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width50">
+								Funkcia:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<!-- match stats 1 -->
+					<div class="col width50per">
+						<div class="row">
+							<div class="col home">
+								Team Time-Out 1:
+							</div>
+							<div class="col">
+								{{additionalInfo.homeTimeOut1}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col home">
+								2:
+							</div>
+							<div class="col">
+								{{additionalInfo.homeTimeOut2}}
+							</div>
+							<div class="col home">
+								3:
+							</div>
+							<div class="col">
+								{{additionalInfo.homeTimeOut3}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<!-- match stats 2 -->
+					<div class="col width50per">
+						<div class="row">
+							<div class="col home">
+								Počet 7m hodov:
+							</div>
+							<div class="col">
+								{{additionalInfo.countOfPenaltyShootHome}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col home">
+								Góly zo 7m:
+							</div>
+							<div class="col">
+								{{additionalInfo.goalOfPenaltyShootHome}}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row away">
+				<!-- blok supiska B -->
+					<div class="col width50per minWidth250">
+						<div class="row">
+							<div class="col width20 bold">
+								B
+							</div>
+							<div class="col bold">
+								Družstvo B
+							</div>
+						</div>
+						<div class="row nowrap">
+							<div class="col width20">
+								Č.
+							</div>
+							<div class="col">
+								Priezvisko, Meno
+							</div>
+							<div class="col width50">
+								Číslo RP
+							</div>
+						</div>
+					</div>
+					<div class="col width50per minWidth250">
+						<div class="row">
+							<div class="col">
+								<div class="row bold">
+									Góly
+								</div>
+								<div class="row noborder">
+									<div class="col">
+										1.polčas
+									</div>
+									<div class="col">
+										2.polčas
+									</div>
+									<div class="col noborder width20">
+										∑
+									</div>
+								</div>
+							</div>
+							<div class="col bold width50">
+								Tresty
+							</div>
+						</div>
+					</div>
+				</div>
+				{% set loopArray = Array(16) %}
+				{% for x in loopArray %}
+				<div class="row">
+					<div class="col width50per minWidth250">
+						<div class="row nowrap">
+							<div class="col width20">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].dressNumber %}
+									{{listOfPlayersGuest.players[loop.index0].dressNumber}}
+								{% endif %}
+							</div>
+							<div class="col left">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].player && 
+								listOfPlayersGuest.players[loop.index0].player.refData && 
+								listOfPlayersGuest.players[loop.index0].player.refData.surName && 
+								listOfPlayersGuest.players[loop.index0].player.refData.firstName %}
+								{{listOfPlayersGuest.players[loop.index0].player.refData.surName}} {{listOfPlayersGuest.players[loop.index0].player.refData.firstName}}
+								{% endif %}
+							</div>
+							<div class="col width50">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].player && 
+								listOfPlayersGuest.players[loop.index0].player.refData && 
+								listOfPlayersGuest.players[loop.index0].player.refData.registrationID %}
+									{{listOfPlayersGuest.players[loop.index0].player.refData.registrationID}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col width20per">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].events1 %}
+									{{listOfPlayersGuest.players[loop.index0].events1}}
+								{% endif %}
+							</div>
+							<div class="col width20per">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].events2 %}
+									{{listOfPlayersGuest.players[loop.index0].events2}}
+								{% endif %}
+							</div>
+							<div class="col width20">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].points %}
+									{{listOfPlayersGuest.players[loop.index0].points}}
+								{% endif %}
+							</div>
+							<div class="col width50">
+								{% if listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].punish %}
+									{{listOfPlayersGuest.players[loop.index0].punish}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- funkcionar A -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								A
+							</div>
+							<div class="col left noborder width80">
+								ZVD:
+							</div>
+							<div class="col left">
+								{{officersGuest.officerA.refData.surName}} {{officersGuest.officerA.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width50">
+								Podpis:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- funkcionar B -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								B
+							</div>
+							<div class="col left noborder width80">
+								Tréner:
+							</div>
+							<div class="col left">
+								 {{officersGuest.officerB.refData.surName}} {{officersGuest.officerB.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width50">
+								Licencia:
+							</div>
+							<div class="col">
+								{{officersGuest.officerB.refData.license}}
+							</div>
+							<div class="col left noborder">
+								Platnosť do:
+							</div>
+							<div class="col">
+								{{officersGuest.officerB.refData.dateOfExpiration}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- funkcionar C -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								C
+							</div>
+							<div class="col left noborder width80">
+								Funkcionári:
+							</div>
+							<div class="col left">
+								{{officersGuest.officerC.refData.surName}} {{officersGuest.officerC.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width50">
+								Funkcia:
+							</div>
+							<div class="col left">
+								 
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- funkcionar D -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col width20">
+								D
+							</div>
+							<div class="col left noborder width80">
+								Funkcionári:
+							</div>
+							<div class="col left">
+								{{officersGuest.officerD.refData.surName}} {{officersGuest.officerD.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width50">
+								Funkcia:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- match stats 1 -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row">
+							<div class="col away">
+								Team Time-Out 1:
+							</div>
+							<div class="col">
+								{{additionalInfo.awayTimeOut1}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col away">
+								2:
+							</div>
+							<div class="col">
+								{{additionalInfo.awayTimeOut2}}
+							</div>
+							<div class="col away">
+								3:
+							</div>
+							<div class="col">
+								{{additionalInfo.awayTimeOut3}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- match stats 2 -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row">
+							<div class="col away">
+								Počet 7m hodov:
+							</div>
+							<div class="col">
+								{{additionalInfo.countOfPenaltyShootAway}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col away">
+								Góly zo 7m:
+							</div>
+							<div class="col">
+								{{additionalInfo.goalOfPenaltyShootAway}}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- delegovane osoby -->
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Hl. usporiadateľ:
+							</div>
+							<div class="col">
+								{{responsiblePeople.mainOrganizer}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Zdravotná služba:
+							</div>
+							<div class="col">
+								{{responsiblePeople.medic}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Časomerač:
+							</div>
+							<div class="col">
+								{{responsiblePeople.timekeeper}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Hlásateľ:
+							</div>
+							<div class="col">
+								{{responsiblePeople.speaker}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col width50per">
+						<div class="row">
+							<div class="col home left noborder width100">
+								Podpis ZVD A:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col away left noborder width100">
+								Podpis ZVD B:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Zapisovateľ:
+							</div>
+							<div class="col left">
+								{{delegatedPerson.scorer}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width100">
+								Podpis:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Rozhodca:
+							</div>
+							<div class="col left">
+								{{delegatedPerson.referee1.refData.surName}} {{delegatedPerson.referee1.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width100">
+								Podpis:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Rozhodca:
+							</div>
+							<div class="col left">
+								{{delegatedPerson.referee2.refData.surName}} {{delegatedPerson.referee2.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width100">
+								Podpis:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col width50per">
+						<div class="row nowrap">
+							<div class="col left noborder width100">
+								Delegát:
+							</div>
+							<div class="col left">
+								{{delegatedPerson.delegate.refData.surName}} {{delegatedPerson.delegate.refData.firstName}}
+							</div>
+						</div>
+					</div>
+					<div class="col width50per">
+						<div class="row">
+							<div class="col left noborder width100">
+								Podpis:
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col width319">
+			<!-- udalosti -->
+				<div class="row">
+					<div class="col width50per fs100">
+					<!-- 1.polcas -->
+						<div class="row">
+							<div class="col">
+								<div class="row">
+									1.polčas
+								</div>
+								<div class="row">
+									<div class="col width56">
+										m's''
+									</div>
+									<div class="col width20">
+										A
+									</div>
+									<div class="col width20">
+										B
+									</div>
+									<div class="col noborder width56">
+										akcia
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[0] %}
+								{{technicalData1.events[0].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[0] %}
+								{{technicalData1.events[0].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[0] %}
+								{{technicalData1.events[0].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[0] %}
+								{{technicalData1.events[0].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[1] %}
+								{{technicalData1.events[1].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[1] %}
+								{{technicalData1.events[1].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[1] %}
+								{{technicalData1.events[1].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[1] %}
+								{{technicalData1.events[1].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[2] %}
+								{{technicalData1.events[2].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[2] %}
+								{{technicalData1.events[2].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[2] %}
+								{{technicalData1.events[2].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[2] %}
+								{{technicalData1.events[2].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[3] %}
+								{{technicalData1.events[3].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[3] %}
+								{{technicalData1.events[3].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[3] %}
+								{{technicalData1.events[3].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[3] %}
+								{{technicalData1.events[3].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[4] %}
+								{{technicalData1.events[4].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[4] %}
+								{{technicalData1.events[4].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[4] %}
+								{{technicalData1.events[4].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[4] %}
+								{{technicalData1.events[4].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[5] %}
+								{{technicalData1.events[5].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[5] %}
+								{{technicalData1.events[5].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[5] %}
+								{{technicalData1.events[5].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[5] %}
+								{{technicalData1.events[5].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[6] %}
+								{{technicalData1.events[6].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[6] %}
+								{{technicalData1.events[6].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[6] %}
+								{{technicalData1.events[6].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[6] %}
+								{{technicalData1.events[6].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[7] %}
+								{{technicalData1.events[7].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[7] %}
+								{{technicalData1.events[7].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[7] %}
+								{{technicalData1.events[7].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[7] %}
+								{{technicalData1.events[7].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[8] %}
+								{{technicalData1.events[8].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[8] %}
+								{{technicalData1.events[8].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[8] %}
+								{{technicalData1.events[8].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[8] %}
+								{{technicalData1.events[8].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[9] %}
+								{{technicalData1.events[9].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[9] %}
+								{{technicalData1.events[9].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[9] %}
+								{{technicalData1.events[9].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[9] %}
+								{{technicalData1.events[9].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[10] %}
+								{{technicalData1.events[10].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[10] %}
+								{{technicalData1.events[10].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[10] %}
+								{{technicalData1.events[10].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[10] %}
+								{{technicalData1.events[10].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[11] %}
+								{{technicalData1.events[11].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[11] %}
+								{{technicalData1.events[11].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[11] %}
+								{{technicalData1.events[11].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[11] %}
+								{{technicalData1.events[11].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[12] %}
+								{{technicalData1.events[12].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[12] %}
+								{{technicalData1.events[12].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[12] %}
+								{{technicalData1.events[12].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[12] %}
+								{{technicalData1.events[12].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[13] %}
+								{{technicalData1.events[13].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[13] %}
+								{{technicalData1.events[13].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[13] %}
+								{{technicalData1.events[13].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[13] %}
+								{{technicalData1.events[13].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[14] %}
+								{{technicalData1.events[14].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[14] %}
+								{{technicalData1.events[14].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[14] %}
+								{{technicalData1.events[14].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[14] %}
+								{{technicalData1.events[14].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[15] %}
+								{{technicalData1.events[15].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[15] %}
+								{{technicalData1.events[15].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[15] %}
+								{{technicalData1.events[15].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[15] %}
+								{{technicalData1.events[15].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[16] %}
+								{{technicalData1.events[16].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[16] %}
+								{{technicalData1.events[16].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[16] %}
+								{{technicalData1.events[16].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[16] %}
+								{{technicalData1.events[16].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[17] %}
+								{{technicalData1.events[17].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[17] %}
+								{{technicalData1.events[17].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[17] %}
+								{{technicalData1.events[17].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[17] %}
+								{{technicalData1.events[17].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[18] %}
+								{{technicalData1.events[18].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[18] %}
+								{{technicalData1.events[18].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[18] %}
+								{{technicalData1.events[18].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[18] %}
+								{{technicalData1.events[18].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[19] %}
+								{{technicalData1.events[19].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[19] %}
+								{{technicalData1.events[19].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[19] %}
+								{{technicalData1.events[19].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[19] %}
+								{{technicalData1.events[19].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[20] %}
+								{{technicalData1.events[20].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[20] %}
+								{{technicalData1.events[20].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[20] %}
+								{{technicalData1.events[20].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[20] %}
+								{{technicalData1.events[20].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[21] %}
+								{{technicalData1.events[21].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[21] %}
+								{{technicalData1.events[21].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[21] %}
+								{{technicalData1.events[21].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[21] %}
+								{{technicalData1.events[21].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[22] %}
+								{{technicalData1.events[22].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[22] %}
+								{{technicalData1.events[22].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[22] %}
+								{{technicalData1.events[22].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[22] %}
+								{{technicalData1.events[22].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[23] %}
+								{{technicalData1.events[23].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[23] %}
+								{{technicalData1.events[23].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[23] %}
+								{{technicalData1.events[23].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[23] %}
+								{{technicalData1.events[23].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[24] %}
+								{{technicalData1.events[24].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[24] %}
+								{{technicalData1.events[24].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[24] %}
+								{{technicalData1.events[24].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[24] %}
+								{{technicalData1.events[24].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[25] %}
+								{{technicalData1.events[25].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[25] %}
+								{{technicalData1.events[25].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[25] %}
+								{{technicalData1.events[25].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[25] %}
+								{{technicalData1.events[25].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[26] %}
+								{{technicalData1.events[26].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[26] %}
+								{{technicalData1.events[26].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[26] %}
+								{{technicalData1.events[26].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[26] %}
+								{{technicalData1.events[26].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[27] %}
+								{{technicalData1.events[27].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[27] %}
+								{{technicalData1.events[27].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[27] %}
+								{{technicalData1.events[27].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[27] %}
+								{{technicalData1.events[27].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[28] %}
+								{{technicalData1.events[28].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[28] %}
+								{{technicalData1.events[28].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[28] %}
+								{{technicalData1.events[28].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[28] %}
+								{{technicalData1.events[28].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[29] %}
+								{{technicalData1.events[29].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[29] %}
+								{{technicalData1.events[29].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[29] %}
+								{{technicalData1.events[29].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[29] %}
+								{{technicalData1.events[29].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[30] %}
+								{{technicalData1.events[30].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[30] %}
+								{{technicalData1.events[30].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[30] %}
+								{{technicalData1.events[30].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[30] %}
+								{{technicalData1.events[30].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[31] %}
+								{{technicalData1.events[31].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[31] %}
+								{{technicalData1.events[31].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[31] %}
+								{{technicalData1.events[31].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[31] %}
+								{{technicalData1.events[31].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[32] %}
+								{{technicalData1.events[32].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[32] %}
+								{{technicalData1.events[32].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[32] %}
+								{{technicalData1.events[32].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[32] %}
+								{{technicalData1.events[32].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[33] %}
+								{{technicalData1.events[33].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[33] %}
+								{{technicalData1.events[33].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[33] %}
+								{{technicalData1.events[33].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[33] %}
+								{{technicalData1.events[33].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[34] %}
+								{{technicalData1.events[34].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[34] %}
+								{{technicalData1.events[34].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[34] %}
+								{{technicalData1.events[34].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[34] %}
+								{{technicalData1.events[34].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[35] %}
+								{{technicalData1.events[35].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[35] %}
+								{{technicalData1.events[35].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[35] %}
+								{{technicalData1.events[35].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[35] %}
+								{{technicalData1.events[35].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[36] %}
+								{{technicalData1.events[36].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[36] %}
+								{{technicalData1.events[36].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[36] %}
+								{{technicalData1.events[36].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[36] %}
+								{{technicalData1.events[36].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[37] %}
+								{{technicalData1.events[37].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[37] %}
+								{{technicalData1.events[37].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[37] %}
+								{{technicalData1.events[37].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[37] %}
+								{{technicalData1.events[37].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[38] %}
+								{{technicalData1.events[38].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[38] %}
+								{{technicalData1.events[38].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[38] %}
+								{{technicalData1.events[38].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[38] %}
+								{{technicalData1.events[38].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[39] %}
+								{{technicalData1.events[39].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[39] %}
+								{{technicalData1.events[39].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[39] %}
+								{{technicalData1.events[39].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[39] %}
+								{{technicalData1.events[39].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[40] %}
+								{{technicalData1.events[40].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[40] %}
+								{{technicalData1.events[40].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[40] %}
+								{{technicalData1.events[40].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[40] %}
+								{{technicalData1.events[40].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[41] %}
+								{{technicalData1.events[41].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[41] %}
+								{{technicalData1.events[41].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[41] %}
+								{{technicalData1.events[41].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[41] %}
+								{{technicalData1.events[41].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[42] %}
+								{{technicalData1.events[42].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[42] %}
+								{{technicalData1.events[42].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[42] %}
+								{{technicalData1.events[42].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[42] %}
+								{{technicalData1.events[42].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[43] %}
+								{{technicalData1.events[43].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[43] %}
+								{{technicalData1.events[43].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[43] %}
+								{{technicalData1.events[43].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[43] %}
+								{{technicalData1.events[43].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[44] %}
+								{{technicalData1.events[44].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[44] %}
+								{{technicalData1.events[44].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[44] %}
+								{{technicalData1.events[44].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[44] %}
+								{{technicalData1.events[44].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[45] %}
+								{{technicalData1.events[45].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[45] %}
+								{{technicalData1.events[45].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[45] %}
+								{{technicalData1.events[45].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[45] %}
+								{{technicalData1.events[45].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[46] %}
+								{{technicalData1.events[46].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[46] %}
+								{{technicalData1.events[46].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[46] %}
+								{{technicalData1.events[46].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[46] %}
+								{{technicalData1.events[46].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[47] %}
+								{{technicalData1.events[47].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[47] %}
+								{{technicalData1.events[47].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[47] %}
+								{{technicalData1.events[47].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[47] %}
+								{{technicalData1.events[47].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[48] %}
+								{{technicalData1.events[48].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[48] %}
+								{{technicalData1.events[48].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[48] %}
+								{{technicalData1.events[48].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[48] %}
+								{{technicalData1.events[48].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[49] %}
+								{{technicalData1.events[49].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[49] %}
+								{{technicalData1.events[49].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[49] %}
+								{{technicalData1.events[49].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[49] %}
+								{{technicalData1.events[49].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[50] %}
+								{{technicalData1.events[50].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[50] %}
+								{{technicalData1.events[50].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[50] %}
+								{{technicalData1.events[50].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[50] %}
+								{{technicalData1.events[50].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[51] %}
+								{{technicalData1.events[51].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[51] %}
+								{{technicalData1.events[51].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[51] %}
+								{{technicalData1.events[51].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[51] %}
+								{{technicalData1.events[51].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData1.events[52] %}
+								{{technicalData1.events[52].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[52] %}
+								{{technicalData1.events[52].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData1.events[52] %}
+								{{technicalData1.events[52].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData1.events[52] %}
+								{{technicalData1.events[52].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						
+						<!-- {% for f, time in technicalData.events %}
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData.events[f] %}
+								{{technicalData.events[f].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData.events[f] %}
+								{{technicalData.events[f].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData.events[f] %}
+								{{technicalData.events[f].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData.events[f] %}
+								{{technicalData.events[f].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						{% endfor %} -->
+					</div>
+
+					<div class="col width50per fs100">
+					<!-- 2.polcas -->
+						<div class="row">
+							<div class="col">
+								<div class="row">
+									2.polčas
+								</div>
+								<div class="row">
+									<div class="col width56">
+										m's''
+									</div>
+									<div class="col width20">
+										A
+									</div>
+									<div class="col width20">
+										B
+									</div>
+									<div class="col noborder width56">
+										akcia
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[0] %}
+								{{technicalData2.events[0].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[0] %}
+								{{technicalData2.events[0].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[0] %}
+								{{technicalData2.events[0].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[0] %}
+								{{technicalData2.events[0].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[1] %}
+								{{technicalData2.events[1].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[1] %}
+								{{technicalData2.events[1].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[1] %}
+								{{technicalData2.events[1].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[1] %}
+								{{technicalData2.events[1].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[2] %}
+								{{technicalData2.events[2].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[2] %}
+								{{technicalData2.events[2].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[2] %}
+								{{technicalData2.events[2].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[2] %}
+								{{technicalData2.events[2].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[3] %}
+								{{technicalData2.events[3].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[3] %}
+								{{technicalData2.events[3].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[3] %}
+								{{technicalData2.events[3].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[3] %}
+								{{technicalData2.events[3].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[4] %}
+								{{technicalData2.events[4].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[4] %}
+								{{technicalData2.events[4].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[4] %}
+								{{technicalData2.events[4].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[4] %}
+								{{technicalData2.events[4].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[5] %}
+								{{technicalData2.events[5].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[5] %}
+								{{technicalData2.events[5].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[5] %}
+								{{technicalData2.events[5].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[5] %}
+								{{technicalData2.events[5].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[6] %}
+								{{technicalData2.events[6].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[6] %}
+								{{technicalData2.events[6].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[6] %}
+								{{technicalData2.events[6].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[6] %}
+								{{technicalData2.events[6].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[7] %}
+								{{technicalData2.events[7].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[7] %}
+								{{technicalData2.events[7].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[7] %}
+								{{technicalData2.events[7].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[7] %}
+								{{technicalData2.events[7].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[8] %}
+								{{technicalData2.events[8].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[8] %}
+								{{technicalData2.events[8].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[8] %}
+								{{technicalData2.events[8].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[8] %}
+								{{technicalData2.events[8].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[9] %}
+								{{technicalData2.events[9].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[9] %}
+								{{technicalData2.events[9].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[9] %}
+								{{technicalData2.events[9].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[9] %}
+								{{technicalData2.events[9].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[10] %}
+								{{technicalData2.events[10].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[10] %}
+								{{technicalData2.events[10].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[10] %}
+								{{technicalData2.events[10].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[10] %}
+								{{technicalData2.events[10].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[11] %}
+								{{technicalData2.events[11].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[11] %}
+								{{technicalData2.events[11].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[11] %}
+								{{technicalData2.events[11].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[11] %}
+								{{technicalData2.events[11].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[12] %}
+								{{technicalData2.events[12].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[12] %}
+								{{technicalData2.events[12].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[12] %}
+								{{technicalData2.events[12].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[12] %}
+								{{technicalData2.events[12].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[13] %}
+								{{technicalData2.events[13].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[13] %}
+								{{technicalData2.events[13].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[13] %}
+								{{technicalData2.events[13].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[13] %}
+								{{technicalData2.events[13].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[14] %}
+								{{technicalData2.events[14].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[14] %}
+								{{technicalData2.events[14].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[14] %}
+								{{technicalData2.events[14].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[14] %}
+								{{technicalData2.events[14].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[15] %}
+								{{technicalData2.events[15].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[15] %}
+								{{technicalData2.events[15].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[15] %}
+								{{technicalData2.events[15].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[15] %}
+								{{technicalData2.events[15].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[16] %}
+								{{technicalData2.events[16].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[16] %}
+								{{technicalData2.events[16].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[16] %}
+								{{technicalData2.events[16].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[16] %}
+								{{technicalData2.events[16].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[17] %}
+								{{technicalData2.events[17].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[17] %}
+								{{technicalData2.events[17].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[17] %}
+								{{technicalData2.events[17].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[17] %}
+								{{technicalData2.events[17].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[18] %}
+								{{technicalData2.events[18].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[18] %}
+								{{technicalData2.events[18].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[18] %}
+								{{technicalData2.events[18].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[18] %}
+								{{technicalData2.events[18].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[19] %}
+								{{technicalData2.events[19].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[19] %}
+								{{technicalData2.events[19].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[19] %}
+								{{technicalData2.events[19].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[19] %}
+								{{technicalData2.events[19].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[20] %}
+								{{technicalData2.events[20].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[20] %}
+								{{technicalData2.events[20].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[20] %}
+								{{technicalData2.events[20].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[20] %}
+								{{technicalData2.events[20].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[21] %}
+								{{technicalData2.events[21].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[21] %}
+								{{technicalData2.events[21].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[21] %}
+								{{technicalData2.events[21].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[21] %}
+								{{technicalData2.events[21].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[22] %}
+								{{technicalData2.events[22].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[22] %}
+								{{technicalData2.events[22].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[22] %}
+								{{technicalData2.events[22].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[22] %}
+								{{technicalData2.events[22].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[23] %}
+								{{technicalData2.events[23].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[23] %}
+								{{technicalData2.events[23].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[23] %}
+								{{technicalData2.events[23].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[23] %}
+								{{technicalData2.events[23].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[24] %}
+								{{technicalData2.events[24].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[24] %}
+								{{technicalData2.events[24].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[24] %}
+								{{technicalData2.events[24].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[24] %}
+								{{technicalData2.events[24].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[25] %}
+								{{technicalData2.events[25].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[25] %}
+								{{technicalData2.events[25].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[25] %}
+								{{technicalData2.events[25].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[25] %}
+								{{technicalData2.events[25].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[26] %}
+								{{technicalData2.events[26].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[26] %}
+								{{technicalData2.events[26].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[26] %}
+								{{technicalData2.events[26].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[26] %}
+								{{technicalData2.events[26].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[27] %}
+								{{technicalData2.events[27].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[27] %}
+								{{technicalData2.events[27].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[27] %}
+								{{technicalData2.events[27].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[27] %}
+								{{technicalData2.events[27].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[28] %}
+								{{technicalData2.events[28].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[28] %}
+								{{technicalData2.events[28].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[28] %}
+								{{technicalData2.events[28].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[28] %}
+								{{technicalData2.events[28].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[29] %}
+								{{technicalData2.events[29].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[29] %}
+								{{technicalData2.events[29].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[29] %}
+								{{technicalData2.events[29].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[29] %}
+								{{technicalData2.events[29].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[30] %}
+								{{technicalData2.events[30].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[30] %}
+								{{technicalData2.events[30].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[30] %}
+								{{technicalData2.events[30].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[30] %}
+								{{technicalData2.events[30].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[31] %}
+								{{technicalData2.events[31].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[31] %}
+								{{technicalData2.events[31].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[31] %}
+								{{technicalData2.events[31].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[31] %}
+								{{technicalData2.events[31].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[32] %}
+								{{technicalData2.events[32].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[32] %}
+								{{technicalData2.events[32].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[32] %}
+								{{technicalData2.events[32].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[32] %}
+								{{technicalData2.events[32].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[33] %}
+								{{technicalData2.events[33].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[33] %}
+								{{technicalData2.events[33].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[33] %}
+								{{technicalData2.events[33].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[33] %}
+								{{technicalData2.events[33].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[34] %}
+								{{technicalData2.events[34].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[34] %}
+								{{technicalData2.events[34].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[34] %}
+								{{technicalData2.events[34].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[34] %}
+								{{technicalData2.events[34].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[35] %}
+								{{technicalData2.events[35].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[35] %}
+								{{technicalData2.events[35].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[35] %}
+								{{technicalData2.events[35].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[35] %}
+								{{technicalData2.events[35].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[36] %}
+								{{technicalData2.events[36].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[36] %}
+								{{technicalData2.events[36].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[36] %}
+								{{technicalData2.events[36].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[36] %}
+								{{technicalData2.events[36].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[37] %}
+								{{technicalData2.events[37].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[37] %}
+								{{technicalData2.events[37].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[37] %}
+								{{technicalData2.events[37].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[37] %}
+								{{technicalData2.events[37].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[38] %}
+								{{technicalData2.events[38].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[38] %}
+								{{technicalData2.events[38].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[38] %}
+								{{technicalData2.events[38].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[38] %}
+								{{technicalData2.events[38].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[39] %}
+								{{technicalData2.events[39].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[39] %}
+								{{technicalData2.events[39].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[39] %}
+								{{technicalData2.events[39].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[39] %}
+								{{technicalData2.events[39].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[40] %}
+								{{technicalData2.events[40].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[40] %}
+								{{technicalData2.events[40].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[40] %}
+								{{technicalData2.events[40].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[40] %}
+								{{technicalData2.events[40].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[41] %}
+								{{technicalData2.events[41].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[41] %}
+								{{technicalData2.events[41].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[41] %}
+								{{technicalData2.events[41].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[41] %}
+								{{technicalData2.events[41].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[42] %}
+								{{technicalData2.events[42].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[42] %}
+								{{technicalData2.events[42].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[42] %}
+								{{technicalData2.events[42].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[42] %}
+								{{technicalData2.events[42].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[43] %}
+								{{technicalData2.events[43].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[43] %}
+								{{technicalData2.events[43].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[43] %}
+								{{technicalData2.events[43].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[43] %}
+								{{technicalData2.events[43].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[44] %}
+								{{technicalData2.events[44].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[44] %}
+								{{technicalData2.events[44].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[44] %}
+								{{technicalData2.events[44].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[44] %}
+								{{technicalData2.events[44].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[45] %}
+								{{technicalData2.events[45].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[45] %}
+								{{technicalData2.events[45].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[45] %}
+								{{technicalData2.events[45].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[45] %}
+								{{technicalData2.events[45].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[46] %}
+								{{technicalData2.events[46].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[46] %}
+								{{technicalData2.events[46].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[46] %}
+								{{technicalData2.events[46].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[46] %}
+								{{technicalData2.events[46].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[47] %}
+								{{technicalData2.events[47].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[47] %}
+								{{technicalData2.events[47].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[47] %}
+								{{technicalData2.events[47].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[47] %}
+								{{technicalData2.events[47].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[48] %}
+								{{technicalData2.events[48].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[48] %}
+								{{technicalData2.events[48].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[48] %}
+								{{technicalData2.events[48].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[48] %}
+								{{technicalData2.events[48].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[49] %}
+								{{technicalData2.events[49].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[49] %}
+								{{technicalData2.events[49].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[49] %}
+								{{technicalData2.events[49].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[49] %}
+								{{technicalData2.events[49].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[50] %}
+								{{technicalData2.events[50].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[50] %}
+								{{technicalData2.events[50].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[50] %}
+								{{technicalData2.events[50].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[50] %}
+								{{technicalData2.events[50].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[51] %}
+								{{technicalData2.events[51].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[51] %}
+								{{technicalData2.events[51].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[51] %}
+								{{technicalData2.events[51].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[51] %}
+								{{technicalData2.events[51].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col width56">
+							{% if technicalData2.events[52] %}
+								{{technicalData2.events[52].time|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[52] %}
+								{{technicalData2.events[52].home|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width20">
+							{% if technicalData2.events[52] %}
+								{{technicalData2.events[52].away|default('')}}
+							{% endif %}
+							</div>
+							<div class="col width56">
+							{% if technicalData2.events[52] %}
+								{{technicalData2.events[52].action|default('')}}
+							{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="noborder fs6">Označenia: =gól, =gól zo 7m, 7 = nepremenený 7m hod, ZVD = zodpovedný vedúci družstva, N = napomenutie, 2 = 2min. vylúčenie, D = diskvalifikácia, RP = registračný preukaz</div>
+
+		<div class="row page-break topB">
+			<div class="col">
+				<div class="row">
+					<div class="col">
+						<div class="row flexLeft noBottomB bold padding">
+							Vystevenie hráčov a funkcionárov (-ok) disciplinárnemu konaniu:<br>
+							(popis "diskvalifikácie so správou")
+						</div>
+						<div class="row flexLeft noborder padding">
+							{{messages.disciplinaryText}}
+						</div>
+						<br>
+						<br>
+						<br>
+						<div class="row noborder">
+							<div class="col noborder">............................................</div>
+							<div class="col noborder">............................................</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col noborder">Zodpovedný vedúci družstva A</div>
+							<div class="col noborder">Zodpovedný vedúci družstva B</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="row flexLeft noBottomB bold padding">
+							Správa o stave zranených hráčok (druh zranenia, príčina, pokračovala v hre, čas zranenia):
+						</div>
+						<div class="row flexLeft noborder padding">
+							{{messages.injuryText}}
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="row flexLeft noBottomB bold padding">
+							Správa ROZHODCOV:<br>
+							Nerešpektovanie ustanovení rozpisu.<br>
+							Mimoriadne udalosti, nedostatky, doporučenia.<br>
+							Zdôvodnenia diskvalifikácii.
+						</div>
+						<div class="row flexLeft noborder padding">
+							{{messages.refereeText}}
+						</div>
+						<br>
+						<br>
+						<br>
+						<div class="row noborder">
+							<div class="col noborder">............................................</div>
+							<div class="col noborder">..................................</div>
+							<div class="col noborder">............................................</div>
+						</div>
+						<br>
+						<div class="row noborder">
+							<div class="col noborder">Rozhodca</div>
+							<div class="col noborder">Dátum</div>
+							<div class="col noborder">Rozhodca</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
