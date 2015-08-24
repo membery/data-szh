@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"name": "image",
+		"element": "<div></div>",
+		"type": "image",
+		"title": "Obrázok",
+		"desc": "Veľký obrázok do článku",
+		"icon": "img/block-image.svg"
+	},
+	"data": {
+		"img": ""
+	}
+}
