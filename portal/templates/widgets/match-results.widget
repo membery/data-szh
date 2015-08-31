@@ -3,7 +3,7 @@
 		<header>Výsledky</header>
 		<div style="width:100%;"><select style="width:100%; padding-top: 5px; padding-bottom: 5px; padding-left: 36px; margin-top: 5px; margin-bottom: 5px;" class="x-portal-competition-selector"></select></div>
 
-		<div class="x-portal-widget-match-results-table" style="">
+		<div class="x-portal-widget-match-results-table" style="display:flex; flex-wrap:wrap; justify-content:space-between;">
 		</div>	
 <!--column-count: 2; -webkit-columns: 2;
 		<table style="width: 100%;">
