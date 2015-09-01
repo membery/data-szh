@@ -73,12 +73,14 @@
 					"required": true,
 					"enum": [
 						"created",
+						"reject",
 						"processing",
 						"closed",
 						"storno"
 					],
 					"enumTransCodes": [
 						"schema.requests.basedata.status.created",
+						"schema.requests.basedata.status.reject",
 						"schema.requests.basedata.status.processing",
 						"schema.requests.basedata.status.closed",
 						"schema.requests.basedata.status.storno"

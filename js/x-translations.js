@@ -469,6 +469,7 @@
 		"schema.requests.basedata.setupdate":"Dátum vystavenia",
 		"schema.requests.basedata.status":"Stav",
 		"schema.requests.basedata.status.created":"Vytvorená",
+		"schema.requests.basedata.status.reject":"Zamietnutá",
 		"schema.requests.basedata.status.processing":"Spracovávaná",
 		"schema.requests.basedata.status.closed":"Uzavretá",
 		"schema.requests.basedata.status.storno":"Stornovaná",
