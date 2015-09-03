@@ -37,6 +37,7 @@
 		"menu.portal.title":"Web portál",
 		"menu.search.club.member.lower.level": "Hľadať člena klubu",
 		"menu.search.player.km.lower.level": "Hľadať hráča (KM)",
+		"portal.article.list":"Zoznam článkov",
 
 		"schema.towns.town":"Mesto",
 
@@ -511,6 +512,7 @@
 		"menu.requests.solver.title":"Rešení žádostí",
 		"menu.requests.title":"Žádosti",
 		"menu.portal.title":"Web portál",
+		"portal.article.list":"Seznam článků",
 
 		"menu.requests.new.lower.level":"Nová",
 		"menu.requests.search.lower.level":"Hledat",
@@ -1075,6 +1077,7 @@
 		"menu.requests.solver.title":"Requests solver",
 		"menu.requests.title":"Requests",
 		"menu.portal.title":"Web portal",
+		"portal.article.list":"List of articles",
 
 		"menu.requests.new.lower.level":"New",
 		"menu.requests.search.lower.level":"Search",
