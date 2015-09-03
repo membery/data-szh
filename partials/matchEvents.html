@@ -435,10 +435,10 @@
 							<div class="e-button" tabindex="0" ng-click="applyE();" ng-keydown="applyE();"><i class="fa fa-check"></i></div>
 						</div>
 						<div class="event" ng-repeat="evt in data.events">
-							<div class="e-input"><input ng-model="evt.time"></input></div>
-							<div class="e-input"><input ng-model="evt.home"></input></div>
-							<div class="e-input"><input ng-model="evt.away"></input></div>
-							<div class="e-input"><input ng-model="evt.action"></input></div>
+							<div class="e-input"><input ng-model="evt.time" ng-blur="eventsChanged();"></input></div>
+							<div class="e-input"><input ng-model="evt.home" ng-blur="eventsChanged();"></input></div>
+							<div class="e-input"><input ng-model="evt.away" ng-blur="eventsChanged();"></input></div>
+							<div class="e-input"><input ng-model="evt.action" ng-blur="eventsChanged();"></input></div>
 							<div class="e-button" ng-click="removeE($index);"><i class="fa fa-minus"></i></div>
 						</div>
 					</div>

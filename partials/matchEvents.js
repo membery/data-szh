@@ -258,8 +258,6 @@
 
 			document.getElementById('secondInput').focus();
 
-			$scope.data.events.sort(function(a, b) {return $scope.timeToTimerV(b.time || '') - $scope.timeToTimerV(a.time || ''); });
-
 			$scope.eventsChanged();
 		};
 
@@ -289,10 +287,14 @@
 					return p;
 				}
 			}
+
+			return null;
 		}
 
 		$scope.eventsChanged = function() {
 			var p;
+			$scope.data.events.sort(function(a, b) {return $scope.timeToTimerV(b.time || '') - $scope.timeToTimerV(a.time || ''); });
+
 			for (p in $scope.data.playersHome) {
 				$scope.data.playersHome[p].events = '';
 				$scope.data.playersHome[p].points = '';
@@ -323,6 +325,9 @@
 
 				if (evt.home && evt.home !== '') {
 					i = findPlayerIdxByJersey($scope.data.playersHome, evt.home);
+					if (i === null) {
+						continue;
+					}
 					player = $scope.data.playersHome[i];
 					if (evt.action === 'G') {
 						player.events = player.events.concat(++$scope.data.scopeHome + ';');
@@ -356,6 +361,9 @@
 					}
 				} else if (evt.away && evt.away !== '') {
 					i = findPlayerIdxByJersey($scope.data.playersGuest, evt.away);
+					if (i === null) {
+						continue;
+					}
 					player = $scope.data.playersGuest[i];
 					if (evt.action === 'G') {
 						player.events = player.events.concat(++$scope.data.scopeAway + ';');
