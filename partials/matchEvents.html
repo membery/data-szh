@@ -354,7 +354,7 @@
 						</div>
 					</div>
 					<div class="p-buttons-container">
-						<div ng-repeat="player in data.playersHome|limitTo:-data.playersHomeLimit" class="p-button" ng-click="setPlayerH($index+data.playersHomeLimit)">
+						<div ng-repeat="player in data.playersHome|limitTo:-data.playersHomeLimit" class="p-button" ng-click="setPlayerH($index+8)">
 							<div>{{player.jersey}}</div>
 						</div>
 					</div>
@@ -372,7 +372,7 @@
 						</div>
 					</div>
 					<div class="p-buttons-container">
-						<div ng-repeat="player in data.playersGuest|limitTo:-data.playersGuestLimit" class="p-button" ng-click="setPlayerA($index+data.playersGuestLimit)">
+						<div ng-repeat="player in data.playersGuest|limitTo:-data.playersGuestLimit" class="p-button" ng-click="setPlayerA($index+8)">
 							<div>{{player.jersey}}</div>
 						</div>
 					</div>
