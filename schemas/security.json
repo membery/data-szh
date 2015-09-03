@@ -33,8 +33,68 @@
 				"type": "boolean",
 				"default": true
 			},
+			"Registry Stadium new menu": {
+				"title": "Zobrazenie položky nový v menu Štadióny",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Stadium search menu": {
+				"title": "Zobrazenie položky hľadať v menu Štadióny",
+				"type": "boolean",
+				"default": true
+			},
 			"Registry Competitions": {
 				"title": "Zobrazenie registru Súťaže v menu",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Competition new menu": {
+				"title": "Zobrazenie položky nová suťaž v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Competition search menu": {
+				"title": "Zobrazenie položky hľadať súťaž v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry CompetitionPart new menu": {
+				"title": "Zobrazenie položky nová časť s. v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry CompetitionPart search menu": {
+				"title": "Zobrazenie položky hľadať časť s. v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Schedule new menu": {
+				"title": "Zobrazenie položky nový termín v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Schedule search menu": {
+				"title": "Zobrazenie položky hľadať termín v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Season new menu": {
+				"title": "Zobrazenie položky nová sezona v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry Season search menu": {
+				"title": "Zobrazenie položky hľadať sezonu v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry AgeCategory new menu": {
+				"title": "Zobrazenie položky nová veková kat. v menu Súťaže",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry AgeCategory search menu": {
+				"title": "Zobrazenie položky hľadať vekovú kat. v menu Súťaže",
 				"type": "boolean",
 				"default": true
 			},
@@ -90,6 +150,7 @@
 				"type": "boolean",
 				"default": true
 			},
+
 
 			"Stadium - read": {
 				"title": "Zobrazenie dát súťaže",

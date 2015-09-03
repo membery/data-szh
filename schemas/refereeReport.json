@@ -210,8 +210,7 @@
 					"required": true,
 					"enum": [
 						"Otvorený",
-						"Schválený",
-						"Zatvorený"
+						"Schválený"
 					],
 					"render": {
 						"component": "psui-selectbox",
@@ -397,14 +396,22 @@
 					"transCode": "schema.refereeReport.officers.officerB",
 					"type": "object",
 					"objectLink2": {
-						"schema": "uri://registries/people#views/coach/view",
+						"schema": "uri://registries/people#views/fullperson-km/view",
 						"fields": {
 							"surName": "baseData.surName",
-							"firstName": "baseData.name",
-							"license":"coach.coachLicense",
-							"dateOfExpiration":"coach.dateOfExpiration"
+							"firstName": "baseData.name"
 						}
 					}
+				},
+				"officerBLicense": {
+					"title": "Supervizor",
+					"transCode": "schema.refereeReport.delegatedPerson.supervisor",
+					"type": "string"
+				},
+				"officerBDateOfExpiration": {
+					"title": "Supervizor",
+					"transCode": "schema.refereeReport.delegatedPerson.supervisor",
+					"type": "string"
 				},
 				"officerC": {
 					"title": "C - Funkcionár",
@@ -454,14 +461,22 @@
 					"transCode": "schema.refereeReport.officers.officerB",
 					"type": "object",
 					"objectLink2": {
-						"schema": "uri://registries/people#views/coach/view",
+						"schema": "uri://registries/people#views/fullperson-km/view",
 						"fields": {
 							"surName": "baseData.surName",
-							"firstName": "baseData.name",
-							"license":"coach.coachLicense",
-							"dateOfExpiration":"coach.dateOfExpiration"
+							"firstName": "baseData.name"
 						}
 					}
+				},
+				"officerBLicense": {
+					"title": "Trénerská licencia",
+					"transCode": "schema.refereeReport.officers.officerBLicense",
+					"type": "string"
+				},
+				"officerBDateOfExpiration": {
+					"title": "Supervizor",
+					"transCode": "schema.refereeReport.officers.officerBDateOfExpiration",
+					"type": "string"
 				},
 				"officerC": {
 					"title": "C - Funkcionár",
@@ -965,7 +980,6 @@
 						"__DIRECTIVE__": "url-link",
 						"title": "Protokol",
 						"path": "http://novy.slovakhandball.sk/competition/refereeReport",
-
 						"target": "_blank"
 					}
 				],
@@ -1016,6 +1030,304 @@
 						"params": {
 							"path": "/registry/view/uri~3A~2F~2Fregistries~2FrefereeReports~23views~2FrefereeReports-km/{{model.id}}"
 						}
+					}
+				],
+				"forcedCriteria": [
+					{
+						"f": "baseData.state",
+						"op": "eq",
+						"v": "Otvorený"
+					}
+				],
+				"listFields": [
+					{
+						"field": "baseData.homeClub",
+						"title": "Domáce družstvo",
+						"transCode": "schema.refereeReport.listFields.homeClub"
+					},
+					{
+						"field": "baseData.fullTimeScoreHome",
+						"title": ""
+					},
+					{
+						"field": "baseData.fullTimeScoreAway",
+						"title": ""
+					},
+					{
+						"field": "baseData.awayClub",
+						"title": "Hosťujúce družstvo",
+						"transCode": "schema.refereeReport.baseData.awayClub"
+					},
+					{
+						"field": "baseData.matchDate",
+						"title": "Termín stretnutia",
+						"transCode": "schema.refereeReport.baseData.matchDate"
+					},
+					{
+						"field": "baseData.matchRound",
+						"title": "Kolo",
+						"transCode": "schema.refereeReport.baseData.matchRound"
+					}
+				]
+			}
+		},
+		"refereeReports-closed": {
+			"new": {
+				"extends":"uri://registries/refereeReports#views/refereeReports-km/view"
+			},
+			"view": {
+				"extends":"uri://registries/refereeReports#models/refereeReports-km",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "url-link",
+						"title": "Protokol",
+						"path": "http://novy.slovakhandball.sk/competition/refereeReport",
+						"target": "_blank"
+					}
+				],
+				"properties": {
+					"baseData": {
+						"properties": {
+							"competition": {
+								"readOnly": true
+							},
+							"season": {
+								"readOnly": true
+							},
+							"competitionPart": {
+								"readOnly": true
+							},
+							"ageCategory": {
+								"readOnly": true
+							},
+							"homeClubSec": {
+								"readOnly": true
+							},
+							"homeClub": {
+								"readOnly": true
+							},
+							"awayClubSec": {
+								"readOnly": true
+							},
+							"awayClub": {
+								"readOnly": true
+							},
+							"matchRound": {
+								"readOnly": true
+							},
+							"matchDate": {
+								"readOnly": true
+							},
+							"matchBegin": {
+								"readOnly": true
+							},
+							"halfTimeScoreHome": {
+								"readOnly": true
+							},
+							"halfTimeScoreAway": {
+								"readOnly": true
+							},
+							"scoreHome": {
+								"readOnly": true
+							},
+							"scoreAway": {
+								"readOnly": true
+							},
+							"fullTimeScoreHome": {
+								"readOnly": true
+							},
+							"fullTimeScoreAway": {
+								"readOnly": true
+							},
+							"firstOvertimeHome": {
+								"readOnly": true
+							},
+							"firstOvertimeAway": {
+								"readOnly": true
+							},
+							"secondOvertimeHome": {
+								"readOnly": true
+							},
+							"secondOvertimeAway": {
+								"readOnly": true
+							},
+							"penaltyShootHome": {
+								"readOnly": true
+							},
+							"penaltyShootAway": {
+								"readOnly": true
+							},
+							"attendance": {
+								"readOnly": true
+							},
+							"stadium": {
+								"readOnly": true
+							},
+							"state": {
+								"readOnly": true
+							},
+							"matchNumber": {
+								"readOnly": true
+							},
+							"printTemplate": null
+						}
+					},
+					"additionalInfo":{
+						"properties": {
+							"homeTimeOut1": {
+								"readOnly": true
+							},
+							"homeTimeOut2": {
+								"readOnly": true
+							},
+							"homeTimeOut3": {
+								"readOnly": true
+							},
+							"countOfPenaltyShootHome": {
+								"readOnly": true
+							},
+							"goalOfPenaltyShootHome": {
+								"readOnly": true
+							},
+							"awayTimeOut1": {
+								"readOnly": true
+							},
+							"awayTimeOut2": {
+								"readOnly": true
+							},
+							"awayTimeOut3": {
+								"readOnly": true
+							},
+							"countOfPenaltyShootAway": {
+								"readOnly": true
+							},
+							"goalOfPenaltyShootAway": {
+								"readOnly": true
+							}
+						}
+					},
+					"responsiblePeople": {
+						"properties": {
+							"mainOrganizer": {
+								"readOnly": true
+							},
+							"timekeeper": {
+								"readOnly": true
+							},
+							"medic": {
+								"readOnly": true
+							},
+							"speaker": {
+								"readOnly": true
+							}
+						}
+					},
+					"delegatedPerson": {
+						"properties": {
+							"scorer": {
+								"readOnly": true
+							},
+							"referee1": {
+								"readOnly": true
+							},
+							"referee2": {
+								"readOnly": true
+							},
+							"delegate": {
+								"readOnly": true
+							},
+							"supervisor": {
+								"readOnly": true
+							}
+						}
+					},
+					"officersHome": {
+						"properties": {
+							"officerA": {
+								"readOnly": true
+							},
+							"officerB": {
+								"readOnly": true
+							},
+							"officerC": {
+								"readOnly": true
+							},
+							"officerD": {
+								"readOnly": true
+							}
+						}
+					},
+					"officersGuest": {
+						"title": "Funkcionári - Hostia",
+						"transCode": "schema.refereeReport.officersGuest",
+						"type": "object",
+						"properties": {
+							"officerA": {
+								"readOnly": true
+							},
+							"officerB": {
+								"readOnly": true
+							},
+							"officerC": {
+								"readOnly": true
+							},
+							"officerD": {
+								"readOnly": true
+							}
+						}
+					},
+					"listOfPlayersHome": {
+						"properties": {
+							"players": {
+								"readOnly": true
+							}
+						}
+					},
+					"listOfPlayersGuest": {
+						"properties": {
+							"players": {
+								"readOnly": true
+							}
+						}
+					},
+					"messages":{
+						"properties":{
+							"disciplinaryText": {
+								"readOnly": true
+							},
+							"injuryText": {
+								"readOnly": true
+							},
+							"refereeText": {
+								"readOnly": true
+							}
+						}
+					},
+					"technicalData": {
+						"properties": {
+							"events": {
+								"readOnly": true
+							}
+						}
+					}
+				}
+			},
+			"search": {
+				"extends":"uri://registries/refereeReports#models/refereeReports-km",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+						"path": "/registry/view/uri~3A~2F~2Fregistries~2FrefereeReports~23views~2FrefereeReports-closed/{{model.id}}"
+						}
+					}
+				],
+				"forcedCriteria": [
+					{
+						"f": "baseData.state",
+						"op": "eq",
+						"v": "Schválený"
 					}
 				],
 				"listFields": [
