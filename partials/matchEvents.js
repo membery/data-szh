@@ -192,6 +192,26 @@
 			$scope.data.playersHome = [];
 			$scope.data.playersGuest = [];
 
+			$scope.data.officersHome = [];
+			$scope.data.officersGuest = [];
+
+			['A', 'B', 'C', 'D'].forEach(function(v) {
+				if(safeExtract($scope.obj.officersGuest, 'officer' + v, '') !== '') {
+					$scope.data.officersGuest.push({
+						jersey: v,
+						name: safeExtract($scope.obj.officersGuest, 'officer' + v + '.refData.surName', '')
+										+ ' ' + safeExtract($scope.obj.officersGuest, 'officer' + v + '.refData.firstName', '')
+					});
+				}
+				if(safeExtract($scope.obj.officersHome, 'officer' + v, '') !== '') {
+					$scope.data.officersHome.push({
+						jersey: v,
+						name: safeExtract($scope.obj.officersHome, 'officer' + v + '.refData.surName', '')
+										+ ' ' + safeExtract($scope.obj.officersHome, 'officer' + v + '.refData.firstName', '')
+					});
+				}
+			});
+
 			if ($scope.obj && $scope.obj.listOfPlayersHome && $scope.obj.listOfPlayersHome.players) {
 				for (k in $scope.obj.listOfPlayersHome.players) {
 					$scope.data.playersHome.push({
@@ -269,6 +289,14 @@
 			$scope.nEvt.away = $scope.data.playersGuest[i].jersey;
 			$scope.nEvt.home = '';
 		};
+		$scope.setOfficerH = function(i) {
+			$scope.nEvt.away = '';
+			$scope.nEvt.home = i;
+		};
+		$scope.setOfficerA = function(i) {
+			$scope.nEvt.away = i;
+			$scope.nEvt.home = '';
+		};
 
 		$scope.setE = function(e) {
 			$scope.nEvt.action = e;
@@ -291,6 +319,16 @@
 			return null;
 		}
 
+		function findOfficerByLetter(arr, letter) {
+			for (var p in arr) {
+				if (arr[p].jersey === letter) {
+					return p;
+				}
+			}
+
+			return null;
+		}
+
 		$scope.eventsChanged = function() {
 			var p;
 			$scope.data.events.sort(function(a, b) {return $scope.timeToTimerV(b.time || '') - $scope.timeToTimerV(a.time || ''); });
@@ -304,6 +342,13 @@
 				$scope.data.playersGuest[p].events = '';
 				$scope.data.playersGuest[p].points = '';
 				$scope.data.playersGuest[p].punishments = '';
+			}
+
+			for (p in $scope.data.officersHome) {
+				$scope.data.officersHome[p].punishments = '';
+			}
+			for (p in $scope.data.officersGuest) {
+				$scope.data.officersGuest[p].punishments = '';
 			}
 
 			$scope.data.scoreHomeHalf = 0;
@@ -322,10 +367,16 @@
 
 				var i;
 				var player = null;
+				var officer = null;
 
 				if (evt.home && evt.home !== '') {
 					i = findPlayerIdxByJersey($scope.data.playersHome, evt.home);
 					if (i === null) {
+						i = findOfficerByLetter($scope.data.officersHome, evt.home);
+						if (i !== null && 'N2D'.indexOf(evt.action) > -1) {
+							officer = $scope.data.officersHome[i];
+							officer.punishments = officer.punishments.concat(evt.action);
+						}
 						continue;
 					}
 					player = $scope.data.playersHome[i];
@@ -362,6 +413,11 @@
 				} else if (evt.away && evt.away !== '') {
 					i = findPlayerIdxByJersey($scope.data.playersGuest, evt.away);
 					if (i === null) {
+						i = findOfficerByLetter($scope.data.officersGuest, evt.away);
+						if (i !== null && 'N2D'.indexOf(evt.action) > -1) {
+							officer = $scope.data.officersGuest[i];
+							officer.punishments = officer.punishments.concat(evt.action);
+						}
 						continue;
 					}
 					player = $scope.data.playersGuest[i];

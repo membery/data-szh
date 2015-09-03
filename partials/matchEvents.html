@@ -349,6 +349,12 @@
 			<div class="editor">
 				<div class="buttons-container">
 					<div class="p-buttons-container">
+						<div class="p-button" ng-repeat="officer in data.officersHome" ng-click="setOfficerH(officer.jersey)">
+
+							<div>{{officer.jersey}}</div>
+						</div>
+					</div>
+					<div class="p-buttons-container">
 						<div ng-repeat="player in data.playersHome|limitTo:8" class="p-button" ng-click="setPlayerH($index)">
 							<div>{{player.jersey}}</div>
 						</div>
@@ -376,6 +382,12 @@
 							<div>{{player.jersey}}</div>
 						</div>
 					</div>
+					<div class="p-buttons-container">
+						<div class="p-button" ng-repeat="officer in data.officersGuest" ng-click="setOfficerA(officer.jersey)">
+
+							<div>{{officer.jersey}}</div>
+						</div>
+					</div>
 					<div class="players-container">
 						<div class="players">
 							<div class="clubName">{{data.homeClub}}</div>
@@ -389,6 +401,13 @@
 								<div class="ppunish">{{player.punishments}}</div>
 							</div>
 							<div class="m7">7m hody: {{data.m7Home}} ({{data.m7HomeGoals}})</div>
+							<div class="player" ng-repeat="officer in data.officersHome">
+								<div class="pjersey">{{officer.jersey}}</div>
+								<div class="pname">{{officer.name}}</div>
+								<div class="pevents"></div>
+								<div class="ppoints"></div>
+								<div class="ppunish">{{officer.punishments}}</div>
+							</div>
 						</div>
 						<div class="players">
 							<div class="clubName">{{data.guestClub}}</div>
@@ -402,6 +421,13 @@
 								<div class="ppunish">{{player.punishments}}</div>
 							</div>
 							<div class="m7">7m hody: {{data.m7Away}} ({{data.m7AwayGoals}})</div>
+							<div class="player" ng-repeat="officer in data.officersGuest">
+								<div class="pjersey">{{officer.jersey}}</div>
+								<div class="pname">{{officer.name}}</div>
+								<div class="pevents"></div>
+								<div class="ppoints"></div>
+								<div class="ppunish">{{officer.punishments}}</div>
+							</div>
 						</div>
 					</div>
 				</div>
