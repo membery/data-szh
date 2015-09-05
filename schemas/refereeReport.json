@@ -689,6 +689,7 @@
 			"title": "Zápis rozhodcu",
 			"transCode": "schema.refereeReport.title",
 			"table": "refereeReports",
+			"fragmentedUpdateAllowed": true,
 			"security": {
 				"create": {
 					"static": [
