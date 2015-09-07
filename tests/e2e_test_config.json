@@ -1,0 +1,97 @@
+{
+	"schemas": {
+		"people": {
+			"new": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fpeople~23views~2Ffullperson~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fpeople~23views~2Ffullperson~2Fsearch",
+			"newSchema": "",
+			"searchSchema":"",
+			"listNo": 0,
+			"createNo": 0,
+			"findNo": 1,
+			"dependencies": ["club", "association"]
+		},
+		"stadium": {
+			"new": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fstadiums~23views~2Fstadium~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fstadiums~23views~2Fstadium~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 1,
+			"createNo": 0,
+			"findNo": 1,
+			"dependencies": []
+		},
+		"club": {
+			"new": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Forganizations~23views~2Fclub~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Forganizations~23views~2Fclub~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 2,
+			"createNo": 0,
+			"findNo": 2,
+			"dependencies": ["stadium", "association"]
+		},
+		"association": {
+			"new":"http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Forganizations~23views~2Fassociation~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Forganizations~23views~2Fassociation~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 3,
+			"createNo": 0,
+			"findNo": 1,
+			"dependencies": ["association"]
+		},
+		"club_change": {
+			"new":"http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Ftransfers~23views~2Ftransfers~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Ftransfers~23views~2Ftransfers~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 4,
+			"createNo": 0,
+			"findNo": 1,
+			"dependencies": ["club", "people:player","seasons"]
+		},
+		"rosters":{
+			"new":"http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Frosters~23views~2Frosters~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Frosters~23views~2Frosters~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 5,
+			"createNo": 0,
+			"findNo": 1,
+			"dependencies": ["club","seasons","category","association","people:coach","competitions"]
+		},
+		"competitions": {
+			"new":"http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fcompetitions~23views~2Fcompetitions~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fcompetitions~23views~2Fcompetitions~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 6,
+			"createNo": 0,
+			"findNo": 1,
+			"dependencies": ["category","seasons"]
+		},
+		"category": {
+			"new":"http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2FageCategory~23views~2FageCategory~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2FageCategory~23views~2FageCategory~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 6,
+			"createNo": 11,
+			"findNo": 12,
+			"dependencies": []
+		},
+		"seasons":{
+			"new":"http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fseasons~23views~2Fseasons~2Fnew",
+			"search": "http://localhost:3000/schema/compiled/uri~3A~2F~2Fregistries~2Fseasons~23views~2Fseasons~2Fsearch",
+			"searchSchema":"",
+			"newSchema": "",
+			"listNo": 6,
+			"createNo": 9,
+			"findNo": 10,
+			"dependencies": []
+		}
+
+
+
+	}
+}
