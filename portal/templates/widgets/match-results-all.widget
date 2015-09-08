@@ -1,0 +1,46 @@
+<div class="x-portal-widget-match-results" id="{{blockUUID}}">
+	<section class="x-portal-competition-matches">
+		<header>Termínová listina</header>
+		<div class="x-portal-widget-match-results-table" style="display:flex; flex-wrap:wrap; justify-content:space-between;">
+		</div>	
+	</section>
+</div>
+<script>
+$(function() {
+	if ('{{cid}}'.length > 0) {
+		$.get('/competition/matches-all/{{cid}}', function(data) {
+			function formatDate(d) {
+				return d.substr(6,2) + '.' +d.substr(4,2) + '.' + d.substr(0,4);
+			}
+
+			var tblContainer = $('#{{blockUUID}}').find('.x-portal-widget-match-results-table');
+
+			tblContainer.empty();
+
+			var lastDate = null;
+			var position = 0;
+			for (var i in data) {
+				var currDate = formatDate(data[i].matchDate);
+				if (lastDate !== currDate) {
+					var table = $('<table></table>');
+					tblContainer.append(table);
+					table.append('<tr><td colspan="3" class="x-portal-results-date">'+currDate+'</td></tr>');
+					lastDate = currDate;
+					position++;
+				}
+				position++;
+
+				var e = $('<tr><td class="x-portal-results-left-club">' + data[i].homeName + '</td><td class="x-portal-results-hyphen">'+(data[i].fullTimeScoreHome || '-')+ '&nbsp;:&nbsp;'+(data[i].fullTimeScoreAway || '-')+'</td><td class="x-portal-results-right-club">' + data[i].guestName + '</td></tr>');
+
+				if (data[i].printTemplate) {
+					e.on('click', null, {id: data[i].id}, function(evt) {
+						window.open('/competition/refereeReport?id=' + evt.data.id);
+					});
+					e.addClass('x-portal-results-selectable');
+				}
+				table.append(e);
+			}
+		});
+	}
+});
+</script>

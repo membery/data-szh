@@ -5,9 +5,5 @@
 
 		<div class="x-portal-widget-match-results-table" style="display:flex; flex-wrap:wrap; justify-content:space-between;">
 		</div>	
-<!--column-count: 2; -webkit-columns: 2;
-		<table style="width: 100%;">
-		</table>
--->
 	</section>
 </div>
