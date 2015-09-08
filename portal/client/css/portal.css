@@ -381,7 +381,6 @@ a.portal-menu-bottom-entry-head {
 	color: white;
 	font-weight: bold;
 	padding: 5px;
-	border-bottom: 4px red solid;
 	text-align: center;
 	text-transform: uppercase;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -750,7 +749,7 @@ a.portal-menu-bottom-entry-head {
 .x-portal-widget-showcase-navigation div a.active {
 }
 
-.x-portal-widget-showcase-navigation div a.item::after {
+.x-portal-widget-showcase-navigation div a.item:after {
 	content: "\f096";
 	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
@@ -759,7 +758,7 @@ a.portal-menu-bottom-entry-head {
 	-webkit-font-smoothing: antialiased;
 }
 	
-.x-portal-widget-showcase-navigation div a.item.active::after {
+.x-portal-widget-showcase-navigation div a.item.active:after {
 	content: "\f0c8";
 	padding-top: 10px;
 
@@ -920,7 +919,10 @@ a.portal-menu-bottom-entry-head {
 
 @media (max-width: 980px) {
 	.x-portal-widget-match-results-table{
-		justify-content:center !important;
+		-webkit-box-pack:center !important;
+		-webkit-justify-content:center !important;
+			-ms-flex-pack:center !important;
+				justify-content:center !important;
 	}
 	.x-portal-results-left-club,
 	.x-portal-results-right-club{
@@ -933,13 +935,7 @@ a.portal-menu-bottom-entry-head {
 	.x-portal-results-left-club,
 	.x-portal-results-right-club{
 		width: 110px;
-	}
-}
-
-@media (max-width: 610px) {
-	.x-portal-results-left-club,
-	.x-portal-results-right-club{
-		width: 150px;
+		max-width: 110px;
 	}
 }
 
@@ -1031,24 +1027,13 @@ a.portal-menu-bottom-entry-head {
 	}
 }
 
-@media (max-width: 510px) {
-	#portal-main-header h1 {
-		display: none;
-	}
-
-	.portal-article-title .title {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
-	.portal-article-contentBlock .contentBlock {
-		margin-left: 10px;
-		padding-right: 10px;
-	}
-
-}
-
 @media (max-width: 625px) {
+	.x-portal-widget-match-results-table{
+		-webkit-box-pack:space-between !important;
+		-webkit-justify-content:space-between !important;
+			-ms-flex-pack:space-between !important;
+				justify-content:space-between !important;
+	}
 	#portal-content-container {
 		width: auto;
 		position: static;
@@ -1071,14 +1056,39 @@ a.portal-menu-bottom-entry-head {
 		padding: 0;
 	}
 	
-	.x-portal-widget-match-results {
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	
 	.x-portal-widget-category article {
 		padding-left: 5px;
 	}
+}
+
+@media (max-width: 610px) {
+	.x-portal-widget-match-results-table{
+		-webkit-box-pack:center !important;
+		-webkit-justify-content:center !important;
+			-ms-flex-pack:center !important;
+				justify-content:center !important;
+	}
+	.x-portal-results-left-club,
+	.x-portal-results-right-club{
+		width: 150px;
+	}
+}
+
+@media (max-width: 510px) {
+	#portal-main-header h1 {
+		display: none;
+	}
+
+	.portal-article-title .title {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.portal-article-contentBlock .contentBlock {
+		margin-left: 10px;
+		padding-right: 10px;
+	}
+
 }
 
 .only-riderszone, .only-location, .portal-content-navigation {
@@ -1088,5 +1098,12 @@ a.portal-menu-bottom-entry-head {
 @media (max-width: 420px) {
 	#portal-main-header-logo-area {
 		display: none;
+	}
+}
+
+@media (max-width: 390px) {
+	.x-portal-results-left-club, .x-portal-results-right-club {
+		width: 115px;
+		max-width: 115px;
 	}
 }
