@@ -1,9 +1,9 @@
 <div class="x-portal-widget-match-results">
 	<section class="x-portal-competition-matches">
 		<header>Výsledky</header>
-		<div style="width:100%;"><select style="width:100%; padding-top: 5px; padding-bottom: 5px; padding-left: 36px; margin-top: 5px; margin-bottom: 5px;" class="x-portal-competition-selector"></select></div>
+		<div style="width:100%;"><select style="width:100%; margin-top: 5px; margin-bottom: 5px; outline: 0;" class="x-portal-competition-selector"></select></div>
 
-		<div class="x-portal-widget-match-results-table" style="display:flex; flex-wrap:wrap; justify-content:space-between;">
+		<div class="x-portal-widget-match-results-table" style="display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between;">
 		</div>	
 <!--column-count: 2; -webkit-columns: 2;
 		<table style="width: 100%;">
