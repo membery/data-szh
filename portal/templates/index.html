@@ -3,19 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>SZH - index</title>
+	<title>SZH</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="copyright" content="Unionsoft" />
 	<meta name="author" content="" />
-	
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="/portal/css/standalone.css">
 	<link rel="stylesheet" type="text/css" href="/portal/css/portal.css">
 	<link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+	<link rel="icon" href="/portal/img/faviconSZH.ico" type="image/x-icon">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -105,13 +105,13 @@
 				</section>
 				<section class="portal-side-panel x-portal-competition-results">
 					<header>Tabuľka</header>
-					<div style="width:100%;"><select style="width:100%; padding-top: 5px; padding-bottom: 5px; padding-left: 36px; margin-top: 5px; margin-bottom: 5px;" class="x-portal-competition-selector"><option>Extraliga - Muži</option></select></div>
+					<div style="width:100%;"><select style="width:100%; margin-bottom: 5px; outline: 0;" class="x-portal-competition-selector"><option>Extraliga - Muži</option></select></div>
 					<table style="width:100%; padding-top: 1px;" class="rowtable">
 					</table>
 				</section>
 				<section class="portal-side-panel">
 					<div style="text-align: center;"><a href="http://www.minedu.sk/register-poskytnutych-dotacii/"><img src="/portal/img/mskolsr.png"></img></a></div>
-					<div style="text-align: center; padding-top: 5px;">ROK 2015: 699 250,- EUR</div>
+					<div style="text-align: center; padding-top: 5px;">ROK 2015: 1 010 500,- EUR</div>
 				</section>
 				<section class="portal-side-panel partneri">
 					<header>Partneri</header>
@@ -180,9 +180,6 @@
 			<div id="portal-menu-bottom-container">
 				{% block menu %}
 					<div id="portal-menu-bottom-panel">
-						<div class="portal-menu-bottom-entry">
-							<a href="/"><img class="portal-logo" src="/portal/img/portal-logo.png" width="87px" height="50px" alt="logo" title="SLOVENSKÝ ZVÄZ HÁDZANEJ" /></a>
-						</div>
 						{%for k in menu %}
 							<div class="portal-menu-bottom-entry">
 								<a class="portal-menu-bottom-entry-head" href="/article/{{k.aid}}">{{k.name}}</a>
