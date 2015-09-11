@@ -371,8 +371,20 @@
 
 			if (cid) {
 				$.get('/competition/results/'+cid, function(data) {
-					data.sort(function(a,b) { return b.points - a.points;});
 					
+					data.sort(function(a,b) {
+						if (b.points - a.points === 0) {
+							if (a.matches - b.matches === 0) {
+								return b.score - a.score;
+							} else {
+								return a.matches - b.matches;
+							}
+
+						} else {
+							return b.points - a.points;
+						}
+					});
+
 					var table = $(that).find('table');
 
 					table.empty();
