@@ -475,6 +475,9 @@
 								listOfPlayersHome.players[loop.index0].player.refData.surName && 
 								listOfPlayersHome.players[loop.index0].player.refData.firstName %}
 									{{listOfPlayersHome.players[loop.index0].player.refData.surName}} {{listOfPlayersHome.players[loop.index0].player.refData.firstName}}
+								{% elseif listOfPlayersHome.players[loop.index0] && 
+								listOfPlayersHome.players[loop.index0].altName %}
+									{{listOfPlayersHome.players[loop.index0].altName}}
 								{% endif %}
 							</div>
 							<div class="col width50">
@@ -757,6 +760,9 @@
 								listOfPlayersGuest.players[loop.index0].player.refData.surName && 
 								listOfPlayersGuest.players[loop.index0].player.refData.firstName %}
 								{{listOfPlayersGuest.players[loop.index0].player.refData.surName}} {{listOfPlayersGuest.players[loop.index0].player.refData.firstName}}
+								{% elseif listOfPlayersGuest.players[loop.index0] && 
+								listOfPlayersGuest.players[loop.index0].altName %}
+									{{listOfPlayersGuest.players[loop.index0].altName}}
 								{% endif %}
 							</div>
 							<div class="col width50">

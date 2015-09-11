@@ -214,15 +214,21 @@
 
 			if ($scope.obj && $scope.obj.listOfPlayersHome && $scope.obj.listOfPlayersHome.players) {
 				for (k in $scope.obj.listOfPlayersHome.players) {
-					$scope.data.playersHome.push({
+					var cur = {
 						jersey: $scope.obj.listOfPlayersHome.players[k].dressNumber || 'X',
 						name: safeExtract($scope.obj.listOfPlayersHome.players[k], 'player.refData.surName', '')
 								+ ' ' + safeExtract($scope.obj.listOfPlayersHome.players[k], 'player.refData.firstName', ''),
 						rp: safeExtract($scope.obj.listOfPlayersHome.players[k], 'player.refData.registrationID', ''),
 						events: ''
+					};
 
+					// set alt. name
+					if (cur.name === ' ') {
+						cur.name = safeExtract($scope.obj.listOfPlayersHome.players[k], 'altName', '');
+					}
 
-					});
+					$scope.data.playersHome.push(cur);
+
 				}
 			}
 
@@ -232,15 +238,20 @@
 
 			if ($scope.obj && $scope.obj.listOfPlayersGuest && $scope.obj.listOfPlayersGuest.players) {
 				for (k in $scope.obj.listOfPlayersGuest.players) {
-					$scope.data.playersGuest.push({
+					var cur = {
 						jersey: $scope.obj.listOfPlayersGuest.players[k].dressNumber || 'X',
 						name: safeExtract($scope.obj.listOfPlayersGuest.players[k], 'player.refData.surName', '')
 								+ ' ' + safeExtract($scope.obj.listOfPlayersGuest.players[k], 'player.refData.firstName', ''),
 						rp: safeExtract($scope.obj.listOfPlayersGuest.players[k], 'player.refData.registrationID', ''),
 						events: ''
+					};
 
+					// set alt. name
+					if (cur.name === ' ') {
+						cur.name = safeExtract($scope.obj.listOfPlayersGuest.players[k], 'altName', '');
+					}
 
-					});
+					$scope.data.playersGuest.push(cur);
 				}
 			}
 

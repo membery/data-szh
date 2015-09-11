@@ -518,6 +518,11 @@
 									"registrationID": "baseData.registrationID"
 								}
 							}
+						},
+						"altName": {
+							"title": "Alternatívne meno",
+							"transCode": "schema.refereeReport.listOfPlayers.altName",
+							"type": "string"
 						}
 					}
 				}
@@ -552,6 +557,11 @@
 									"registrationID": "baseData.registrationID"
 								}
 							}
+						},
+						"altName": {
+							"title": "Alternatívne meno",
+							"transCode": "schema.refereeReport.listOfPlayers.altName",
+							"type": "string"
 						}
 					}
 				}
