@@ -783,7 +783,9 @@ a.portal-menu-bottom-entry-head {
 	background-color: #CB2225;
 	color: white;
 	font-weight: bold;
-	border-top: 1px solid white;
+	height: 16px;
+	margin-top: 1px;
+	margin-bottom: 1px;
 }
 .x-portal-results-left-club {
 	width: 120px;
@@ -794,6 +796,7 @@ a.portal-menu-bottom-entry-head {
 	padding-right: 5px;
 	text-align: right;
 	font-size: 95%;
+	margin-top: 3px;
 }
 
 .x-portal-results-right-club {
@@ -805,6 +808,7 @@ a.portal-menu-bottom-entry-head {
 	padding-left: 5px;
 	text-align: left;
 	font-size: 95%;
+	margin-top: 3px;
 }
 
 .x-portal-results-date {
@@ -816,9 +820,33 @@ a.portal-menu-bottom-entry-head {
 .x-portal-results-selectable {
 	cursor: pointer;
 }
+
+.x-portal-results-playing .x-portal-results-hyphen {
+	background-color: green;
+}
+
+.x-portal-results-just-time {
+    background-color: #000000;
+    color: white;
+	font-size: 80%;
+	padding-top: 4px;
+	font-weight: normal;
+}
+
 .x-portal-results-selectable:HOVER {
-	background-color: red;
+	background-color: #CB2225;
 	color: white;
+}
+
+.x-portal-results-selectable:HOVER .x-portal-results-left-club {
+}
+
+.x-portal-results-selectable:HOVER .x-portal-results-right-club {
+}
+
+.x-portal-results-selectable:HOVER .x-portal-results-hyphen {
+	background-color: black;
+
 }
 
 .x-portal-competition-matches {
