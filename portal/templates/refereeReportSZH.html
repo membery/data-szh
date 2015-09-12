@@ -3629,7 +3629,7 @@
 		</div>
 	
 		<div class="noborder fs6">Označenia: =gól, =gól zo 7m, 7 = nepremenený 7m hod, ZVD = zodpovedný vedúci družstva, N = napomenutie, 2 = 2min. vylúčenie, D = diskvalifikácia, RP = registračný preukaz</div>
-
+		{% if render.showPrivate %}
 		<div class="row page-break topB">
 			<div class="col">
 				<div class="row">
@@ -3694,6 +3694,7 @@
 				</div>
 			</div>
 		</div>
+		{% endif %}
 	</div>
 	</body>
 </html>
