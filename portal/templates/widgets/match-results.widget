@@ -15,10 +15,17 @@ $(function() {
 
 	//get competitions
 	$.get('/competition/list', function(data) {
-		data.sort(function(a,b) {if (a.name > b.name) {return 1;} else if (a.name == b.name) {return 0;} else {return -1;};})
+		data.sort(function(a,b) {
+			if (a.lvl === b.lvl) {
+				return a.name.localeCompare(b.name);
+			} else {
+				return a.lvl - b.lvl;
+			}
+		});
+
 		$('#{{blockUUID}}').find('.x-portal-competition-selector').empty();
 		for (var i in data) {
-			$('#{{blockUUID}}').find('.x-portal-competition-selector').append('<option value="'+data[i].id+'">'+ data[i].name +'</option>').trigger('change');;
+			$('#{{blockUUID}}').find('.x-portal-competition-selector').append('<option value="'+data[i].id+'">'+ data[i].name + '</option>').trigger('change');;
 		}
 	});
 
