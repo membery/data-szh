@@ -246,9 +246,59 @@
 				border-right: none;
 			}
 		}
+		.banner-notstarted {
+			font-size: 10px;
+			background-color: black;
+			color: white;
+			text-align: center;
+			padding: 5px;
+			margin-bottom: 10px;
+		}
+		.banner-started {
+			font-size: 10px;
+			background-color: #0c7100;
+			color: white;
+			text-align: center;
+			padding: 5px;
+			margin-bottom: 10px;
+		}
+		.banner-finished {
+			font-size: 10px;
+			background-color: #920000;
+			color: white;
+			text-align: center;
+			padding: 5px;
+			margin-bottom: 10px;
+		}
+
+		@media print {
+			.noprint {
+				display: none;
+			}
+		}
 		</style>
+		{% if render.started && !render.finished %}
+		<meta http-equiv="refresh" content="10">
+		{% endif %}
 	</head>
-	<body class="leftB topB">
+	<body>
+		{% if render.started && !render.finished %}
+			<div class="banner-started noprint">
+				<h1>Zápas práve prebieha</h1>
+				<h3>Protokol sa automaticky obnovuje každých 10 sekúnd!</h3>
+			</div>
+		{% elseif render.finished %}
+			<div class="banner-finished noprint">
+				<h1>Zápas bol ukončený</h1>
+				<h3>Protokol sa automaticky neobnovuje!</h3>
+			</div>
+		{% else %}
+			<div class="banner-notstarted noprint">
+				<h1>Zápas ešte nezačal</h1>
+				<h3>Protokol sa automaticky neobnovuje!</h3>
+			</div>
+		{% endif %}
+	<div class="leftB topB">
 		<div class="row ">
 		<!-- hlavicka -->
 			<div class="col">
@@ -3616,5 +3666,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</body>
 </html>
