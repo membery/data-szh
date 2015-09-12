@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"name": "showcase",
+		"element": "<div></div>",
+		"type": "showcase",
+		"title": "Výklad",
+		"desc": "Najhorúcejšie články v prelínajúcom zobrazení výkladného okna",
+		"icon": "img/block-topics.svg"
+	},
+	"data": {
+		"tags": []
+	}
+}

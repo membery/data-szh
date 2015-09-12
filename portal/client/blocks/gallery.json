@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"name": "gallery",
+		"element": "<div></div>",
+		"type": "gallery",
+		"title": "Galéria",
+		"desc": "Galéria fotografií",
+		"icon": "img/block-gallery.svg"
+	},
+	"data": {
+		"images": []
+	}
+}
