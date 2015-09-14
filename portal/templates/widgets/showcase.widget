@@ -1,6 +1,8 @@
 <div class="x-portal-widget-showcase-view">{% for article in data.articles %}
 	<article class="showcase-item-{{ article.id }}">
-	{% if article.img.img %}<div class="x-portal-widget-showcase-view-image" style="background: url('{{ article.img.img|safe }}'); background-size: cover; background-repeat: no-repeat;"></div>{% endif %}
+	{% if article.thumbnail && article[article.thumbnail] && article[article.thumbnail].img %}
+		<div class="x-portal-widget-showcase-view-image" style="background: url('{{ article[article.thumbnail].img|safe }}'); background-size: cover; background-repeat: no-repeat;"></div>
+	{% endif %}
 	<div class="x-portal-widget-showcase-view-textblock">
 		<a href="/article/{{ article.id }}">{{ article.title|safe }}</a>
 		{{ article.abstract|safe }}

@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"name": "image",
+		"name": "image656",
 		"element": "<div></div>",
 		"type": "image",
 		"title": "Obrázok 656x492",
@@ -9,5 +9,9 @@
 	},
 	"data": {
 		"img": ""
+	},
+	"config": {
+		"width": 656,
+		"height": 492
 	}
 }

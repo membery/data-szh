@@ -3,11 +3,16 @@
 		"name": "overview",
 		"element": "<div></div>",
 		"type": "overview",
+		"resolver": "category",
 		"title": "Prehľad",
 		"desc": "Prehľad článkov pod sebou.",
 		"icon": "img/block-overview.svg"
 	},
 	"data": {
 		"tags": []
+	},
+	"config": {
+		"displayBlocks": ["title", "abstract", "image656"],
+		"thumbnailBlock": "image656"
 	}
 }
