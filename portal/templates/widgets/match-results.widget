@@ -25,8 +25,9 @@ $(function() {
 
 		$('#{{blockUUID}}').find('.x-portal-competition-selector').empty();
 		for (var i in data) {
-			$('#{{blockUUID}}').find('.x-portal-competition-selector').append('<option value="'+data[i].id+'">'+ data[i].name + '</option>').trigger('change');;
+			$('#{{blockUUID}}').find('.x-portal-competition-selector').append('<option value="'+data[i].id+'">'+ data[i].name + '</option>');
 		}
+		$('#{{blockUUID}}').find('.x-portal-competition-selector').trigger('change');
 	});
 
 	$('#{{blockUUID}}').bind('competition-matches-show', function() {

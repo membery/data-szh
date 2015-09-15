@@ -417,8 +417,9 @@
 
 			$('.x-portal-competition-results').find('.x-portal-competition-selector').empty();
 			for (var i in data) {
-				$('.x-portal-competition-results').find('.x-portal-competition-selector').append('<option value="'+data[i].id+'">'+ data[i].name +'</option>').trigger('change');;
+				$('.x-portal-competition-results').find('.x-portal-competition-selector').append('<option value="'+data[i].id+'">'+ data[i].name +'</option>');;
 			}
+			$('.x-portal-competition-results').find('.x-portal-competition-selector').trigger('change');
 		});
 
 		$('.portal-side-panel.partneri').each(function() {
