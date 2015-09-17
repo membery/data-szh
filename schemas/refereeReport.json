@@ -600,43 +600,6 @@
 					}
 				}
 			}
-		},
-		"technicalData": {
-			"title": "Technické údaje",
-			"transCode": "schema.refereeReport.technicalData",
-			"type": "object",
-			"render": {
-				"width": "full"
-			},
-			"properties": {
-				"events": {
-					"title": "Udalosti",
-					"transCode": "schema.refereeReport.technicalData.events",
-					"type": "array",
-					"items": {
-						"time": {
-							"title": "Čas",
-							"transCode": "schema.refereeReport.technicalData.time",
-							"type": "string"
-						},
-						"home": {
-							"title": "Domáci",
-							"transCode": "schema.refereeReport.technicalData.home",
-							"type": "string"
-						},
-						"away": {
-							"title": "Hostia",
-							"transCode": "schema.refereeReport.technicalData.away",
-							"type": "string"
-						},
-						"action": {
-							"title": "Akcia",
-							"transCode": "schema.refereeReport.technicalData.action",
-							"type": "string"
-						}
-					}
-				}
-			}
 		}
 	},
 
@@ -689,9 +652,6 @@
 				},
 				"messages":{
 					"$ref":"uri://registries/refereeReports#blocks/messages"
-				},
-				"technicalData":{
-					"$ref":"uri://registries/refereeReports#blocks/technicalData"
 				}
 			}
 		},
@@ -885,9 +845,6 @@
 				},
 				"messages":{
 					"$ref":"uri://registries/refereeReports#blocks/messages"
-				},
-				"technicalData":{
-					"$ref":"uri://registries/refereeReports#blocks/technicalData"
 				}
 			}
 		}
@@ -911,7 +868,6 @@
 						"__DIRECTIVE__": "url-link",
 						"title": "Protokol",
 						"path": "http://novy.slovakhandball.sk/competition/refereeReport",
-
 						"target": "_blank"
 					}
 				]
