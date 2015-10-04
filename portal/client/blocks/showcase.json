@@ -1,0 +1,18 @@
+{
+	"meta": {
+		"name": "showcase",
+		"element": "<div></div>",
+		"type": "showcase",
+		"resolver": "category",
+		"title": "Výklad",
+		"desc": "Najhorúcejšie články v prelínajúcom zobrazení výkladného okna",
+		"icon": "img/block-topics.svg"
+	},
+	"data": {
+		"tags": []
+	},
+	"config": {
+		"displayBlocks": ["title", "abstract", "image656"],
+		"thumbnailBlock": "image656"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"meta": {
+		"name": "abstract",
+		"element": "<section class=\"abstract\"></section>",
+		"type": "pure-html",
+		"title": "Abstrakt",
+		"desc": "Krátke zhrnutie článku",
+		"icon": "img/block-abstract.svg"
+	},
+	"data": "...Abstrakt článku..."
+}

@@ -1,0 +1,11 @@
+{
+	"meta": {
+		"name": "match-results-all",
+		"element": "<section class=\"x-portal-competition-matches\"><header>Rozlosovanie</header></section>",
+		"type": "match-results-all",
+		"title": "Rozlosovanie",
+		"desc": "Časť obsahujúa rozlosovanie súťaží.",
+		"icon": "img/block-content.svg"
+	},
+	"data": ""
+}

@@ -1,0 +1,17 @@
+{
+	"meta": {
+		"name": "showcasevideo",
+		"element": "<div></div>",
+		"type": "showcasevideo",
+		"resolver": "category",
+		"title": "Výklad s videami",
+		"desc": "Videá v prelínajúcom zobrazení výkladného okna",
+		"icon": "img/block-videoshowcase.svg"
+	},
+	"data": {
+		"tags": []
+	},
+	"config": {
+		"displayBlocks": ["video"]
+	}
+}

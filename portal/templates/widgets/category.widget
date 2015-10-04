@@ -1,7 +1,9 @@
 <div class="x-portal-widget-category">{% for article in data.articles %}
 	<article>
 		<div class="x-portal-widget-category-title"><a href="/article/{{ article.id }}">{{ article.title|safe }}</a></div>
-		{% if article.img.img %}<img src="{{ article.img.img|safe }}">{% endif %}
+		{% if article.thumbnail && article[article.thumbnail] && article[article.thumbnail].img %}
+			<img src="{{ article[article.thumbnail].img|safe }}">
+		{% endif %}
 		<div class="x-portal-widget-category-inner">
 			{{ article.abstract|safe }}
 		<div>

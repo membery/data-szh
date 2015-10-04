@@ -1,0 +1,18 @@
+{
+	"meta": {
+		"name": "category",
+		"element": "<div></div>",
+		"type": "category",
+		"resolver": "category",
+		"title": "Kategória",
+		"desc": "Zoznam článkov v danej kategórii",
+		"icon": "img/block-category.svg"
+	},
+	"data": {
+		"tags": []
+	},
+	"config": {
+		"displayBlocks": ["title", "abstract", "image656"],
+		"thumbnailBlock": "image656"
+	}
+}

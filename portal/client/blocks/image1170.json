@@ -1,0 +1,17 @@
+{
+	"meta": {
+		"name": "image1170",
+		"element": "<div></div>",
+		"type": "image",
+		"title": "Obrázok 1170x570",
+		"desc": "Obrázok 1170px x 570px.",
+		"icon": "img/block-image.svg"
+	},
+	"data": {
+		"img": ""
+	},
+	"config": {
+		"width": 1170,
+		"height": 570
+	}
+}
