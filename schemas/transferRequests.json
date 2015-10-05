@@ -42,6 +42,29 @@
 							}
 						},
 						"clubFrom": {
+							"readOnly": true,
+							"calculation": {
+								"func": "getFrom",
+								"watch": ["transferData.player"],
+								"args": {
+									"path": "player.club",
+									"obj": {
+										"func": "getAsObjectLink",
+										"args": {
+											"schemaUri": "uri://registries/people#views/fullperson-km/view",
+											"fields": {
+												"name": "club.name"
+											},
+											"objectId": {
+												"func": "get",
+												"args": {
+													"modelPath": "transferData.player.oid"
+												}
+											}
+										}
+									}	
+								}
+							},
 							"objectLink2": {
 								"schema": "uri://registries/organizations#views/club-km/view"
 							}
@@ -104,12 +127,32 @@
 			"view": {
 				"extends": "uri://registries/transferRequests#models/transfer",
 				"properties": {
+					"transferData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					},
 					"attachmentsClubFrom": null
 				}
 			},
 			"search": {
 				"extends": "uri://registries/transferRequests#models/transfer",
 				"properties": {
+					"transferData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					},
 					"attachmentsClubFrom": null
 				},
 				"clientActions": [
@@ -188,6 +231,16 @@
 					}
 				],
 				"properties": {
+					"transferData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					},
 					"requestData": {
 						"properties":{
 							"assignedTo": {
@@ -240,7 +293,8 @@
 								"readOnly": true
 							},
 							"clubFrom": {
-								"readOnly": true
+								"readOnly": true,
+								"calculation": null
 							},
 							"clubTo": {
 								"readOnly": true

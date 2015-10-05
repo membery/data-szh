@@ -27,6 +27,29 @@
 					"transCode":"schema.transfer.clubFrom",
 					"type": "object",
 					"required": true,
+					"readOnly": true,
+					"calculation": {
+						"func": "getFrom",
+						"watch": ["baseData.player.oid"],
+						"args": {
+							"path": "player.club",
+							"obj": {
+								"func": "getAsObjectLink",
+								"args": {
+									"schemaUri": "uri://registries/people#views/fullperson/view",
+									"fields": {
+										"name": "club.name"
+									},
+									"objectId": {
+										"func": "get",
+										"args": {
+											"modelPath": "baseData.player.oid"
+										}
+									}
+								}
+							}	
+						}
+					},
 					"objectLink2": {
 						"schema":"uri://registries/organizations#views/club/view",
 						"fields":{
@@ -169,6 +192,18 @@
 			},
 			"view":{
 				"extends":"uri://registries/transfers#models/transfers",
+				"properties": {
+					"baseData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					}
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "action-link",
@@ -180,6 +215,18 @@
 			},
 			"search":{
 				"extends":"uri://registries/transfers#models/transfers",
+				"properties": {
+					"baseData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					}
+				},
 				"clientActions": [
 					{
 						"__DIRECTIVE__": "schema-redirect-link",
