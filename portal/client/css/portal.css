@@ -806,6 +806,11 @@ a.portal-menu-bottom-entry-head {
 	display: none;
 }
 
+.partneri-logo-middle {
+	height: 245px;
+	vertical-align: middle;
+}
+
 #footer-container {
 	font-family: 'Arial';
 	font-size: 14px;
