@@ -25,6 +25,120 @@ body {
 	        flex-direction: column;
 }
 
+.portal-hidden {
+	display: none !important;
+}
+
+.portal-loading {
+	text-align: center;
+	font-size: 30px;
+}
+
+.x-portal-widget-players-stats header {
+	color: white;
+	background: #CB2225;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: bold;
+	letter-spacing: 1.2px;
+	cursor: pointer;
+}
+
+.portal-players-stats-data {
+	padding-top: 5px;
+}
+.portal-players-stats-data-content {
+	display: flex;
+	flex-direction: column;
+}
+.portal-players-stats-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.portal-players-stats-header {
+	display: flex;
+	flex-direction: row;
+	background-color: #CB2225;
+	color: white;
+	font-weight: bold;
+}
+
+.portal-players-stats-header .sortable {
+	cursor: pointer;
+}
+
+.portal-players-stats-row:nth-child(even) {
+	background-color: #FFD2D2;
+}
+
+.portal-players-stats-row:HOVER {
+	background-color: #cb2225;
+	color: white;
+}
+
+.portal-players-stats-row DIV, .portal-players-stats-header DIV {
+	flex-direction: column;
+	padding: 2px;
+}
+
+.portal-players-stats-data-content .num {
+	flex: 25px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .name {
+	flex: 120px 1 0;
+}
+
+.portal-players-stats-data-content .matches {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .goals {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .seven {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .yellow {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .two {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .disc {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .penalties {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .selected {
+	font-weight: bold;
+}
+
+.portal-players-stats-all {
+	color: #CB2225;
+	cursor: pointer;
+	text-align: center;
+}
+
 .portal-schedule-hidden {
 	display: none !important;
 }

@@ -1,0 +1,172 @@
+<div class="x-portal-widget-players-stats" id="{{blockUUID}}">
+	<section class="x-portal-players-stats">
+		<header>Štatistiky hráčov</header>
+		<div class="portal-players-stats-data portal-hidden">
+			<div class="portal-loading portal-hidden"><i class="fa fa-spinner fa-spin"></i></div>
+			<div class="portal-players-stats-data-content"></div>
+			<div class="portal-players-stats-all">Zobraziť všetkých hráčov</div>
+		</div>	
+	</section>
+</div>
+<script>
+$(function() {
+if ('{{cid}}'.length > 0) {
+	$('#{{blockUUID}}').data('sortProp', 'goals');
+	$('#{{blockUUID}}').data('sortOrder', 'desc');
+	$('#{{blockUUID}}').data('showAll', false);
+
+	function toggleStats() {
+		if (!$('#{{blockUUID}} .portal-players-stats-data').toggleClass('portal-hidden').hasClass('portal-hidden')) {
+			loadData();
+		}
+	};
+
+	function toggleShowAll() {
+		$('#{{blockUUID}}').data('showAll', !$('#{{blockUUID}}').data('showAll'));
+		loadData();
+	};
+
+	function handleHeaderClick(which) {
+		if ($('#{{blockUUID}}').data('sortProp') === which) {
+			// change order only
+			if ($('#{{blockUUID}}').data('sortOrder') === 'desc') {
+				$('#{{blockUUID}}').data('sortOrder', 'asc');
+			} else {
+				$('#{{blockUUID}}').data('sortOrder', 'desc');
+			}
+		} else {
+			$('#{{blockUUID}}').data('sortOrder', 'desc');
+			$('#{{blockUUID}}').data('sortProp', which);
+		}
+
+		loadData();
+	}
+
+	function loadData() {
+		var prop = $('#{{blockUUID}}').data('sortProp');
+		var order = $('#{{blockUUID}}').data('sortOrder');
+		var count = $('#{{blockUUID}}').data('showAll') ? 'all' : 10;
+
+		$('#{{blockUUID}} .portal-players-stats-data-content').empty();
+		$('#{{blockUUID}} .portal-loading').removeClass('portal-hidden');
+
+		$.get('/competition/stats/players/{{cid}}/'.concat(prop, '/', order, '/', count), function(data) {
+			
+			$('#{{blockUUID}} .portal-loading').addClass('portal-hidden');
+
+			var i = 0;
+			var increment = 1;
+
+			if ($('#{{blockUUID}}').data('sortOrder') === 'asc') {
+				i = data.length + 1;
+				increment = -1;
+			}
+			
+			$('#{{blockUUID}} .portal-players-stats-data-content').append(
+				'<div class="portal-players-stats-header">'.concat(
+					'<div class="num"> </div>',
+					'<div class="name">Meno</div>',
+					'<div class="matches sortable">Záp.</div>',
+					'<div class="goals sortable">Góly</div>',
+					'<div class="seven sortable">7m</div>',
+					'<div class="yellow sortable">N</div>',
+					'<div class="two sortable">2m</div>',
+					'<div class="disc sortable">D</div>',
+					'<div class="penalties sortable">Tr.b</div>',
+				'</div>')
+			);
+
+			$('#{{blockUUID}} .portal-players-stats-header .matches').on('click', function() {handleHeaderClick('matches'); });
+			$('#{{blockUUID}} .portal-players-stats-header .goals').on('click', function() {handleHeaderClick('goals'); });
+			$('#{{blockUUID}} .portal-players-stats-header .seven').on('click', function() {handleHeaderClick('seven'); });
+			$('#{{blockUUID}} .portal-players-stats-header .yellow').on('click', function() {handleHeaderClick('yellow'); });
+			$('#{{blockUUID}} .portal-players-stats-header .two').on('click', function() {handleHeaderClick('two'); });
+			$('#{{blockUUID}} .portal-players-stats-header .disc').on('click', function() {handleHeaderClick('disc'); });
+			$('#{{blockUUID}} .portal-players-stats-header .penalties').on('click', function() {handleHeaderClick('penalties'); });
+
+			data.map(function(r) {
+				$('#{{blockUUID}} .portal-players-stats-data-content').append(
+					'<div class="portal-players-stats-row">'.concat(
+						'<div class="num">', r.num, '.</div>',
+						'<div class="name">', r.name, '</div>',
+						'<div class="matches">', r.m, '</div>',
+						'<div class="goals">', r.g, '</div>',
+						'<div class="seven">', r.seven, '</div>',
+						'<div class="yellow">', r.yellow, '</div>',
+						'<div class="two">', r.two, '</div>',
+						'<div class="disc">', r.disc, '</div>',
+						'<div class="penalties">', r.penalties, '</div>',
+					'</div>')
+				);
+			});
+
+			$('#{{blockUUID}} .portal-players-stats-data-content'.concat(' .', prop)).addClass('selected');
+		});
+	};
+}
+
+$('#{{blockUUID}} header').on('click', toggleStats);
+$('#{{blockUUID}} .portal-players-stats-all').on('click', toggleShowAll);
+
+/*
+	if ('{{cid}}'.length > 0) {
+		$.get('/competition/matches-all/{{cid}}', function(data) {
+				function formatDate(d) {
+					return d.substr(6,2) + '.' +d.substr(4,2) + '.' + d.substr(0,4);
+				}
+
+				var tblContainer = $('#{{blockUUID}}').find('.portal-schedule-data');
+
+				$('#{{blockUUID}}').find('header').bind('click', function() {
+					tblContainer.toggleClass('portal-schedule-hidden');
+				});
+				tblContainer.empty();
+
+				var sRounds = Object.keys(data).sort(function(a,b) {
+					return parseInt(a)-parseInt(b);
+				});
+				var lastDate = null;
+				var position = 0;
+				for (var r in sRounds) {
+					var round = data[sRounds[r]];
+
+					tblContainer.append('<div class="portal-schedule-round">'+sRounds[r]+'</div>');
+					for (var m in round) {
+						var match = round[m];
+
+						if (match.finished) {
+							tblContainer.append(
+								'<div class="portal-schedule-row">' +
+									'<div class="portal-schedule-dt">' +
+										'<div class="portal-schedule-date">' + formatDate(match.matchDate) + '</div>' +
+										'<div class="portal-schedule-time">' + (match.matchTime || '-') + '</div>' +
+									'</div>' +
+									'<div class="portal-schedule-match">' +
+									'<div class="portal-schedule-home">' + match.homeName + '</div>' +
+									'<div class="portal-schedule-score"><div class="portal-schedule-score-home">'+(match.fullTimeScoreHome || '_')+'</div>' +
+										'<div class="portal-schedule-score-hyphen">:</div>' +
+										'<div class="portal-schedule-score-away">'+(match.fullTimeScoreAway || '_')+'</div>'+
+										'<div class="portal-schedule-score-balls">'+(match.additionalScore || '')+'</div></div>' +
+										'<div class="portal-schedule-away">'+match.guestName+'</div></div></div>');
+						} else {
+							tblContainer.append(
+								'<div class="portal-schedule-row">' +
+									'<div class="portal-schedule-dt">' +
+										'<div class="portal-schedule-date">' + formatDate(match.matchDate) + '</div>' +
+										'<div class="portal-schedule-time">' + (match.matchTime || '-') + '</div>' +
+									'</div>' +
+									'<div class="portal-schedule-match">' +
+									'<div class="portal-schedule-home">' + match.homeName + '</div>' +
+									'<div class="portal-schedule-score"><div class="portal-schedule-score-home">'+(match.fullTimeScoreHome || '-')+'</div>' +
+										'<div class="portal-schedule-score-hyphen">:</div>' +
+										'<div class="portal-schedule-score-away">'+(match.fullTimeScoreAway || '-')+'</div>'+
+										'<div class="portal-schedule-score-balls">'+(match.additionalScore || '')+'</div></div>' +
+										'<div class="portal-schedule-away">'+match.guestName+'</div></div></div>');
+						}
+					}
+				}
+		});
+	}
+*/
+});
+</script>
