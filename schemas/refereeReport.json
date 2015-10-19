@@ -40,6 +40,25 @@
 						"schema":"uri://registries/competitionPart#views/competitionPart/view",
 						"fields":{
 							"name": "baseData.name"
+						},
+						"calculatedCriteria": {
+							"func": "criteriaList",
+							"watch": ["baseData.competition.oid"],
+							"args": [{
+								"func": "criterion",
+								"args": {
+									"f": "baseData.competition.oid",
+									"op": "eq",
+									"v": {
+										"func": "get",
+										"args": {
+											"modelPath": "baseData.competition.oid",
+											"default": null
+										}
+									},
+									"nullIfEmpty": true
+								}
+							}]
 						}
 					}
 				},
@@ -76,6 +95,25 @@
 						"schema":"uri://registries/rosters#views/rosters/view",
 						"fields":{
 							"name": "baseData.prName"
+						},
+						"calculatedCriteria": {
+							"func": "criteriaList",
+							"watch": ["baseData.competition.oid"],
+							"args": [{
+								"func": "criterion",
+								"args": {
+									"f": "baseData.competition.oid",
+									"op": "eq",
+									"v": {
+										"func": "get",
+										"args": {
+											"modelPath": "baseData.competition.oid",
+											"default": null
+										}
+									},
+									"nullIfEmpty": true
+								}
+							}]
 						}
 					}
 				},
@@ -100,6 +138,25 @@
 						"schema":"uri://registries/rosters#views/rosters/view",
 						"fields":{
 							"name": "baseData.prName"
+						},
+						"calculatedCriteria": {
+							"func": "criteriaList",
+							"watch": ["baseData.competition.oid"],
+							"args": [{
+								"func": "criterion",
+								"args": {
+									"f": "baseData.competition.oid",
+									"op": "eq",
+									"v": {
+										"func": "get",
+										"args": {
+											"modelPath": "baseData.competition.oid",
+											"default": null
+										}
+									},
+									"nullIfEmpty": true
+								}
+							}]
 						}
 					}
 				},
@@ -112,6 +169,25 @@
 						"schema":"uri://registries/schedule#views/schedule/view",
 						"fields":{
 							"name": "baseData.name"
+						},
+						"calculatedCriteria": {
+							"func": "criteriaList",
+							"watch": ["baseData.competitionPart.oid"],
+							"args": [{
+								"func": "criterion",
+								"args": {
+									"f": "baseData.competitionPart.oid",
+									"op": "eq",
+									"v": {
+										"func": "get",
+										"args": {
+											"modelPath": "baseData.competitionPart.oid",
+											"default": null
+										}
+									},
+									"nullIfEmpty": true
+								}
+							}]
 						}
 					}
 				},
