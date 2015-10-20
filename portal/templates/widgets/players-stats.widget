@@ -88,7 +88,7 @@ if ('{{cid}}'.length > 0) {
 				$('#{{blockUUID}} .portal-players-stats-data-content').append(
 					'<div class="portal-players-stats-row">'.concat(
 						'<div class="num">', r.num, '.</div>',
-						'<div class="name">', r.name, '</div>',
+						'<div class="name"><div>', r.name, '</div><div class="club">', r.club, '</div></div>',
 						'<div class="matches">', r.m, '</div>',
 						'<div class="goals">', r.g, '</div>',
 						'<div class="seven">', r.seven, '</div>',
