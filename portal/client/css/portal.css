@@ -629,9 +629,17 @@ body {
 	-webkit-transition: all 0.5s ease 0.5s;
 }
 
-#portal-menu-bottom-container {
-	margin-left: auto;
-	margin-right: auto;
+#portal-menu-bottom-panel {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+	-webkit-justify-content: center;
+		-ms-flex-pack: center;
+			justify-content: center;
+	font-size: 12px
 }
 
 .portal-menu-bottom-entry {
@@ -1280,7 +1288,6 @@ a.portal-menu-bottom-entry-head {
 		width: auto;
 		margin-right: 350px;
 		margin-left: 5px;
-		/*min-height: 1830px;*/
 	}
 	
 	#portal-side-content {
@@ -1315,10 +1322,7 @@ a.portal-menu-bottom-entry-head {
 		width: 100%;
 	}
 
-	#portal-club-logos-panel-container {
-		display: none;
-	}
-
+	#portal-club-logos-panel-container,
 	#portal-menu-bottom-panel {
 		display: none;
 	}
@@ -1360,9 +1364,9 @@ a.portal-menu-bottom-entry-head {
 	}
 }
 
-/*mobile menu on 660px*/
+/*mobile menu on 772px*/
 
-@media (max-width: 660px){
+@media (max-width: 772px){
 	#mobile-menu-toggler {
 		display: block;
 	}
