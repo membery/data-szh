@@ -71,6 +71,11 @@ body {
 	cursor: pointer;
 }
 
+.portal-players-stats-row {
+	justify-content: center;
+	align-items: center;
+}
+
 .portal-players-stats-row:nth-child(even) {
 	background-color: #FFD2D2;
 }
@@ -80,11 +85,15 @@ body {
 	color: white;
 }
 
-.portal-players-stats-row DIV, .portal-players-stats-header DIV {
+.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
 	flex-direction: column;
 	padding: 2px;
 }
 
+.portal-players-stats-data-content {
+	display: flex;
+	flex-direction: column;
+}
 .portal-players-stats-data-content .num {
 	flex: 25px 0 0;
 	text-align: right;
@@ -92,6 +101,10 @@ body {
 
 .portal-players-stats-data-content .name {
 	flex: 120px 1 0;
+}
+
+.portal-players-stats-data-content .club {
+	font-size: 75%;
 }
 
 .portal-players-stats-data-content .matches {
@@ -129,10 +142,45 @@ body {
 	text-align: right;
 }
 
-.portal-players-stats-data-content .selected {
+.portal-players-stats-data-content .selected, .portal-teams-stats-data-content .selected {
 	font-weight: bold;
 }
 
+.portal-teams-stats-data-content .num {
+	flex: 25px 0 0;
+	text-align: right;
+}
+
+.portal-teams-stats-data-content .name {
+	flex: 120px 1 0;
+}
+
+.portal-teams-stats-data-content .matches {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-teams-stats-data-content .points {
+	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-teams-stats-data-content .score, .portal-teams-stats-data-content .minusScore, .portal-teams-stats-data-content .plusScore {
+	flex: 30px 0 0;
+	text-align: right;
+}
+.portal-teams-stats-data-content .wins, .portal-teams-stats-data-content .draws, .portal-teams-stats-data-content .looses {
+	flex: 30px 0 0;
+	text-align: right;
+}
+.portal-teams-stats-data-content .seven, .portal-teams-stats-data-content .yellow, .portal-teams-stats-data-content .two {
+	flex: 30px 0 0;
+	text-align: right;
+}
+.portal-teams-stats-data-content .disc, .portal-teams-stats-data-content .penalties {
+	flex: 30px 0 0;
+	text-align: right;
+}
 .portal-players-stats-all {
 	color: #CB2225;
 	cursor: pointer;

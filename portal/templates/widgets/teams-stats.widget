@@ -1,0 +1,120 @@
+<div class="x-portal-widget-players-stats" id="{{blockUUID}}">
+	<section class="x-portal-players-stats">
+		<header>Štatistiky družstiev</header>
+		<div class="portal-players-stats-data portal-hidden">
+			<div class="portal-loading portal-hidden"><i class="fa fa-spinner fa-spin"></i></div>
+			<div class="portal-teams-stats-data-content"></div>
+		</div>	
+	</section>
+</div>
+<script>
+$(function() {
+if ('{{cid}}'.length > 0) {
+	$('#{{blockUUID}}').data('sortProp', 'points');
+	$('#{{blockUUID}}').data('sortOrder', 'desc');
+
+	function toggleStats() {
+		if (!$('#{{blockUUID}} .portal-players-stats-data').toggleClass('portal-hidden').hasClass('portal-hidden')) {
+			loadData();
+		}
+	};
+
+	function handleHeaderClick(which) {
+		if ($('#{{blockUUID}}').data('sortProp') === which) {
+			// change order only
+			if ($('#{{blockUUID}}').data('sortOrder') === 'desc') {
+				$('#{{blockUUID}}').data('sortOrder', 'asc');
+			} else {
+				$('#{{blockUUID}}').data('sortOrder', 'desc');
+			}
+		} else {
+			$('#{{blockUUID}}').data('sortOrder', 'desc');
+			$('#{{blockUUID}}').data('sortProp', which);
+		}
+
+		loadData();
+	}
+
+	function loadData() {
+		var prop = $('#{{blockUUID}}').data('sortProp');
+		var order = $('#{{blockUUID}}').data('sortOrder');
+
+		$('#{{blockUUID}} .portal-teams-stats-data-content').empty();
+		$('#{{blockUUID}} .portal-loading').removeClass('portal-hidden');
+
+		$.get('/competition/stats/teams/{{cid}}/'.concat(prop, '/', order), function(data) {
+			
+			$('#{{blockUUID}} .portal-loading').addClass('portal-hidden');
+
+			var i = 0;
+			var increment = 1;
+
+			if ($('#{{blockUUID}}').data('sortOrder') === 'asc') {
+				i = data.length + 1;
+				increment = -1;
+			}
+			
+			$('#{{blockUUID}} .portal-teams-stats-data-content').append(
+				'<div class="portal-players-stats-header">'.concat(
+					'<div class="num"> </div>',
+					'<div class="name">Meno</div>',
+					'<div class="matches sortable">Záp.</div>',
+					'<div class="points sortable">Body</div>',
+					'<div class="score sortable">+/-</div>',
+					'<div class="plusScore sortable">+</div>',
+					'<div class="minusScore sortable">-</div>',
+					'<div class="wins sortable">V</div>',
+					'<div class="draws sortable">R</div>',
+					'<div class="looses sortable">P</div>',
+					'<div class="seven sortable">7m</div>',
+					'<div class="yellow sortable">N</div>',
+					'<div class="two sortable">2m</div>',
+					'<div class="disc sortable">D</div>',
+					'<div class="penalties sortable">Tr.b</div>',
+				'</div>')
+			);
+
+			$('#{{blockUUID}} .portal-players-stats-header .matches').on('click', function() {handleHeaderClick('matches'); });
+			$('#{{blockUUID}} .portal-players-stats-header .points').on('click', function() {handleHeaderClick('points'); });
+			$('#{{blockUUID}} .portal-players-stats-header .score').on('click', function() {handleHeaderClick('score'); });
+			$('#{{blockUUID}} .portal-players-stats-header .plusScore').on('click', function() {handleHeaderClick('plusScore'); });
+			$('#{{blockUUID}} .portal-players-stats-header .minusScore').on('click', function() {handleHeaderClick('minusScore'); });
+			$('#{{blockUUID}} .portal-players-stats-header .wins').on('click', function() {handleHeaderClick('wins'); });
+			$('#{{blockUUID}} .portal-players-stats-header .looses').on('click', function() {handleHeaderClick('looses'); });
+			$('#{{blockUUID}} .portal-players-stats-header .draws').on('click', function() {handleHeaderClick('draws'); });
+			$('#{{blockUUID}} .portal-players-stats-header .seven').on('click', function() {handleHeaderClick('seven'); });
+			$('#{{blockUUID}} .portal-players-stats-header .yellow').on('click', function() {handleHeaderClick('yellow'); });
+			$('#{{blockUUID}} .portal-players-stats-header .two').on('click', function() {handleHeaderClick('two'); });
+			$('#{{blockUUID}} .portal-players-stats-header .disc').on('click', function() {handleHeaderClick('disc'); });
+			$('#{{blockUUID}} .portal-players-stats-header .penalties').on('click', function() {handleHeaderClick('penalties'); });
+
+			data.map(function(r) {
+				$('#{{blockUUID}} .portal-teams-stats-data-content').append(
+					'<div class="portal-players-stats-row">'.concat(
+						'<div class="num">', r.num, '.</div>',
+						'<div class="name"><div>', r.name, '</div></div>',
+						'<div class="matches">', r.matches, '</div>',
+						'<div class="points">', r.points, '</div>',
+						'<div class="score">', r.score, '</div>',
+						'<div class="plusScore">', r.plusScore, '</div>',
+						'<div class="minusScore">', r.minusScore, '</div>',
+						'<div class="wins">', r.wins, '</div>',
+						'<div class="draws">', r.draws, '</div>',
+						'<div class="looses">', r.looses, '</div>',
+						'<div class="seven">', r.seven, '</div>',
+						'<div class="yellow">', r.yellow, '</div>',
+						'<div class="two">', r.two, '</div>',
+						'<div class="disc">', r.disc, '</div>',
+						'<div class="penalties">', r.penalties, '</div>',
+					'</div>')
+				);
+			});
+
+			$('#{{blockUUID}} .portal-teams-stats-data-content'.concat(' .', prop)).addClass('selected');
+		});
+	};
+}
+
+$('#{{blockUUID}} header').on('click', toggleStats);
+});
+</script>
