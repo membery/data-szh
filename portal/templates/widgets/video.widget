@@ -1,9 +1,9 @@
 
 <figure>
 	<div class="psui-wrapper" style="text-align: center;">
-	  <iframe width="560" height="315" src="{{data.src}}" frameborder="0" allowfullscreen></iframe>
-	  <h3>{{data.title}}</h3>
-	  <h3>{{data.subTitle}}</h3>
-	 {{data.text}}
+	  <iframe src="{{data.src}}" frameborder="0" allowfullscreen></iframe>
 	</div>
+	<h3>{{data.title}}</h3>
+	<h3>{{data.subTitle}}</h3>
+	 {{data.text}}
 </figure>
