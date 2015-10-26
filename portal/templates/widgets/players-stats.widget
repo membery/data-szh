@@ -65,14 +65,14 @@ if ('{{cid}}'.length > 0) {
 			$('#{{blockUUID}} .portal-players-stats-data-content').append(
 				'<div class="portal-players-stats-header">'.concat(
 					'<div class="num"> </div>',
-					'<div class="name">Meno</div>',
+					'<div class="name">Meno</div><div class="club"></div><div class="portal-players-stats-score-header">',
 					'<div class="matches sortable">Záp.</div>',
 					'<div class="goals sortable">Góly</div>',
 					'<div class="seven sortable">7m</div>',
 					'<div class="yellow sortable">N</div>',
 					'<div class="two sortable">2m</div>',
 					'<div class="disc sortable">D</div>',
-					'<div class="penalties sortable">Tr.b</div>',
+					'<div class="penalties sortable">Tr.b</div></div>',
 				'</div>')
 			);
 
@@ -89,14 +89,14 @@ if ('{{cid}}'.length > 0) {
 					'<div class="portal-players-stats-row">'.concat(
 						'<div class="num">', r.num, '.</div>',
 						'<div class="name"><div>', r.name, '</div><div class="club">', r.club, '</div></div>',
-						'<div class="matches">', r.m, '</div>',
+						'<div class="portal-players-stats-score"><div class="matches">', r.m, '</div>',
 						'<div class="goals">', r.g, '</div>',
 						'<div class="seven">', r.seven, '</div>',
 						'<div class="yellow">', r.yellow, '</div>',
 						'<div class="two">', r.two, '</div>',
 						'<div class="disc">', r.disc, '</div>',
 						'<div class="penalties">', r.penalties, '</div>',
-					'</div>')
+					'</div></div>')
 				);
 			});
 
