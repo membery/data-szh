@@ -27,9 +27,18 @@
 	  ga('send', 'pageview');
 
 	</script>
+
 </head>
 
 <body>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="portal-main-container">
 		<div id="portal-header-container">
 			<header id="portal-main-header">
@@ -79,6 +88,7 @@
 						{% include templatePath with widget only %}
 					</article>
 				{% endfor %}
+				<div class="fb-like" data-href="http://slovakhandball.sk/article/562a7d5130ea279557068b2a" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 			</div>
 			<div id="portal-side-content">
 				<section class="portal-side-panel-logos">
@@ -199,6 +209,17 @@
 	</div>
 </body>
 <script>
+	//dynamic resize showcase height
+	function changeHeight() {
+		if($(window).width() < 626) {
+			$('.x-portal-widget-showcase-view').height( $(window).width() / 1.34 + 110);
+		} else {
+			$('.x-portal-widget-showcase-view').height(492);
+		}
+	}
+	$(document).ready(changeHeight);
+	$(window).resize(changeHeight);
+
 	$(function() {
 		$('.portal-club-logo').click(function () {
 			window.open($(this).data('url'), '_blank');

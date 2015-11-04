@@ -1,3 +1,11 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="portal-main-container">
 		<div id="portal-header-container">
 			<header id="portal-main-header">
@@ -10,6 +18,36 @@
 				</div>
 			</header>
 		</div>
+		<div id="portal-menu-panel-container">
+			<div id="portal-menu-panel" xpsui-portal-menu-render></div>
+		</div>
+		<div id="portal-content-container">
+			<div id="portal-main-content" class="portal-main-content-editor">
+				<article id="portal-article" xpsui-portal-article-content-edit ng-model="model.data">
+				</article>
+			</div>
+			<div id="portal-side-content">
+				<section class="portal-side-panel-logos">
+					<img src="/portal/img/logo_seha.png" height="251px" align="middle"></img>
+					<div class="portal-side-panel-logos-sep"></div>
+					<img src="/portal/img/sk_sien_slavy.png" height="251px" align="middle"></img>
+				</section>
+				<section class="portal-side-panel">
+					<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FSlovenskyZvazHadzanej&amp;width=300px&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300pxpx; height:590px;" allowTransparency="true"></iframe>
+				</section>
+				<section class="portal-side-panel">
+					<div style="text-align: center;"><img src="portal/img/mskolsr.png"></img></div>
+					<div style="text-align: center; padding-top: 5px;">ROK 2014 719 200,- EUR</div>
+				</section>
+				<section class="portal-side-panel">
+					<header>Partneri</header>
+					<div style="text-align: center; padding-top: 5px; height: 200px; vertical-align: middle; display: table-cell;"><img style="" src="portal/img/retic.png"></img></div>
+					<div style="text-align: center; padding-top: 5px;">Hlavný reklamný partner reprezentačného družstva žien</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div id="footer-container">
 		<div id="portal-club-logos-panel-container">
 			<div id="portal-club-logos-panel">
 				<div class="portal-club-logo portal-club-logo-1"></div>
@@ -28,13 +66,7 @@
 				<div class="portal-club-logo portal-club-logo-14"></div>
 			</div>
 		</div>
-		<div id="portal-menu-panel-container">
-			<div id="portal-menu-panel" xpsui-portal-menu-render></div>
-		</div>
-		<div id="portal-content-container">
-			<div id="portal-main-content" class="portal-main-content-editor">
-				<section id="portal-headlines-section">
-				</section>
-			</div>
-		</div>
+		<header id="main-footer">
+			Unionsoft, s.r.o, Všetky práva vyhradené
+		</header>
 	</div>
