@@ -1873,7 +1873,6 @@ a.portal-menu-bottom-entry-head {
 }
 
 /*mobile menu on 660px*/
-
 @media (max-width: 660px){
 	#mobile-menu-toggler {
 		display: block;
@@ -1995,6 +1994,32 @@ a.portal-menu-bottom-entry-head {
 
 	.portal-players-stats-score{
 		flex: 1 1 auto;
+	}
+
+	.x-portal-widget-showcase-view{
+		height: auto;
+	}
+
+	.x-portal-widget-showcase-view-image{
+		display: block;
+		background-size: contain !important;
+		padding-top: 74.64%;
+		height: 0;
+	}
+
+	.x-portal-widget-showcase-view-textblock{
+		position: static;
+		background-color: transparent;
+		height: 100px;
+	}
+
+	.x-portal-widget-showcase-view-textblock h1{
+		height: 90px;
+		color: #CB2225 !important;
+	}
+
+	.x-portal-widget-showcase-view article{
+		height: auto;
 	}
 }
 

@@ -205,6 +205,17 @@
 	</div>
 </body>
 <script>
+	//dynamic resize showcase height
+	function changeHeight() {
+		if($(window).width() < 626) {
+			$('.x-portal-widget-showcase-view').height( $(window).width() / 1.34 + 110);
+		} else {
+			$('.x-portal-widget-showcase-view').height(492);
+		}
+	}
+	$(document).ready(changeHeight);
+	$(window).resize(changeHeight);
+
 	$(function() {
 		$('.portal-club-logo').click(function () {
 			window.open($(this).data('url'), '_blank');
