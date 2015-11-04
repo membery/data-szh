@@ -25,5 +25,7 @@
 	"dataChangeRequests.json",
 	"transferRequests.json",
 	"generalRequests.json",
-	"pastLogins.json"
+	"pastLogins.json",
+	"transfersOfficer.json",
+	"transferRequestsOfficer.json"
 ]

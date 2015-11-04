@@ -1,0 +1,336 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/transferRequestsOfficer#",
+	"models": {
+		"transferOfficer": {
+			"title": "Žiadosť o zmenu kl. príslušnosti funkcionára",
+			"transCode": "schema.transferRequests.officer.title",
+			"table": "transferRequestsOfficer",
+			"security": {
+				"create": {
+					"static": [
+						"Requests - write - KM"
+					]
+				},
+				"read": {
+					"static": [
+						"Requests - read - KM"
+					]
+				},
+				"modify": {
+					"static": [
+						"Requests - write - KM"
+					]
+				}
+			},
+			"fireEvents": {
+				"create": "event-transfer-request-officer-created",
+				"update": "event-transfer-request-officer-updated"
+			},
+			"properties": {
+				"transferData": {
+					"extends": "uri://registries/transfersOfficer#blocks/baseData",
+					"properties": {
+						"officer": {
+							"objectLink2": {
+								"schema": "uri://registries/people#models/officer-km",
+								"fields": {
+									"surName": "baseData.surName",
+									"name": "baseData.name",
+									"registrationID": "baseData.registrationID"
+								}
+							}
+						},
+						"clubFrom": {
+							"readOnly": true,
+							"calculation": {
+								"func": "getFrom",
+								"watch": ["transferData.officer"],
+								"args": {
+									"path": "officer.club",
+									"obj": {
+										"func": "getAsObjectLink",
+										"args": {
+											"schemaUri": "uri://registries/people#views/fullperson-km/view",
+											"fields": {
+												"name": "club.name"
+											},
+											"objectId": {
+												"func": "get",
+												"args": {
+													"modelPath": "transferData.officer.oid"
+												}
+											}
+										}
+									}	
+								}
+							},
+							"objectLink2": {
+								"schema": "uri://registries/organizations#views/club-km/view"
+							}
+						},
+						"clubTo": {
+							"objectLink2": {
+								"schema": "uri://registries/organizations#views/club-km/view" 
+							}
+						},
+						"season": null,
+						"stateOfTransfer": null,
+						"note": {
+							"render": {
+								"component": "psui-textarea"
+							}
+						}
+					}
+				},				
+				"attachments": {
+					"$ref": "uri://registries/generalRequests#blocks/attachments"
+				},
+				"attachmentsClubFrom": {
+					"$ref": "uri://registries/generalRequests#blocks/attachments"
+				},
+				"requestData": {
+					"extends": "uri://registries/generalRequests#blocks/requestData",
+					"properties":{
+						"subject": null,
+						"text": null,
+						"responseText": null,
+						"applicant": {
+							"readOnly": true
+						},
+						"clubApplicant": {
+							"readOnly": true
+						},
+						"assignedTo": {
+							"readOnly": true
+						},
+						"setupDate": {
+							"readOnly": true
+						},
+						"status": {
+							"readOnly": true
+						}
+					}
+				}
+			}
+		}
+	},
+	"views": {
+		"transferOfficerApplicant": {
+			"new": {
+				"extends": "uri://registries/transferRequestsOfficer#models/transferOfficer",
+				"properties": {
+					"requestData": null,
+					"attachmentsClubFrom": null
+				}
+			},
+			"view": {
+				"extends": "uri://registries/transferRequestsOfficer#models/transferOfficer",
+				"properties": {
+					"transferData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					},
+					"attachmentsClubFrom": null
+				}
+			},
+			"search": {
+				"extends": "uri://registries/transferRequestsOfficer#models/transferOfficer",
+				"properties": {
+					"transferData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					},
+					"attachmentsClubFrom": null
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransferRequestsOfficer~23views~2FtransferOfficerApplicant/{{model.id}}"
+						}
+					}
+				],
+				"listFields": [
+					{
+						"field": "transferData.typeOfTransfer",
+						"title": "Typ zmeny",
+						"transCode": "schema.transfer.typeOfTransfer"
+					},
+					{
+						"field": "transferData.dateOfRealization",
+						"title": "Dátum realizácie",
+						"transCode": "schema.transfer.dateOfRealization"
+					},
+					{
+						"field": "transferData.officer",
+						"title": "Funkcionár",
+						"transCode": "schema.transfer.officer"
+					},
+					{
+						"field": "transferData.clubFrom",
+						"title": "Z klubu",
+						"transCode": "schema.transfer.clubFrom"
+					},
+					{
+						"field": "transferData.clubTo",
+						"title": "Do klubu",
+						"transCode": "schema.transfer.clubTo"
+					},
+					{
+						"field": "requestData.clubApplicant",
+						"title": "Klub",
+						"transCode": "schema.requests.basedata.clubApplicant"
+					},
+					{
+						"field": "requestData.status",
+						"transCode": "schema.requests.basedata.status"
+					}
+				]
+			}
+		},			
+		"transferOfficerSolver": {
+			"view": {
+				"extends": "uri://registries/transferRequestsOfficer#models/transferOfficer",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "action-link",
+						"title": "Vytvoriť transfer",
+						"schema": "uri://registries/transfersOfficer#views/transfersOfficer",
+						"template": "createTransferOfficer.html"
+					}
+				],
+				"properties": {
+					"transferData": {
+						"properties": {
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					},
+					"requestData": {
+						"properties":{
+							"assignedTo": {
+								"readOnly": false
+							},
+							"status": {
+								"readOnly": false
+							}
+						}
+					}
+				}
+			},
+			"search": {
+				"extends": "uri://registries/transferRequestsOfficer#views/transferOfficerApplicant/search",
+				"security": {
+					"create": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"read": {
+						"static": [
+							"Registry - read"
+						]
+					},
+					"modify": {
+						"static": [
+							"Registry - read"
+						]
+					}
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransferRequestsOfficer~23views~2FtransferOfficerSolver/{{model.id}}"
+						}
+					}
+				]
+			}
+		},
+		"transferSolverClubFrom": {
+			"view": {
+				"extends": "uri://registries/transferRequests#models/transfer",
+				"properties": {
+					"transferData": {
+						"properties":{
+							"player": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"readOnly": true,
+								"calculation": null
+							},
+							"clubTo": {
+								"readOnly": true
+							},
+							"typeOfTransfer":{
+								"readOnly": true
+							},
+							"dateOfRealization": {
+								"readOnly": true
+							},
+							"dateFrom": {
+								"readOnly": true
+							},
+							"dateTo": {
+								"readOnly": true
+							},
+							"stateOfTransfer": {
+								"readOnly": true
+							}
+						}
+					},
+					"attachments": null
+				}
+			},
+			"search": {
+				"extends": "uri://registries/transferRequests#views/transferApplicant/search",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransferRequests~23views~2FtransferSolverClubFrom/{{model.id}}"
+						}
+					}
+				]
+			}
+		}
+	}
+}

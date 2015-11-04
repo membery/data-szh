@@ -13,5 +13,15 @@
 		"name": "request-modified-handler",
 		"file": "data/js/event-handlers/request-modified.js",
 		"enabled": true
+	},
+	{
+		"name": "request-officer-modified-handler",
+		"file": "data/js/event-handlers/request-officer-modified.js",
+		"enabled": true
+	},
+	{
+		"name": "transfer-officer-modified",
+		"file": "data/js/event-handlers/transfer-officer-modified.js",
+		"enabled": true
 	}
 ]

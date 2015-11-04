@@ -641,6 +641,46 @@
 				}
 			}
 		},
+		"officer-km": {
+			"extends": "uri://registries/people#models/person",
+			"title": "Funkcionár",
+			"transCode": "schema.people.officer",
+			"security": {
+				"create": {
+					"static": [
+						"Person - write - KM"
+					]
+				},
+				"read": {
+					"static": [
+						"Person - read - KM"
+					]
+				},
+				"modify": {
+					"static": [
+						"Person - write - KM"
+					]
+				}
+			},
+			"forcedCriteria": [
+				{
+					"f": "officer.isOfficer",
+					"op": "eq",
+					"v": "TRUE"
+				}
+			],
+			"properties": {
+				"photoInfo": {
+					"$ref": "uri://registries/people#blocks/photoInfo"
+				},
+				"officer": {
+					"$ref": "uri://registries/people#blocks/officer"
+				},
+				"otherInfo": {
+					"$ref": "uri://registries/people#blocks/otherInfo"
+				}
+			}
+		},
 		"player": {
 			"extends": "uri://registries/people#models/person",
 			"title": "Hráč",

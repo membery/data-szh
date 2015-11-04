@@ -1,0 +1,346 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/transfersOfficer#",
+
+	"blocks":{
+		"baseData": {
+			"title": "Základné údaje",
+			"transCode":"schema.transfer.baseData",
+			"type": "object",
+			"properties": {
+				"officer": {
+					"title": "Funkcionar",
+					"transCode":"schema.transfer.officer",
+					"type": "object",
+					"required": true,
+					"objectLink2": {
+						"schema":"uri://registries/people#views/officer/view",
+						"fields":{
+							"surName": "baseData.surName",
+							"name": "baseData.name",
+							"registrationID": "baseData.registrationID"
+						}
+					}
+				},
+				"clubFrom": {
+					"title": "Z klubu",
+					"transCode":"schema.transfer.clubFrom",
+					"type": "object",
+					"required": true,
+					"readOnly": true,
+					"calculation": {
+						"func": "getFrom",
+						"watch": ["baseData.officer.oid"],
+						"args": {
+							"path": "officer.club",
+							"obj": {
+								"func": "getAsObjectLink",
+								"args": {
+									"schemaUri": "uri://registries/people#views/fullperson/view",
+									"fields": {
+										"name": "club.name"
+									},
+									"objectId": {
+										"func": "get",
+										"args": {
+											"modelPath": "baseData.officer.oid"
+										}
+									}
+								}
+							}	
+						}
+					},
+					"objectLink2": {
+						"schema":"uri://registries/organizations#views/club/view",
+						"fields":{
+							"name": "club.name"
+						}
+					}
+				},
+				"clubTo": {
+					"type": "object",
+					"title": "Do klubu",
+					"transCode":"schema.transfer.clubTo",
+					"required": true,
+					"objectLink2": {
+						"schema":"uri://registries/organizations#views/club/view",
+						"fields":{
+							"name": "club.name"
+						}
+					}
+				},
+				"season": {
+					"type": "object",
+					"title": "Súťažný ročnik",
+					"transCode": "schema.transfer.season",
+					"objectLink2": {
+						"schema": "uri://registries/seasons#views/seasons/view",
+						"fields": {
+							"name": "baseData.name"
+						}
+					},
+					"required": true
+				},
+				"typeOfTransfer": {
+					"title": "Typ zmeny",
+					"transCode":"schema.transfer.typeOfTransfer",
+					"type": "string",
+					"required": true,
+					"enum": [
+						"prestup",
+						"hosťovanie",
+						"zahr. transfer"
+					],
+					"enumTransCodes":[
+						"schema.transfer.typ.transfer",
+						"schema.transfer.typ.hosting",
+						"schema.transfer.typ.foreign.transfer"
+					],
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
+				},
+				"dateOfRealization": {
+					"extends":"uri://registries/commontypes#blocks/date",
+					"type":"string",
+					"title": "Dátum realizácie",
+					"transCode":"schema.transfer.dateOfRealization",
+					"required": true
+				},
+				"dateFrom": {
+					"type":"string",
+					"extends":"uri://registries/commontypes#blocks/date",
+					"title": "Začiatok hosťovania",
+					"transCode":"schema.transfer.dateFrom"
+				},
+				"dateTo": {
+					"type":"string",
+					"extends":"uri://registries/commontypes#blocks/date",
+					"title": "Koniec hosťovania",
+					"transCode":"schema.transfer.dateTo"
+				},
+				"stateOfTransfer": {
+					"title": "Stav",
+					"transCode":"schema.transfer.stateOfTransfer",
+					"type": "string",
+					"enum": [
+						"schválený",
+						"neschválený",
+						"storno",
+						"v riešení"
+					],
+					"enumTransCodes":[
+						"schema.transfer.state.approved",
+						"schema.transfer.state.unapproved",
+						"schema.transfer.state.cancel",
+						"schema.transfer.state.in.process"
+					],
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
+				},
+				"note": {
+					"title": "Poznámka",
+					"transCode":"schema.transfer.note",
+					"type": "string",
+					"large": true
+				}
+			}
+		}
+	},
+
+	"models":{
+		"transfersOfficer":{
+			"table": "transfersOfficer",
+			"title": "Zmena kl. príslušnosti funkcionár",
+			"transCode": "schema.transferOfficer.title",
+			"security": {
+				"create": {
+					"static": [
+						"Registry - write"
+					]
+				},
+				"read": {
+					"static": [
+						"Registry - read"
+					]
+				},
+				"modify": {
+					"static": [
+						"Registry - write"
+					]
+				}
+			},
+			"fireEvents":{
+				"create": "event-transfer-officer-created",
+				"update": "event-transfer-officer-updated"
+			},
+			"properties":{
+				"baseData":{
+					"extends":"uri://registries/transfersOfficer#blocks/baseData"
+				}
+			}
+		}
+	},
+
+	"views":{
+		"transfersOfficer":{
+			"new":{
+				"extends":"uri://registries/transfersOfficer#models/transfersOfficer"
+			},
+			"view":{
+				"extends":"uri://registries/transfersOfficer#models/transfersOfficer",
+				"properties": {
+					"baseData": {
+						"properties": {
+							"officer": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					}
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "action-link",
+						"title": "Tlač preukazu",
+						"schema": "uri://registries/transfersOfficer#views/transfersHostingCard/view",
+						"template": "playerHostingCard.html"
+					}
+				]
+			},
+			"search":{
+				"extends":"uri://registries/transfersOfficer#models/transfersOfficer",
+				"properties": {
+					"baseData": {
+						"properties": {
+							"officer": {
+								"readOnly": true
+							},
+							"clubFrom": {
+								"calculation": null
+							}
+						}
+					}
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransfersOfficer~23views~2FtransfersOfficer/{{model.id}}"
+						}
+					}
+				],
+				"listFields": [
+					{
+						"field": "baseData.typeOfTransfer",
+						"title": "Typ zmeny",
+						"transCode": "schema.transfer.listFields.typeOfTransfer"
+					},
+					{
+						"field": "baseData.dateOfRealization",
+						"title": "Dátum realizácie",
+						"transCode": "schema.transfer.listFields.dateOfRealization"
+					},
+					{
+						"field": "baseData.officer",
+						"title": "Meno",
+						"transCode": "schema.transfer.listFields.name"
+					},
+					{
+						"field": "baseData.clubFrom",
+						"title": "Z klubu",
+						"transCode": "schema.transfer.listFields.clubFrom"
+					},
+					{
+						"field": "baseData.clubTo",
+						"title": "Do klubu",
+						"transCode": "schema.transfer.listFields.clubTo"
+					}
+				]
+			}
+		},
+		"transfersHostingCard":{
+			"new":{
+				"extends":"uri://registries/transfersOfficer#models/transfersOfficer"
+			},
+			"view":{
+				"extends":"uri://registries/transfersOfficer#models/transfersOfficer",
+				"properties": {
+					"baseData": {
+						"properties":{
+							"officer": {
+								"title": "Funkcionar",
+								"transCode":"schema.transfer.officer",
+								"type": "object",
+								"required": true,
+								"objectLink2": {
+									"schema":"uri://registries/people#views/officer/view",
+									"fields":{
+										"surName": "baseData.surName",
+										"name": "baseData.name",
+										"birthDate":"baseData.birthDate",
+										"registrationID":"baseData.registrationID",
+										"idNo":"baseData.id"
+									}
+								}
+							}
+						}
+					}
+				},
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "action-link",
+						"title": "Tlač preukazu",
+						"schema": "uri://registries/transfersOfficer#views/transfersHostingCard/view",
+						"template": "playerHostingCard.html"
+					}
+				]
+			},
+			"search":{
+				"extends":"uri://registries/transfersOfficer#models/transfersOfficer",
+				"clientActions": [
+					{
+						"__DIRECTIVE__": "schema-redirect-link",
+						"title": "Zobraziť",
+						"params": {
+							"path": "/registry/view/uri~3A~2F~2Fregistries~2FtransfersOfficer~23views~2FtransfersOfficer/{{model.id}}"
+						}
+					}
+				],
+				"listFields": [
+					{
+						"field": "baseData.typeOfTransfer",
+						"title": "Typ zmeny",
+						"transCode": "schema.transfer.listFields.typeOfTransfer"
+					},
+					{
+						"field": "baseData.dateOfRealization",
+						"title": "Dátum realizácie",
+						"transCode": "schema.transfer.listFields.dateOfRealization"
+					},
+					{
+						"field": "baseData.player",
+						"title": "Meno",
+						"transCode": "schema.transfer.listFields.name"
+					},
+					{
+						"field": "baseData.clubFrom",
+						"title": "Z klubu",
+						"transCode": "schema.transfer.listFields.clubFrom"
+					},
+					{
+						"field": "baseData.clubTo",
+						"title": "Do klubu",
+						"transCode": "schema.transfer.listFields.clubTo"
+					}
+				]
+			}
+		}
+	}
+}

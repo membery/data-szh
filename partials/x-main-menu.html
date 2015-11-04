@@ -32,8 +32,10 @@
 	</li>
 	<li ng-show="hasPermissions(['Registry - read'])"><a href="#" class="x-submenu-toggle"><i class="icon-forward fa-2x"></i><span>{{'menu.transfer.title' | translate}}</span></a>
 		<ul>
-			<li ng-show="hasPermissions(['Registry - write'])"><a href="#/registry/new/{{'uri://registries/transfers#views/transfers'|xpsuiuriescape}}"><span>{{'menu.new.lower.level.she' | translate}}</span></a></li>
-			<li><a href="#/registry/search/{{'uri://registries/transfers#views/transfers/search'|xpsuiuriescape}}"><span>{{'menu.search.lower.level' | translate}}</span></a></li>
+			<li ng-show="hasPermissions(['Registry - write'])"><a href="#/registry/new/{{'uri://registries/transfers#views/transfers'|xpsuiuriescape}}"><span>{{'menu.new.transfer.player.lower.level' | translate}}</span></a></li>
+			<li><a href="#/registry/search/{{'uri://registries/transfers#views/transfers/search'|xpsuiuriescape}}"><span>{{'menu.search.transfer.player.lower.level' | translate}}</span></a></li>
+			<li ng-show="hasPermissions(['Registry - write'])"><a href="#/registry/new/{{'uri://registries/transfersOfficer#views/transfersOfficer'|xpsuiuriescape}}"><span>{{'menu.new.transfer.officer.lower.level' | translate}}</span></a></li>
+			<li><a href="#/registry/search/{{'uri://registries/transfersOfficer#views/transfersOfficer/search'|xpsuiuriescape}}"><span>{{'menu.search.transfer.officer.lower.level' | translate}}</span></a></li>
 		</ul>
 	</li>
 	<li ng-show="hasPermissions(['Registry - read'])"><a href="#" class="x-submenu-toggle"><i class="icon-sheet-list fa-2x"></i><span>{{'menu.roster.title' | translate}}</span></a>
@@ -65,6 +67,7 @@
 			<li><a href="#/registry/search/{{'uri://registries/registrationRequests#views/peopleRegistrationSolver/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.registration.lower.level' | translate}}</span></a></li>
 			<li><a href="#/registry/search/{{'uri://registries/dataChangeRequests#views/dataChangeSolver/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.change.lower.level' | translate}}</span></a></li>
 			<li><a href="#/registry/search/{{'uri://registries/transferRequests#views/transferSolver/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transfer.lower.level' | translate}}</span></a></li>
+			<li><a href="#/registry/search/{{'uri://registries/transferRequestsOfficer#views/transferOfficerSolver/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transfer.officer.lower.level' | translate}}</span></a></li>
 		</ul>
 	</li>
 	<li ng-show="hasPermissions(['Registry Requests'])"><a href="#" class="x-submenu-toggle"><i class="fa fa-edit fa-2x"></i><span>{{'menu.requests.title' | translate}}</span></a>
@@ -78,6 +81,8 @@
 			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/new/{{'uri://registries/transferRequests#views/transferApplicant'|xpsuiuriescape}}"><span>{{'menu.requests.new.transfer.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/search/{{'uri://registries/transferRequests#views/transferApplicant/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transfer.lower.level' | translate}}</span></a></li>
 			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/search/{{'uri://registries/transferRequests#views/transferSolverClubFrom/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transferFromClub.lower.level' | translate}}</span></a></li>
+			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/new/{{'uri://registries/transferRequestsOfficer#views/transferOfficerApplicant'|xpsuiuriescape}}"><span>{{'menu.requests.new.transfer.officer.lower.level' | translate}}</span></a></li>
+			<li ng-show="hasPermissions(['Requests - write - KM'])"><a href="#/registry/search/{{'uri://registries/transferRequestsOfficer#views/transferOfficerApplicant/search'|xpsuiuriescape}}"><span>{{'menu.requests.search.transfer.officer.lower.level' | translate}}</span></a></li>
 		</ul>
 	</li>
 	<li ng-show="hasPermissions(['System User'])"><a href="#" class="x-submenu-toggle"><i class="icon-user fa-2x"></i><span>{{'menu.my.profile.title' | translate}}</span></a>
