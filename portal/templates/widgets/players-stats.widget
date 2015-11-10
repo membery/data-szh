@@ -17,12 +17,18 @@ if ('{{cid}}'.length > 0) {
 
 	function toggleStats() {
 		if (!$('#{{blockUUID}} .portal-players-stats-data').toggleClass('portal-hidden').hasClass('portal-hidden')) {
+			if (ga) {
+				ga('send', 'event', 'playerStats', 'toggleStats', '{{cid}}');
+			}
 			loadData();
 		}
 	};
 
 	function toggleShowAll() {
 		$('#{{blockUUID}}').data('showAll', !$('#{{blockUUID}}').data('showAll'));
+		if (ga) {
+			ga('send', 'event', 'playerStats', 'toggleShowAll', '{{cid}}');
+		}
 		loadData();
 	};
 
@@ -37,6 +43,10 @@ if ('{{cid}}'.length > 0) {
 		} else {
 			$('#{{blockUUID}}').data('sortOrder', 'desc');
 			$('#{{blockUUID}}').data('sortProp', which);
+		}
+
+		if (ga) {
+			ga('send', 'event', 'playerStats', 'headerClick:'.concat($('#{{blockUUID}}').data('sortProp'), ':', $('#{{blockUUID}}').data('sortOrder')), '{{cid}}');
 		}
 
 		loadData();

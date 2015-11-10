@@ -15,6 +15,9 @@ if ('{{cid}}'.length > 0) {
 
 	function toggleStats() {
 		if (!$('#{{blockUUID}} .portal-players-stats-data').toggleClass('portal-hidden').hasClass('portal-hidden')) {
+			if (ga) {
+				ga('send', 'event', 'teamsStats', 'toggleStats', '{{cid}}');
+			}
 			loadData();
 		}
 	};
