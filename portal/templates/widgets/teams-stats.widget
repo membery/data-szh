@@ -92,8 +92,8 @@ if ('{{cid}}'.length > 0) {
 				$('#{{blockUUID}} .portal-teams-stats-data-content').append(
 					'<div class="portal-players-stats-row">'.concat(
 						'<div class="num">', r.num, '.</div>',
-						'<div class="name"><div>', r.name, '</div></div>',
-						'<div class="matches">', r.matches, '</div>',
+						'<div class="name">', r.name, '</div>',
+						'<div class="portal-players-stats-score"><div class="matches">', r.matches, '</div>',
 						'<div class="points">', r.points, '</div>',
 						'<div class="score">', r.score, '</div>',
 						'<div class="plusScore">', r.plusScore, '</div>',
@@ -105,7 +105,7 @@ if ('{{cid}}'.length > 0) {
 						'<div class="yellow">', r.yellow, '</div>',
 						'<div class="two">', r.two, '</div>',
 						'<div class="disc">', r.disc, '</div>',
-						'<div class="penalties">', r.penalties, '</div>',
+						'<div class="penalties">', r.penalties, '</div></div>',
 					'</div>')
 				);
 			});
