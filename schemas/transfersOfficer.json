@@ -209,7 +209,7 @@
 						"__DIRECTIVE__": "action-link",
 						"title": "Tlač preukazu",
 						"schema": "uri://registries/transfersOfficer#views/transfersHostingCard/view",
-						"template": "playerHostingCard.html"
+						"template": "officerHostingCard.html"
 					}
 				]
 			},
@@ -298,7 +298,7 @@
 						"__DIRECTIVE__": "action-link",
 						"title": "Tlač preukazu",
 						"schema": "uri://registries/transfersOfficer#views/transfersHostingCard/view",
-						"template": "playerHostingCard.html"
+						"template": "officerHostingCard.html"
 					}
 				]
 			},
