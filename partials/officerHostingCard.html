@@ -1,0 +1,152 @@
+<div>
+	<style type="text/css">
+
+		.page div,
+		.page span{
+			font: 12px Arial, Helvetica, sans-serif;
+			line-height: 24px;
+			font-weight: bold;
+			box-sizing: border-box;
+		}
+
+		.page div{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.page {
+			width: 93mm;
+			height: 75mm;
+			margin:0px auto;
+			position: relative;
+			background-image: url("/dataset/get/img/card03.jpg");
+			background-repeat: no-repeat;
+			background-position:  0px 0px;
+			background-size: contain;
+		}
+
+		.surname{
+			position: absolute;
+			top: 19mm;
+			left: 60mm;
+		}
+		.name{
+			position: absolute;
+			top: 13.5mm;
+			left: 52mm;
+		}
+		.date{
+			position: absolute;
+			top: 24.5mm;
+			left: 59mm;
+		}
+		.birthNumber {
+			position: absolute;
+			top: 30mm;
+			left: 59mm;
+		}
+		.ident {
+			position: absolute;
+			top: 36mm;
+			left: 57mm;
+		}
+
+		.date-to{
+			display: block;
+			position: absolute;
+			top: 52.5mm;
+			left: 67mm;
+		}
+		.date-from{
+			display: block;
+			position: absolute;
+			top: 52.5mm;
+			left: 25mm;
+		}
+		.section-maternal{
+			position: absolute;
+			top: 41.5mm;
+			left: 30mm;
+		}
+		.section-quest{
+			position: absolute;
+			top: 47mm;
+			left: 41mm;
+		}
+
+		.page .content-actions{
+			position: absolute;
+			top: 80mm;
+			right: 0px;
+			font-weight: normal;
+		}
+
+		@media print {
+			@page {
+				size: auto;
+				margin: 0cm;
+			}
+
+			.page {
+				background-image: none;
+				margin-top: -4mm;
+			}
+			.page DIV {
+				margin-left: 7mm;
+			}
+			.page .date-from {
+				margin-left: 7mm;
+			}
+
+			.no-print{
+				display: none !important;
+			}
+			#main-wrapper > header{
+				display: none !important;
+			}
+			.number{
+				color: #0000ff !important;
+			}
+
+			.name{
+				top: 17mm;
+			}
+			.surname{
+				top: 22mm;
+			}
+			.date{
+				top: 28mm;
+			}
+			.birthNumber {
+				top: 34mm;
+			}
+			.ident {
+				top: 39.5mm;
+			}
+			.section-maternal{
+				top: 45mm;
+			}
+			.section-quest{
+				top: 50mm;
+			}
+			.date-to,
+			.date-from{
+				top: 56mm;
+			}
+		}
+	</style>
+
+	<div class="page">
+		<div class="name">{{model.baseData.officer.refData.name}}</div>
+		<div class="surname">{{model.baseData.officer.refData.surName}}</div>
+		<div class="date">{{model.baseData.officer.refData.birthDate|dateToString}}</div>
+		<div class="birthNumber">{{model.baseData.officer.refData.idNo}}</div>
+		<div class="ident">{{model.baseData.officer.refData.registrationID}}</div>
+		<div class="section-maternal">{{model.baseData.clubFrom.refData.name}}</div>
+		<div class="section-quest">{{model.baseData.clubTo.refData.name}}</div>
+		<span class="date-from">{{model.baseData.dateFrom|dateToString}}</span>
+		<span class="date-to">{{model.baseData.dateTo|dateToString}}</span>
+
+		<div class="no-print content-actions"><a href="#" class='print' onClick="window.print();return false;"><span>Tlač</span></a></div>
+	</div>
+</div>
