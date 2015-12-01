@@ -75,10 +75,6 @@
 					]
 				}
 			},
-			"fireEvents":{
-				"create": "event-transfer-created",
-				"update": "event-transfer-updated"
-			},
 			"properties":{
 				"baseData":{
 					"extends":"uri://registries/competitions#blocks/baseData"
