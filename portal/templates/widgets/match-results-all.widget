@@ -33,19 +33,27 @@ $(function() {
 						var match = round[m];
 
 						if (match.finished) {
-							tblContainer.append(
-								'<div class="portal-schedule-row">' +
-									'<div class="portal-schedule-dt">' +
-										'<div class="portal-schedule-date">' + formatDate(match.matchDate) + '</div>' +
-										'<div class="portal-schedule-time">' + (match.matchTime || '-') + '</div>' +
-									'</div>' +
-									'<div class="portal-schedule-match">' +
-									'<div class="portal-schedule-home">' + match.homeName + '</div>' +
-									'<div class="portal-schedule-score"><div class="portal-schedule-score-home">'+(match.fullTimeScoreHome || '_')+'</div>' +
-										'<div class="portal-schedule-score-hyphen">:</div>' +
-										'<div class="portal-schedule-score-away">'+(match.fullTimeScoreAway || '_')+'</div>'+
-										'<div class="portal-schedule-score-balls">'+(match.additionalScore || '')+'</div></div>' +
-										'<div class="portal-schedule-away">'+match.guestName+'</div></div></div>');
+							var row = $('<div class="portal-schedule-row">' +
+								'<div class="portal-schedule-dt">' +
+									'<div class="portal-schedule-date">' + formatDate(match.matchDate) + '</div>' +
+									'<div class="portal-schedule-time">' + (match.matchTime || '-') + '</div>' +
+								'</div>' +
+								'<div class="portal-schedule-match">' +
+								'<div class="portal-schedule-home">' + match.homeName + '</div>' +
+								'<div class="portal-schedule-score"><div class="portal-schedule-score-home">'+(match.fullTimeScoreHome || '_')+'</div>' +
+									'<div class="portal-schedule-score-hyphen">:</div>' +
+									'<div class="portal-schedule-score-away">'+(match.fullTimeScoreAway || '_')+'</div>'+
+									'<div class="portal-schedule-score-balls">'+(match.additionalScore || '')+'</div></div>' +
+									'<div class="portal-schedule-away">'+match.guestName+'</div></div></div>');
+								
+							tblContainer.append(row);
+
+							if (match.printTemplate) {
+								$(row).on('click', null, {id: match.id}, function(evt) {
+									window.open('/competition/refereeReport?id=' + evt.data.id);
+								});
+								$(row).addClass('x-portal-results-selectable');
+							}
 						} else {
 							tblContainer.append(
 								'<div class="portal-schedule-row">' +
