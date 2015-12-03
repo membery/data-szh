@@ -75,7 +75,7 @@ if ('{{cid}}'.length > 0) {
 			$('#{{blockUUID}} .portal-players-stats-data-content').append(
 				'<div class="portal-players-stats-header">'.concat(
 					'<div class="num"> </div>',
-					'<div class="name">Meno</div><div class="club"></div><div class="portal-players-stats-score-header">',
+					'<div class="name">Hráč</div><div class="club"></div><div class="portal-players-stats-score-header">',
 					'<div class="matches sortable">Záp.</div>',
 					'<div class="goals sortable">Góly</div>',
 					'<div class="seven sortable">7m</div>',
