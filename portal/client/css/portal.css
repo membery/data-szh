@@ -51,8 +51,10 @@ body {
 	padding-top: 5px;
 }
 .portal-players-stats-data-content {
-	display: -webkit-flex;
-    display: flex;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
    -webkit-flex-direction: column;
 	flex-direction: column;
 }
@@ -61,8 +63,10 @@ body {
 /* #### Mobile Phones Portrait #### */
 @media screen and (max-device-width: 480px) and (orientation: portrait){
    	.portal-players-stats-header {
-		display: -webkit-flex;
-    	display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
     	-webkit-flex-direction: row;
 		flex-direction: row;
 		background-color: #CB2225;
@@ -71,8 +75,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-    	display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -87,8 +93,10 @@ body {
 	}
 
 	.portal-players-stats-score {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -98,8 +106,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 2px;
@@ -115,8 +125,10 @@ body {
 /* #### Mobile Phones Landscape #### */
 @media screen and (max-device-width: 640px) and (orientation: landscape){
    	.portal-players-stats-header {
-		display: -webkit-flex;
-    	display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
     	-webkit-flex-direction: row;
 		flex-direction: row;
 		background-color: #CB2225;
@@ -125,8 +137,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-    	display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -140,8 +154,10 @@ body {
 	}
 
 	.portal-players-stats-score {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -151,8 +167,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 2px;
@@ -170,8 +188,10 @@ body {
 /* #### Mobile Phones Portrait or Landscape #### */
 @media screen and (max-device-width: 640px){
 	.portal-players-stats-header {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 	 	-webkit-flex-direction: column;
 		flex-direction: column;
 		background-color: #CB2225;
@@ -180,8 +200,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -203,8 +225,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 2px;
@@ -224,11 +248,13 @@ body {
 }
 
 /* #### iPhone 4+ Portrait or Landscape #### */
-@media screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+@media screen and (min-device-width: 320px) {
 
 	.portal-players-stats-header {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 	 	-webkit-flex-direction: column;
 		flex-direction: column;
 		background-color: #CB2225;
@@ -237,8 +263,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -261,8 +289,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 2px;
@@ -275,20 +305,19 @@ body {
 
 	.portal-players-stats-data-content .name {
 		flex-direction: row;
-		flex: 10px 0.3 0;
+		flex: 0;
 		justify-content: center;
-
 	}
-
-
 }
 
 /* #### iPhone 5 Portrait or Landscape #### */
-@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+@media (device-height: 568px) and (device-width: 320px) {
 
 	.portal-players-stats-header {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 	 	-webkit-flex-direction: column;
 		flex-direction: column;
 		background-color: #CB2225;
@@ -297,8 +326,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -320,8 +351,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 2px;
@@ -336,17 +369,17 @@ body {
 		flex-direction: row;
 		flex: 10px 0.3 0;
 		justify-content: center;
-
 	}
-
 }
 
 /* #### iPhone 6 and 6 plus Portrait or Landscape #### */
-@media (min-device-height: 667px) and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
+@media (min-device-height: 667px) and (min-device-width: 375px) {
 
 	.portal-players-stats-header {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 	 	-webkit-flex-direction: column;
 		flex-direction: column;
 		background-color: #CB2225;
@@ -355,8 +388,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -378,8 +413,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 2px;
@@ -392,16 +429,18 @@ body {
 
 	.portal-players-stats-data-content .name {
 		flex-direction: row;
-		flex: 5px 0.3 0;
+		flex: 0;
 		justify-content: center;
-
 	}
 }
 
 /* #### Tablets Portrait or Landscape #### */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.portal-players-stats-header {
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 	 	-webkit-flex-direction: column;
 		flex-direction: column;
 		background-color: #CB2225;
@@ -410,8 +449,10 @@ body {
 	}
 
 	.portal-players-stats-row {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: column;
 		flex-direction: column;
 		flex-wrap: wrap;
@@ -436,8 +477,10 @@ body {
 	}
 
 	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
 		-webkit-flex-direction: row;
 		flex-direction: row;
 		padding: 5x;
@@ -455,72 +498,83 @@ body {
 }
 
 /* #### Desktops #### */
-@media screen and (min-width: 1024px){
-	.portal-players-stats-header {
-		display: -webkit-flex;
-		display: flex;
-	 	-webkit-flex-direction: row;
-		flex-direction: row;
-		background-color: #CB2225;
-		color: white;
-		font-weight: bold;
-		flex-wrap: wrap;
-	}
-
-	.portal-players-stats-row {
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-direction: row;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: flex-center;
-		flex-basis: auto; /* default auto */
-		align-items: center;
-	}
-
-	.portal-players-stats-score {
-		-webkit-flex-direction: row;
-		flex-direction: row;
-		flex: 5px 1 1;
-		flex-wrap: wrap;
-		padding: 5px;
-	}
-
-	.portal-players-stats-score-header {
-		-webkit-flex-direction: row;
-		flex-direction: row;
-		flex: 5px 1 1;
-		flex-wrap: wrap;
-		padding: 5px;
-	}
-
-	.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-direction: row;
-		flex-direction: row;
-		padding: 1px;
-	}
-
-	.portal-players-stats-data-content .num {
-		flex: 25px 0 0;
-		text-align: right;
-	}
-
-	.portal-players-stats-data-content .name {
-		flex-direction: column;
-		flex: 100px 0.5 1;
-		flex-wrap: wrap;
-		width: 2000px;
-	}
-
+.portal-players-stats-header {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+ 	-webkit-flex-direction: row;
+	flex-direction: row;
+	background-color: #CB2225;
+	color: white;
+	font-weight: bold;
+	flex-wrap: wrap;
 }
 
+.portal-players-stats-row {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-center;
+	flex-basis: auto; /* default auto */
+	align-items: center;
+}
+
+.portal-players-stats-score {
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	flex: 1 1 auto;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	padding: 5px;
+}
+
+.portal-players-stats-score-header {
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	flex: 1 1 auto;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	padding: 5px;
+}
+
+.portal-players-stats-row DIV, .portal-players-stats-header DIV, .portal-teams-stats-row DIV, .portal-teams-stats-header DIV {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	padding: 1px;
+}
+
+.portal-players-stats-data .num{
+	flex-basis: 18px;
+}
+
+.portal-players-stats-data .name{
+	flex-basis: 29.5%;
+    text-align: left;
+}
+
+.portal-players-stats-data-content .num {
+	flex: 25px 0 0;
+	text-align: right;
+}
+
+.portal-players-stats-data-content .name {
+	flex-direction: column;
+	/*flex-basis: 220px;*/
+	flex-wrap: wrap;
+}
 
 .portal-players-stats-header .sortable {
 	cursor: pointer;
 }
-
 
 .portal-players-stats-row:nth-child(even) {
 	background-color: #FFD2D2;
@@ -531,13 +585,13 @@ body {
 	color: white;
 }
 
-
 .portal-players-stats-data-content {
-	display: -webkit-flex;
-    display: flex;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
    -webkit-flex-direction: column;
 	flex-direction: column;
-
 }
 
 .portal-players-stats-data-content .club {
@@ -788,6 +842,7 @@ body {
 	margin-left: 5px;
 	margin-right: 5px;
 	padding-top: 10px;
+	min-height: 16px;
 	font-weight: bold;
 	border-bottom: 1px dotted silver;
 	color: black;
@@ -1730,7 +1785,6 @@ a.portal-menu-bottom-entry-head {
 		width: auto;
 		margin-right: 350px;
 		margin-left: 5px;
-		/*min-height: 1830px;*/
 	}
 	
 	#portal-side-content {
@@ -1799,6 +1853,14 @@ a.portal-menu-bottom-entry-head {
 	.x-portal-results-right-club{
 		width: 150px;
 		max-width: 150px;
+	}
+}
+
+@media (max-width: 730px) {
+	.portal-players-stats-data .name,
+	.portal-players-stats-score-header,
+	.portal-players-stats-score{
+		flex: 1 1 90%;
 	}
 }
 
@@ -1929,6 +1991,10 @@ a.portal-menu-bottom-entry-head {
 	
 	.x-portal-widget-category article {
 		padding-left: 5px;
+	}
+
+	.portal-players-stats-score{
+		flex: 1 1 auto;
 	}
 }
 
