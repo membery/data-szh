@@ -585,6 +585,15 @@ body {
 	color: white;
 }
 
+.portal-article-match-results .portal-players-stats-row:nth-child(even) {
+	background-color: white;
+}
+
+.portal-article-match-results .portal-players-stats-row:HOVER{
+	background-color: white;
+	color: gray;
+}
+
 .portal-players-stats-data-content {
 	display:-webkit-box;
 	display:-webkit-flex;
@@ -644,6 +653,11 @@ body {
 
 .portal-teams-stats-data-content .points {
 	flex: 40px 0 0;
+	text-align: right;
+}
+
+.portal-teams-stats-data-content .score2{
+	flex: 60px 0 0;
 	text-align: right;
 }
 

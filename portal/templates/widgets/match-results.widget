@@ -7,6 +7,16 @@
 		</div>	
 	</section>
 </div>
+
+<div class="x-portal-widget-players-stats" id="{{blockUUID}}">
+	<section class="x-portal-players-stats">
+		<header>Štatistiky družstiev</header>
+		<div class="portal-players-stats-data">
+			<!-- <div class="portal-loading portal-hidden"><i class="fa fa-spinner fa-spin"></i></div> -->
+			<div class="portal-teams-stats-data-content"></div>
+		</div>	
+	</section>
+</div>
 <script>
 $(function() {
 	$('#{{blockUUID}}').find('.x-portal-competition-selector').on('change', function() {
@@ -81,5 +91,110 @@ $(function() {
 			});
 		}
 	});
+
+	var cid = $('#{{blockUUID}}').find('.x-portal-competition-selector').val();
+
+	if ('cid'.length > 0) {
+		$('#{{blockUUID}}').data('sortProp', 'points');
+		$('#{{blockUUID}}').data('sortOrder', 'desc');
+
+		function toggleStats() {
+			// if (!$('#{{blockUUID}} .portal-players-stats-data').toggleClass('portal-hidden').hasClass('portal-hidden')) {
+				if (ga) {
+					ga('send', 'event', 'teamsStats', 'toggleStats', cid);
+				}
+				loadData();
+			// }
+		};
+
+		function handleHeaderClick(which) {
+			if ($('#{{blockUUID}}').data('sortProp') === which) {
+				// change order only
+				if ($('#{{blockUUID}}').data('sortOrder') === 'desc') {
+					$('#{{blockUUID}}').data('sortOrder', 'asc');
+				} else {
+					$('#{{blockUUID}}').data('sortOrder', 'desc');
+				}
+			} else {
+				$('#{{blockUUID}}').data('sortOrder', 'desc');
+				$('#{{blockUUID}}').data('sortProp', which);
+			}
+
+			loadData();
+		}
+
+		function loadData() {
+			var cid = $('#{{blockUUID}}').find('.x-portal-competition-selector').val();
+			var prop = $('#{{blockUUID}}').data('sortProp');
+			var order = $('#{{blockUUID}}').data('sortOrder');
+
+			$('#{{blockUUID}} .portal-teams-stats-data-content').empty();
+			// $('#{{blockUUID}} .portal-loading').removeClass('portal-hidden');
+
+			$.get('/competition/stats/teams/'+cid+'/'.concat(prop, '/', order), function(data) {
+				
+				// $('#{{blockUUID}} .portal-loading').addClass('portal-hidden');
+
+				var i = 0;
+				var increment = 1;
+
+				if ($('#{{blockUUID}}').data('sortOrder') === 'asc') {
+					i = data.length + 1;
+					increment = -1;
+				}
+				
+				$('#{{blockUUID}} .portal-teams-stats-data-content').append(
+					'<div class="portal-players-stats-header">'.concat(
+						'<div class="num"> </div>',
+						'<div class="name">Názov klubu</div>',
+						'<div class="portal-players-stats-score">',
+							'<div class="matches sortable">Záp.</div>',
+							'<div class="wins sortable">V</div>',
+							'<div class="draws sortable">R</div>',
+							'<div class="looses sortable">P</div>',
+							'<div class="score2 sortable">Skóre</div>',
+							// '<div class="minusScore sortable">-</div>',
+							'<div class="points sortable">Body</div>',
+						'</div>',
+					'</div>')
+				);
+
+				$('#{{blockUUID}} .portal-players-stats-header .matches').on('click', function() {handleHeaderClick('matches'); });
+				$('#{{blockUUID}} .portal-players-stats-header .wins').on('click', function() {handleHeaderClick('wins'); });
+				$('#{{blockUUID}} .portal-players-stats-header .draws').on('click', function() {handleHeaderClick('draws'); });
+				$('#{{blockUUID}} .portal-players-stats-header .looses').on('click', function() {handleHeaderClick('looses'); });
+				$('#{{blockUUID}} .portal-players-stats-header .score2').on('click', function() {handleHeaderClick('score2'); });
+				// $('#{{blockUUID}} .portal-players-stats-header .minusScore').on('click', function() {handleHeaderClick('minusScore'); });
+				$('#{{blockUUID}} .portal-players-stats-header .points').on('click', function() {handleHeaderClick('points'); });
+
+				data.map(function(r) {
+					$('#{{blockUUID}} .portal-teams-stats-data-content').append(
+						'<div class="portal-players-stats-row">'.concat(
+							'<div class="num">', r.num, '.</div>',
+							'<div class="name">', r.name, '</div>',
+							'<div class="portal-players-stats-score"><div class="matches">', r.matches, '</div>',
+							'<div class="wins">', r.wins, '</div>',
+							'<div class="draws">', r.draws, '</div>',
+							'<div class="looses">', r.looses, '</div>',
+							'<div class="score2">', r.plusScore,':',r.minusScore, '</div>',
+							// '<div class="minusScore">', r.minusScore, '</div>',
+							'<div class="points">', r.points, '</div>',
+						'</div>')
+					);
+				});
+
+				$('#{{blockUUID}} .portal-teams-stats-data-content'.concat(' .', prop)).addClass('selected');
+			});
+		};
+	}
+
+	$('#{{blockUUID}}').find('.x-portal-competition-selector').on('change', toggleStats);
+
+});
+
+$(function() {
+	
+
+	
 });
 </script>
