@@ -1,4 +1,11 @@
 <div class=x-form-title>Help</div>
+<!--- This is for QR Code generation -->
+	<div ng-show="loggedin" data-ng-init="genQrcode('dataset/get/mobileContents/banner.dat')" ng-model="qrcode">
+		<h1>Generate a QR Code for accessing your Membery</h1>
+			<center><qr type-number="8" correction-level="'M'" size="200" input-mode="ALPHA_NUM" text="qrcode" image="true" ng-if="qrcode"></qr>
+		</center>
+	</div>
+<!--- This is for QR Code generation -->
 	<div>
 		<h1>Aktivácia osobného účtu</h1>
 		<p>Videonávod Vás prevedie prvými krokmi v aplikácií. Ukážeme si ako prebieha aktivácia osobného účtu, prvotné prihlásenie do aplikácie, zmena hesla a odhlásenie.</p>
