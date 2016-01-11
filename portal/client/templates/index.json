@@ -1,0 +1,12 @@
+
+{
+	"templateName": "index",
+	"name": "Titulná stránka",
+	"meta": {
+		"template": "index",
+		"enabled": true,
+		"publishFrom": null,
+		"tags": []
+	},
+	"data": []
+}
